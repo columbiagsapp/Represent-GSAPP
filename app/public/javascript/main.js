@@ -3,7 +3,7 @@ $(document).ready(function(){
   $('#tmpltzr').width( window.innerWidth - 400 );
 
   $(".owl-carousel").owlCarousel({
-    items : 1.5,
+    items : 3,
     slideSpeed : 1000,
     autoPlay : true,
     stopOnHover : true,
