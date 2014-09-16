@@ -33,7 +33,7 @@ var config = require('./config'),
     mongoose = require('mongoose');
 
 // Bootstrap db connection
-var db = mongoose.connect(config.db);
+//var db = mongoose.connect(config.db);
 
 
 //ROUTES
