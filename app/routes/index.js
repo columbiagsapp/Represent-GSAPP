@@ -6,7 +6,7 @@ var colors  = require('colors');
 console.log('images.js entered'.cyan);
 
 // Images routes use images controller
-var images = require('../controllers/images');
+//var images = require('../controllers/images');
 
 var stats = require('../../test/stats');
 
@@ -29,7 +29,7 @@ exports.stats = function(){
 
 
 
-
+/*
 
 
 /////// INSTAGRAM
@@ -190,4 +190,4 @@ module.exports = function(app) {
     app.param('articleId', articles.article);
     */
 
-};
+//};
