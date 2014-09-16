@@ -24,6 +24,8 @@ exports.landing = function(req, res){
 };
 
 exports.stats = function(){
+  console.log('stats:');
+  console.dir(stats);
   res.json(stats);
 }
 
