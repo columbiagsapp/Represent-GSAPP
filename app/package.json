@@ -9,7 +9,7 @@
     "express": "3.2.0",
     "ejs": "*",
     "colors": "*",
-    "mongoose": "*",
+    "mongoose": "3.8.16",
     "instagram-node": "*"
   }
 }
