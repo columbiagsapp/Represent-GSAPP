@@ -15,6 +15,7 @@ var stats = require('../../test/stats');
 
 // routes
 exports.index = function(req, res){
+  console.log('GOT IN !!');
   res.render('index', { title: 'Express' });
 };
 

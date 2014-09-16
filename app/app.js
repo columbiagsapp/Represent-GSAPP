@@ -44,6 +44,8 @@ app.get('/', routes.index);
 
 app.get('/landing', routes.landing);
 
+//app.get('/fetch', routes.fetch);
+
 
 
 http.createServer(app).listen(app.get('port'), function(){
