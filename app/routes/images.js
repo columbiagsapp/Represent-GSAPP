@@ -3,18 +3,6 @@
 // Images routes use images controller
 var images = require('../controllers/images');
 
-/*
-var authorization = require('./middlewares/authorization');
-
-// Image authorization helpers
-var hasAuthorization = function(req, res, next) {
-	if (req.article.user.id !== req.user.id) {
-        return res.send(401, 'User is not authorized');
-    }
-    next();
-};
-
-*/
 
 
 /////// DEPENDENCIES
@@ -35,34 +23,13 @@ ig.use({ client_id: instagram_secrets.client_id,
 /////// END INSTAGRAM
 
 
-/////// FLICKR
-var Flickr = require('flickr-with-uploads').Flickr;
 
-//import Flickr secrets from json file
-//var flickr_secrets = require('../../secrets.json').flickr;
-
-//set up secrets for Flickr module
-//var flickr_client = new Flickr(flickr_secrets.key, flickr_secrets.secret, flickr_secrets.oauth_token, flickr_secrets.oauth_secret);
-
-var consumer_key = '1361ce967daf59821bc493392809c8e8';
-var consumer_secret = '82a41cbf24541227';
-var oauth_token = '72157632975405302-c06fccc501805e34';
-var oauth_token_secret = '0e10ea84f7e19ae4';
-
-// constructor arguments: new Flickr(consumer_key, consumer_secret, oauth_token, oauth_token_secret, base_url)
-var flickr_client = new Flickr(consumer_key, consumer_secret, oauth_token, oauth_token_secret);
-
-function flickr_api(method_name, data, callback) {
-    // overloaded as (method_name, data, callback)
-    return flickr_client.createRequest(method_name, data, true, callback).send();
-}
-/////// END FLICKR
 
 
 /////// GLOBALS
 var fetched_array; //container array for all fetched Instagram images
 
-var tags = []; //array to hold tags for all cities (eg. xrio, xbeirut)
+var tags = []; //array to hold tags for all programs (eg. xrio, xbeirut)
 var tag_index = 0; //counter: current city fetching from Instagram by index in tags[] array
 var total_found = 0; //counter: total images found from Instagram for given city
 var current_city = ''; //pointer: current city fetching from Instagram
@@ -81,15 +48,15 @@ function pushArray(arr, arr2) {
 /////// END HELPER FUNCTIONS
 
 
-/////// INITIALIZE CITIES ARRAY
-//pull in array of cities from json file
-var cities = require('../../cities.json');
+/////// INITIALIZE programs ARRAY
+//pull in array of programs from json file
+var programs = require('../../programs.json');
 
-//create tags in form of xcity based on cities array
-cities.forEach(function(c){
+//create tags in form of xcity based on programs array
+programs.forEach(function(c){
     tags.push( 'x' + c );
 });
-/////// END INITIALIZE CITIES ARRAY
+/////// END INITIALIZE programs ARRAY
 
 
 //Initializes downloading all undownloaded images from Instagram
@@ -113,7 +80,7 @@ function initInstagramFetchCycle(){
     current_city = tags[tag_index].substring(1);
 
     //start to fetch from Instagram
-    fetchAllCitiesFromInstagram();
+    fetchAllprogramsFromInstagram();
 }
 
 
@@ -169,7 +136,7 @@ var instagram_handler = function(err, medias, pagination, limit) {
 
 
 
-function fetchAllCitiesFromInstagram(){
+function fetchAllprogramsFromInstagram(){
     var images_array = [];
 
     console.log('searching for tag: ' + tags[tag_index]);
