@@ -1,0 +1,69 @@
+{
+  "total_images": 223,
+  "programs": [
+    {
+      "name": "draw",
+      "total_images": 34
+    },
+    {
+      "name": "read",
+      "total_images": 14
+    },
+    {
+      "name": "write",
+      "total_images": 24
+    },
+    {
+      "name": "discuss",
+      "total_images": 18
+    },
+    {
+      "name": "make",
+      "total_images": 22
+    },
+    {
+      "name": "lecture",
+      "total_images": 55
+    },
+    {
+      "name": "render",
+      "total_images": 15
+    },
+    {
+      "name": "celebrate",
+      "total_images": 25
+    },
+    {
+      "name": "critique",
+      "total_images": 51
+    },
+    {
+      "name": "plot",
+      "total_images": 12
+    },
+    {
+      "name": "exhibit",
+      "total_images": 17
+    },
+    {
+      "name": "teach",
+      "total_images": 27
+    },
+    {
+      "name": "learn",
+      "total_images": 10
+    },
+    {
+      "name": "spray",
+      "total_images": 10
+    },
+    {
+      "name": "sleep",
+      "total_images": 19
+    },
+    {
+      "name": "smile",
+      "total_images": 30
+    }
+  ]
+}

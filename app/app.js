@@ -32,6 +32,9 @@ if ('development' == app.get('env')) {
 var config = require('./config'),
     mongoose = require('mongoose');
 
+// load models
+var Image = require('./models/image');
+
 // Bootstrap db connection
 //var db = mongoose.connect(config.db);
 

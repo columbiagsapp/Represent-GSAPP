@@ -25,6 +25,15 @@
   float:left;
 }
 
+#repgsapp-wrapper main{
+  margin-top:40px;
+  height:400px;
+}
+
+.owl-carousel{
+  height:400px;
+}
+
 #repgsapp-wrapper main .owl-carousel img{
   height: 400px;
   overflow-x:hidden;
@@ -33,13 +42,4 @@
 #repgsapp-wrapper main .owl-carousel .item{
   margin-left:3px;
   margin-right:3px;
-}
-
-#repgsapp-wrapper main{
-  margin-top:40px;
-  height:400px;
-}
-
-.owl-carousel{
-  height:400px;
 }
