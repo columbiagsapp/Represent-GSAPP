@@ -1,0 +1,25 @@
+{
+    "name": "Represent GSAPP",
+    "url": "http://represent.gsapp.org/",
+    "version": "0.1",
+    "thumbnail": "screenshot.png",
+    "contributors": [
+        {
+            "name": "Troy Conrad Therrien",
+            "username": "troyth",
+            "role": "lead"
+        },
+        {
+            "name": "Kyong Kim",
+            "username": "",
+            "role": "designer"
+        },
+        {
+            "name": "Scott Parker Donaldson",
+            "username": "",
+            "role": "developer"
+        }
+    ],
+    "dependencies": [
+    ]
+}

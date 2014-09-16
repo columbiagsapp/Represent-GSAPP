@@ -27,6 +27,15 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+
+// database
+var config = require('./config'),
+    mongoose = require('mongoose');
+
+// Bootstrap db connection
+var db = mongoose.connect(config.db);
+
+
 //ROUTES
 app.get('/', routes.index);
 
