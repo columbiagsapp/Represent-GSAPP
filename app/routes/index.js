@@ -15,7 +15,6 @@ var stats = require('../../test/stats');
 
 // routes
 exports.index = function(req, res){
-  console.log('GOT IN !!');
   res.render('index', { title: 'Express' });
 };
 
@@ -23,9 +22,10 @@ exports.landing = function(req, res){
   res.render('landing', { title: 'Represent GSAPP' });
 };
 
-exports.stats = function(){
+exports.stats = function(req, res){
   console.log('stats:');
   console.dir(stats);
+
   res.json(stats);
 }
 
