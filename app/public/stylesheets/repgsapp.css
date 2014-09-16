@@ -9,3 +9,27 @@
 #repgsapp-wrapper{
   background-color: yellow;
 }
+
+#repgsapp-wrapper header{
+  height:60px;
+  width:100%;
+}
+
+#repgsapp-wrapper .controls{
+  list-style:none;
+  clear:both;
+  margin-left:20px;
+}
+
+#repgsapp-wrapper .controls .item{
+  float:left;
+}
+
+#repgsapp-wrapper main{
+  margin-top:40px;
+  height:400px;
+}
+
+.owl-carousel{
+  height:400px;
+}
