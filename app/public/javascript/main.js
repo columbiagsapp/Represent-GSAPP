@@ -8,7 +8,8 @@ $(document).ready(function(){
     autoPlay : true,
     stopOnHover : true,
     responsive: true,
-    responsiveRefreshRate : 200
+    responsiveRefreshRate : 200,
+    responsiveBaseWidth: 800
 
   });
 
