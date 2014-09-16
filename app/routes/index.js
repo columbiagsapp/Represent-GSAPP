@@ -70,7 +70,7 @@ function pushArray(arr, arr2) {
 
 /////// INITIALIZE programs ARRAY
 //pull in array of programs from json file
-var programs = require('../../programs.json');
+var programs = require('../programs.json');
 
 /////// END INITIALIZE programs ARRAY
 
