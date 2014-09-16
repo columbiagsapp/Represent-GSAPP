@@ -9,7 +9,7 @@ $(document).ready(function(){
     stopOnHover : true,
     responsive: true,
     responsiveRefreshRate : 200,
-    responsiveBaseWidth: window.innerWidth - 400,
+    responsiveBaseWidth: window.innerWidth - 400
 
   });
 
