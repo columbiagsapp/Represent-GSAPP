@@ -9,7 +9,7 @@ $(document).ready(function(){
     stopOnHover : true,
     responsive: true,
     responsiveRefreshRate : 200,
-    responsiveBaseWidth: window,
+    responsiveBaseWidth: '#repgsapp-wrapper',
     itemsScaleUp: true
 
   });
