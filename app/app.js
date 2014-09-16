@@ -27,10 +27,8 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
-app.get('/users', user.list);
-
 //ROUTES
+app.get('/', routes.index);
 
 app.get('/landing', routes.landing);
 
