@@ -6,6 +6,19 @@ var image_files_extension = ".jpg";
 
 var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+var fetched_array; //container array for all fetched Instagram images
+
+var tags = []; //array to hold tags for all cities (eg. xrio, xbeirut)
+var tag_index = 0; //counter: current city fetching from Instagram by index in tags[] array
+var total_found = 0; //counter: total images found from Instagram for given city
+var current_city = ''; //pointer: current city fetching from Instagram
+
+var interval_id; //global ID for the main interval for fetching from Instagram
+
+var FETCH_TIME = 3000; //fetch every 3 seconds
+var FETCHING_FROM_INSTAGRAM_BUSY_FLAG = false; //flag if in the middle of fetching
+var DOWNLOADING_FROM_INSTAGRAM_BUSY_FLAG = false; //flag if in the middle of downloading
 /////// END GLOBALS
 
 var mongoose = require('mongoose'),
@@ -50,9 +63,35 @@ exports.test = function(req, res){
 
 // fetch from Instagram API
 exports.fetchByHashtag = function(req, res, tag){
+  console.log('searching for tag: ' + tag);
 
-
+  ig.tag_media_recent(tag, instagram_handler);
 };
+
+
+
+
+
+var instagram_handler = function(err, medias, pagination, limit) {
+    if(err){
+        console.log(err);
+    }else{
+        console.log('\nFetched ' + medias.length + ' images'.cyan + ' from tag_index: ' + tag_index + ' = program: ' + tags[tag_index] + ' with limit: ' + limit + ' and pagination:');
+        console.dir(pagination);
+
+
+        if(pagination.next){
+          console.log('\nPAGINATION.NEXT()\n');
+          pagination.next(instagram_handler);
+
+        //no pagination, move on to next program
+        }else{
+
+          ig.tag_media_recent(tags[tag_index], instagram_handler);
+        }
+    }
+};
+
 
 
 

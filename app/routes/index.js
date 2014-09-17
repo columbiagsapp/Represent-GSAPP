@@ -32,7 +32,7 @@ exports.stats = function(req, res){
 exports.fetch = function(req, res){
   console.log('fetch()');
 
-  Images.test(req, res);
+  Images.fetchByHashtag(req, res, 'architecture');
 
 };
 
