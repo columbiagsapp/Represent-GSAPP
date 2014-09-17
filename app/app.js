@@ -36,7 +36,8 @@ var config = require('./config'),
 var Image = require('./models/image');
 
 // Bootstrap db connection
-//var db = mongoose.connect(config.db);
+console.log('config.db:' + config.db);
+var db = mongoose.connect(config.db);
 
 
 //ROUTES
@@ -46,7 +47,7 @@ app.get('/landing', routes.landing);
 
 app.get('/stats', routes.stats);
 
-//app.get('/fetch', routes.fetch);
+app.get('/fetch', routes.fetch);
 
 
 
