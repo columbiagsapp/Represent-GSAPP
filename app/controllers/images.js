@@ -5,9 +5,9 @@ var image_files_extension = ".jpg";
 
 var mongoose = require('mongoose'),
 	fs = require('fs'),
-  request = require('request'),
-  Image = mongoose.model('Image'),
-  _ = require('lodash');
+  //request = require('request'),
+  Image = mongoose.model('Image');
+  //_ = require('lodash');
 
 
 // test function
