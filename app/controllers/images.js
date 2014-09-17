@@ -4,10 +4,12 @@ var image_files_directory = "/var/www/x-gram.gsapp.org/public_html/public/img/in
 var image_files_extension = ".jpg";
 
 var mongoose = require('mongoose'),
-	fs = require('fs'),
+	fs = require('fs');
   //request = require('request'),
-  Image = mongoose.model('Image');
   //_ = require('lodash');
+
+require('./models/image');
+var Image = mongoose.model('Image');
 
 
 // test function

@@ -34,7 +34,6 @@ var config = require('./config'),
 
 // load models
 console.log('load ./models/image'.magenta);
-var Image = require('./models/image');
 
 // Bootstrap db connection
 console.log('config.db:' + config.db);
