@@ -37,7 +37,7 @@ var Image = require('./models/image');
 
 // Bootstrap db connection
 console.log('config.db:' + config.db);
-var db = mongoose.connect(config.db);
+//var db = mongoose.connect(config.db);
 
 
 //ROUTES
