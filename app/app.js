@@ -7,8 +7,7 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
-  , path = require('path')
-  , Image = require('./models/image');
+  , path = require('path');
 
 var app = express();
 
@@ -34,6 +33,7 @@ var config = require('./config'),
     mongoose = require('mongoose');
 
 // load models
+console.log('load ./models/image'.magenta);
 var Image = require('./models/image');
 
 // Bootstrap db connection
