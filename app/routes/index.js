@@ -6,7 +6,7 @@ var colors  = require('colors');
 console.log('images.js entered'.cyan);
 
 // Images routes use images controller
-//var images = require('../controllers/images');
+var Images = require('../controllers/images');
 
 var stats = require('../../test/stats');
 
@@ -32,7 +32,8 @@ exports.stats = function(req, res){
 exports.fetch = function(req, res){
   console.log('fetch()');
 
-  res.send(200);
+  Images.test(req, res);
+
 };
 
 

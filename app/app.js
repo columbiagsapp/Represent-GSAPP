@@ -50,6 +50,10 @@ app.get('/stats', routes.stats);
 app.get('/fetch', routes.fetch);
 
 
+// models
+require('./models/image');
+
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
