@@ -29,6 +29,12 @@ exports.stats = function(req, res){
   res.json(stats);
 };
 
+exports.fetch = function(req, res){
+  console.log('fetch()');
+
+  res.send(200);
+};
+
 
 
 /*
