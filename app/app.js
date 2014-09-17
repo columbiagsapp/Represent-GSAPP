@@ -7,7 +7,8 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , Image = require('./models/image');
 
 var app = express();
 
@@ -49,9 +50,6 @@ app.get('/stats', routes.stats);
 
 app.get('/fetch', routes.fetch);
 
-
-// models
-require('./models/image');
 
 
 

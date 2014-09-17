@@ -1,5 +1,7 @@
 'use strict';
 
+console.log('models/image'.magenta);
+
 /**
  * Module dependencies.
  */
