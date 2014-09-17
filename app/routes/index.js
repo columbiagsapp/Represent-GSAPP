@@ -27,7 +27,7 @@ exports.stats = function(req, res){
   console.dir(stats);
 
   res.json(stats);
-}
+};
 
 
 
