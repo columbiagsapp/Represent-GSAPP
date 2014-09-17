@@ -8,7 +8,7 @@ var mongoose = require('mongoose'),
   //request = require('request'),
   //_ = require('lodash');
 
-require('./models/image');
+require('../models/image');
 var Image = mongoose.model('Image');
 
 
