@@ -1,15 +1,39 @@
 'use strict';
 
+/////// GLOBALS
 var image_files_directory = "/var/www/x-gram.gsapp.org/public_html/public/img/instagram/";
 var image_files_extension = ".jpg";
+
+var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+/////// END GLOBALS
 
 var mongoose = require('mongoose'),
 	fs = require('fs');
   //request = require('request'),
   //_ = require('lodash');
 
+// load image model schema
 require('../models/image');
 var Image = mongoose.model('Image');
+
+
+/////// INSTAGRAM
+var ig = require('instagram-node').instagram();
+
+//import Instagram secrets from json file
+var instagram_secrets = require('../secrets.json').instagram;
+
+//set up secrets for Instagram module
+ig.use({ client_id: instagram_secrets.client_id,
+    client_secret: instagram_secrets.client_secret });
+/////// END INSTAGRAM
+
+
+
+
+
+
 
 
 // test function
@@ -19,12 +43,25 @@ exports.test = function(req, res){
 }
 
 
-/////// GLOBALS
-var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-/////// END GLOBALS
 
 
+
+
+
+// fetch from Instagram API
+exports.fetchByHashtag(req, res, tag){
+
+
+}
+
+
+
+
+
+
+
+
+//////// OLD
 
 
 
