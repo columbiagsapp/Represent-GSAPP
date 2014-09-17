@@ -40,7 +40,7 @@ ig.use({ client_id: instagram_secrets.client_id,
 exports.test = function(req, res){
   console.log('controllers/images::test()');
   res.send(200);
-}
+};
 
 
 
@@ -49,10 +49,10 @@ exports.test = function(req, res){
 
 
 // fetch from Instagram API
-exports.fetchByHashtag(req, res, tag){
+exports.fetchByHashtag = function(req, res, tag){
 
 
-}
+};
 
 
 
