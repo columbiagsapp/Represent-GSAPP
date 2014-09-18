@@ -302,7 +302,7 @@ exports.update = function(req, res){
           console.log('setPrograms()::error attempting to save image programs');
           res.send(500, 'image status not saved, server error on save attempt');
         } else {
-          res.redirect('/edit/' + status);
+          res.redirect(req.get('referer')); //refresh current page
         }
       });// end save
 
