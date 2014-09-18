@@ -40,14 +40,13 @@
 
               <h1 id="title" class="titles">EDIT <%= status %></h1>
 
-              <div id="x"></div>
+              <div id="x">
+                <form name="fetch" action="/fetch" method="get">
+                  <button name="fetch" type="submit">Fetch</button>
+                </form>
+              </div>
 
             </div><!-- /#header-top -->
-            <nav id="nav2">
-              <form name="fetch" action="/fetch" method="get">
-                <button name="fetch" type="submit">Fetch</button>
-              </form>
-            </nav>
           </header>
 
           <main>
