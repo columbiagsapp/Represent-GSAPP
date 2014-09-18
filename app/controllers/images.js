@@ -128,7 +128,7 @@ var extractPrograms = function(tags){
 };
 
 
-exports.addArray = var saveArray = function(medias){
+var saveArray = exports.addArray = function(medias){
   console.log('saveArray');
 
 };
