@@ -63,8 +63,10 @@
                   </div><!-- /.metadata -->
                   <div class="edit-controls">
                     <form name="update" action="/api/update" method="post">
-                      <input type="text" name="programs" value="art, architecture">
+                      <input type="text" name="programs" value="<%= images[i].programs %>">
+                      <button name="update" type="submit" value="<%= images[i]._id %>">Save Updates</button>
                     </form>
+                    <br>
                     <form name="hide" action="/api/hide" method="post">
                       <button name="hide" type="submit" value="<%= images[i]._id %>">Hide</button>
                     </form>
