@@ -73,7 +73,7 @@ var instagram_handler = function(err, medias, pagination, limit) {
 
         media_buffer.push(medias);
 
-        if(pagination.next){
+        if(pagination.next && (media_buffer.length < 100)){
           console.log('\nPAGINATION.NEXT()\n');
 
           pagination.next(instagram_handler);
