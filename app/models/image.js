@@ -17,6 +17,7 @@ var ImageSchema = new Schema({
         type: String,
         defaut: 'pending'
     },
+    created_time: String,
     content: Schema.Types.Mixed,
     programs: [String],
     downloaded: {

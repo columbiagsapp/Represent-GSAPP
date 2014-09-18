@@ -25,6 +25,8 @@ var mongoose = require('mongoose'),
   //request = require('request'),
   //_ = require('lodash');
 
+var moment = require('moment');
+
 var programs = require('../programs');
 
 // load image model schema
@@ -168,6 +170,7 @@ var saveImagesInArray_handler = exports.saveImagesInArray = function(medias, ind
         image.programs = medias[index].programs;
         image.downloaded = medias[index].downloaded;
         image.status = 'pending';
+        image.created_time = moment.unix(medias[index].content.created_time).format("dddd, MMMM Do YYYY, h:mm:ss a");
 
         image.save(function(err) {
           if (err) {
