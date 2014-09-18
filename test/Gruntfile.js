@@ -7,7 +7,7 @@ module.exports = function(grunt) {
         uglify: {
             build: {
                 files: {
-                    'js/min/script.js': ['js/lib/snap.js', 'js/lib/underscore.js', 'js/src/script.js']
+                    'js/min/script.js': ['js/lib/jquery-2.1.1.js', 'js/lib/snap.js', 'js/lib/underscore.js', 'js/src/script.js']
                 }
             }
         },
@@ -19,7 +19,7 @@ module.exports = function(grunt) {
                     style: 'compressed'
                 },
                 files: {
-                    'css/style.css': 'sass/style.scss'
+                    'css/style.css': 'scss/style.scss'
                 }
             }
         },
