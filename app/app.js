@@ -7,8 +7,7 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
-  , path = require('path')
-  , sass = require('node-sass');
+  , path = require('path');
 
 var app = express();
 
@@ -22,15 +21,6 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
-
-// add SASS support for gradient bg
-app.use(
-   sass.middleware({
-     src: __dirname + '/sass', //where the sass files are
-     dest: __dirname + '/public', //where css should go
-     debug: true // obvious
-   })
-);
 
 // development only
 if ('development' == app.get('env')) {
