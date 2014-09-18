@@ -53,7 +53,7 @@ app.get('/grid', routes.grid);
 
 app.get('/edit', routes.edit);
 
-app.post('/edit/delete', routes.editDelete);
+app.post('/edit/hide', routes.editHide);
 
 
 

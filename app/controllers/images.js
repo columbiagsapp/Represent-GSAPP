@@ -195,7 +195,7 @@ var saveImagesInArray_handler = exports.saveImagesInArray = function(medias, ind
 exports.renderAll = function(req, res){
   Image.find({ 'visible': true }).exec(function(err, images) {
     if(err){
-      console.log('getAll()::error finding all images: '+ err);
+      console.log('renderAll()::error finding all images: '+ err);
       res.send(500);
     }else{
       console.log('images[0].content.images.standard_resolution');
@@ -211,7 +211,7 @@ exports.renderAll = function(req, res){
 exports.editAll = function(req, res){
   Image.find({ 'visible': true }).exec(function(err, images) {
     if(err){
-      console.log('getAll()::error finding all images: '+ err);
+      console.log('editAll()::error finding all images: '+ err);
       res.send(500);
     }else{
 
@@ -222,22 +222,21 @@ exports.editAll = function(req, res){
 
 
 // sets the visible flag to false
-exports.editDelete = function(req, res){
+exports.editHide = function(req, res){
 
-  console.log('req.body.delete: ' + req.body.delete);
-  var id = req.body.delete;
+  var id = req.body.hide;
 
   Image.findOne({ '_id': id}, function(err, image) {
     if(err){
-      console.log('getAll()::error finding all images: '+ err);
-      res.send(500, 'image not deleted, server error');
+      console.log('editHide()::error finding all images: '+ err);
+      res.send(500, 'image not hidden, server error');
     }else{
 
       image.visible = false;
 
       image.save(function(err) {
         if (err) {
-          console.log('editDelete()::error attempting to save invisible image');
+          console.log('editHide()::error attempting to save invisible image');
           res.send(500, 'image not deleted, server error on save attempt');
         } else {
           res.redirect('/edit');

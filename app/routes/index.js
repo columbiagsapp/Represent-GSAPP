@@ -48,9 +48,9 @@ exports.edit = function(req, res){
   var images = Images.editAll(req, res);
 };
 
-exports.editDelete = function(req, res){
-  console.log('/edit/delete');
-  var images = Images.editDelete(req, res);
+exports.editHide = function(req, res){
+  console.log('/edit/hide');
+  var images = Images.editHide(req, res);
 };
 
 
