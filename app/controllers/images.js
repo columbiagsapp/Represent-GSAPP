@@ -232,32 +232,6 @@ exports.renderAll = function(req, res){
 
 
 // render all images through the edit view
-exports.editPublished = function(req, res){
-  Image.find({ 'status': 'published' }).sort('-content.created_time').exec(function(err, images) {
-    if(err){
-      console.log('editAll()::error finding all images: '+ err);
-      res.send(500);
-    }else{
-
-      res.render('edit', { images: images });
-    }
-  });
-};
-
-// render all images through the edit view
-exports.editPending = function(req, res){
-  Image.find({ 'status': 'pending' }).sort('-content.created_time').exec(function(err, images) {
-    if(err){
-      console.log('editAll()::error finding all images: '+ err);
-      res.send(500);
-    }else{
-
-      res.render('edit', { images: images });
-    }
-  });
-};
-
-// render all images through the edit view
 exports.edit = function(req, res, status){
   Image.find({ 'status': status }).sort('-content.created_time').exec(function(err, images) {
     if(err){
@@ -265,7 +239,7 @@ exports.edit = function(req, res, status){
       res.send(500);
     }else{
 
-      res.render(status, { images: images });
+      res.render(status, { images: images, status: status });
     }
   });
 };
