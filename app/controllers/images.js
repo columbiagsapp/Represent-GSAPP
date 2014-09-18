@@ -192,7 +192,7 @@ var saveImagesInArray_handler = exports.saveImagesInArray = function(medias, ind
 
 // render all images through the grid view
 exports.renderAll = function(req, res){
-  Image.find().exec(function(err, images) {
+  Image.find({ 'visible': true }).exec(function(err, images) {
     if(err){
       console.log('getAll()::error finding all images: '+ err);
       res.send(500);
@@ -208,7 +208,7 @@ exports.renderAll = function(req, res){
 
 // render all images through the edit view
 exports.editAll = function(req, res){
-  Image.find().exec(function(err, images) {
+  Image.find({ 'visible': true }).exec(function(err, images) {
     if(err){
       console.log('getAll()::error finding all images: '+ err);
       res.send(500);
