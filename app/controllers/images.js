@@ -167,6 +167,7 @@ var saveImagesInArray_handler = exports.saveImagesInArray = function(medias, ind
         image.content = medias[index].content;
         image.programs = medias[index].programs;
         image.downloaded = medias[index].downloaded;
+        image.visible = true;
 
         image.save(function(err) {
           if (err) {
