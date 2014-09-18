@@ -32,7 +32,7 @@ exports.stats = function(req, res){
 exports.fetch = function(req, res){
   console.log('fetch()');
 
-  Images.fetchByHashtag(req, res, 'architecture');
+  Images.fetchByHashtag(req, res, 'gsapp');
 
 };
 
