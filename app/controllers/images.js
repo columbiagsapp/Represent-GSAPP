@@ -68,7 +68,7 @@ exports.fetchByHashtag = function(req, res, tag){
 
   ig.tag_media_recent(tag, instagram_fetch_handler);
 
-  res.redirect('/edit');
+  res.redirect('/edit/pending');
 };
 
 
