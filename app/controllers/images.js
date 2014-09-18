@@ -28,6 +28,7 @@ var mongoose = require('mongoose'),
 var moment = require('moment');
 
 var programs = require('../programs');
+var locations = require('../locations');
 
 // load image model schema
 require('../models/image');
@@ -109,6 +110,9 @@ var sanitizeArray = function(medias){
     obj.content = medias[m];
     obj.downloaded = false;
     obj.programs = extractPrograms(medias[m].tags);
+    obj.location = extractLocation(medias[m].tags);
+    obj.status = "pending";
+    obj.created_time = moment.unix(medias[m].content.created_time).format("dddd, MMMM Do YYYY, h:mm:ss a");
 
     sanitized_array.push(obj);
   }
@@ -129,6 +133,22 @@ var extractPrograms = function(tags){
   }
 
   return pgms;
+};
+
+// hunts through tags for locations, return location that is in tags as arrray in all lowercase
+var extractLocation = function(tags){
+  var location = '';
+
+  for(var t = 0; t < tags.length; t++){
+    for(var l = 0; l < locations.length; l++){
+      if(tags[t].toLowerCase() == locations[l].toLowerCase()){
+        location = locations[l].toLowerCase();
+        break();
+      }
+    }
+  }
+
+  return location;
 };
 
 
@@ -170,7 +190,8 @@ var saveImagesInArray_handler = exports.saveImagesInArray = function(medias, ind
         image.programs = medias[index].programs;
         image.downloaded = medias[index].downloaded;
         image.status = 'pending';
-        image.created_time = moment.unix(medias[index].content.created_time).format("dddd, MMMM Do YYYY, h:mm:ss a");
+        image.created_time = medias[index].created_time;
+        image.location = medias[index].location;
 
         image.save(function(err) {
           if (err) {
@@ -285,6 +306,8 @@ exports.setStatus = function(req, res, id, status){
 exports.update = function(req, res){
   var id = req.body.update;
   var programs = req.body.programs;
+
+  var location = req.body.location;
 
   Image.findOne({ '_id': id}, function(err, image) {
     if(err){
