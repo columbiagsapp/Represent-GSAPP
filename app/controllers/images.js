@@ -65,7 +65,7 @@ exports.test = function(req, res){
 exports.fetchByHashtag = function(req, res, tag){
   console.log('searching for tag: ' + tag);
 
-  ig.tag_media_recent(tag, instagram_handler);
+  //ig.tag_media_recent(tag, instagram_handler);
 };
 
 
