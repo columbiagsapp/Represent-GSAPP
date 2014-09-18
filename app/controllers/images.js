@@ -255,7 +255,7 @@ exports.edit = function(req, res, status){
 // sets the status flag to status={published, pending, hidden} for image with id
 exports.setStatus = function(req, res, id, status){
 
-  console.log('\n\n status:' + status );
+  console.log('\n\n status:' + status + '\n');
 
   var id = id;
 
