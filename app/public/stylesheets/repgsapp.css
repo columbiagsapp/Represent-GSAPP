@@ -75,6 +75,19 @@
   margin-right:10px;
 }
 
+#repgsapp-wrapper header #nav2{
+  clear:both;
+  display:block;
+  width:98%;
+  padding:0 1%;
+  text-align:left;
+}
+
+#repgsapp-wrapper header #nav2 .nav-program{
+  text-transform:uppercase;
+  margin-right:5px;
+}
+
 /* Main elements */
 
 #repgsapp-wrapper main{

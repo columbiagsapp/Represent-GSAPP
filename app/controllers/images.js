@@ -196,9 +196,9 @@ exports.renderAll = function(req, res){
       res.send(500);
     }else{
       console.log('images[0].content.images.standard_resolution');
-      console.dir(images[0].content.images.standard_resolution);
+      console.dir(images[0].content.images.standard_resolution.url);
 
-      res.render('grid', { images: images });
+      res.render('grid', { images: images, programs: programs });
     }
   });
 };
