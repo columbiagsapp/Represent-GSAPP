@@ -62,10 +62,10 @@
                     <div><label>likes: </label><%= images[i].content.likes.count %></div>
                   </div><!-- /.metadata -->
                   <div class="edit-controls">
-                    <form name="edit" action="/edit/pend" method="post">
+                    <form name="edit" action="/api/pend" method="post">
                       <button name="pend" type="submit" value="<%= images[i]._id %>">Set to Pending</button>
                     </form>
-                    <form name="edit" action="/edit/publish" method="post">
+                    <form name="edit" action="/api/publish" method="post">
                       <button name="publish" type="submit" value="<%= images[i]._id %>">Publish</button>
                     </form>
                   </div><!-- /.edit-controls -->
