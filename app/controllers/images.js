@@ -166,7 +166,7 @@ var saveImagesInArray_handler = exports.saveImagesInArray = function(medias, ind
       console.log('saved new image');
       index++;
       if(index < medias.length){
-        saveImage(medias, index);
+        saveImagesInArray_handler(medias, index);
       }else{
         console.log('finished saving*******');
       }
