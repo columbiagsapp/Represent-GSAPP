@@ -51,9 +51,25 @@ app.get('/fetch', routes.fetch);
 
 app.get('/grid', routes.grid);
 
-app.get('/edit', routes.edit);
 
-app.post('/edit/hide', routes.editHide);
+
+app.get('/edit/published', routes.editPublished);
+
+app.post('/edit/hidden', routes.editHidden);
+
+app.post('/edit/pending', routes.editPending);
+
+
+// api for editing
+
+app.post('/api/publish', routes.publish);
+
+app.post('/api/hide', routes.hide);
+
+app.post('/api/pend', routes.pend);
+
+
+
 
 
 

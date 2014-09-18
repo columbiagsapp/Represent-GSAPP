@@ -64,6 +64,9 @@
                     <form name="edit" action="edit/hide" method="post">
                       <button name="hide" type="submit" value="<%= images[i]._id %>">Hide</button>
                     </form>
+                    <form name="edit" action="edit/publish" method="post">
+                      <button name="publish" type="submit" value="<%= images[i]._id %>">Publish</button>
+                    </form>
                   </div><!-- /.edit-controls -->
                 </div>
               <% } %>

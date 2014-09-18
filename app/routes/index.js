@@ -43,14 +43,40 @@ exports.grid = function(req, res){
 };
 
 
-exports.edit = function(req, res){
-  console.log('/edit');
-  var images = Images.editAll(req, res);
+exports.editPublished = function(req, res){
+  console.log('/edit/published');
+  var images = Images.edit(req, res, 'published');
 };
 
-exports.editHide = function(req, res){
-  console.log('/edit/hide');
-  var images = Images.editHide(req, res);
+exports.editPending = function(req, res){
+  console.log('/edit/pending');
+  var images = Images.edit(req, res, 'pending');
+};
+
+exports.editHidden = function(req, res){
+  console.log('/edit/hidden');
+  var images = Images.edit(req, res, 'hidden');
+};
+
+
+
+
+
+// api
+
+exports.publish = function(req, res){
+  console.log('/api/publish');
+  var images = Images.setStatus(req, res, req.body.publish, 'publish');
+};
+
+exports.pend = function(req, res){
+  console.log('/api/pend');
+  var images = Images.setStatus(req, res, req.body.pend, 'pend');
+};
+
+exports.hide = function(req, res){
+  console.log('/api/hide');
+  var images = Images.setStatus(req, res, req.body.hide, 'hide');
 };
 
 

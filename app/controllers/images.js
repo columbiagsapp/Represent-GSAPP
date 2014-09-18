@@ -167,7 +167,7 @@ var saveImagesInArray_handler = exports.saveImagesInArray = function(medias, ind
         image.content = medias[index].content;
         image.programs = medias[index].programs;
         image.downloaded = medias[index].downloaded;
-        image.visible = true;
+        image.status = 'pending';
 
         image.save(function(err) {
           if (err) {
@@ -193,7 +193,7 @@ var saveImagesInArray_handler = exports.saveImagesInArray = function(medias, ind
 
 // render all images through the grid view
 exports.renderAll = function(req, res){
-  Image.find({ 'visible': true }).exec(function(err, images) {
+  Image.find({ 'status': 'published' }).exec(function(err, images) {
     if(err){
       console.log('renderAll()::error finding all images: '+ err);
       res.send(500);
@@ -208,8 +208,34 @@ exports.renderAll = function(req, res){
 
 
 // render all images through the edit view
-exports.editAll = function(req, res){
-  Image.find({ 'visible': true }).sort('-content.created_time').exec(function(err, images) {
+exports.editPublished = function(req, res){
+  Image.find({ 'status': 'published' }).sort('-content.created_time').exec(function(err, images) {
+    if(err){
+      console.log('editAll()::error finding all images: '+ err);
+      res.send(500);
+    }else{
+
+      res.render('edit', { images: images });
+    }
+  });
+};
+
+// render all images through the edit view
+exports.editPending = function(req, res){
+  Image.find({ 'status': 'pending' }).sort('-content.created_time').exec(function(err, images) {
+    if(err){
+      console.log('editAll()::error finding all images: '+ err);
+      res.send(500);
+    }else{
+
+      res.render('edit', { images: images });
+    }
+  });
+};
+
+// render all images through the edit view
+exports.edit = function(req, res, status){
+  Image.find({ 'status': status }).sort('-content.created_time').exec(function(err, images) {
     if(err){
       console.log('editAll()::error finding all images: '+ err);
       res.send(500);
@@ -221,25 +247,27 @@ exports.editAll = function(req, res){
 };
 
 
-// sets the visible flag to false
-exports.editHide = function(req, res){
 
-  var id = req.body.hide;
+
+// sets the status flag to status={published, pending, hidden} for image with id
+exports.setStatus = function(req, res, id, status){
+
+  var id = id;
 
   Image.findOne({ '_id': id}, function(err, image) {
     if(err){
-      console.log('editHide()::error finding all images: '+ err);
+      console.log('setStatus()::error finding image to set status: '+ err);
       res.send(500, 'image not hidden, server error');
     }else{
 
-      image.visible = false;
+      image.status = status;
 
       image.save(function(err) {
         if (err) {
-          console.log('editHide()::error attempting to save invisible image');
-          res.send(500, 'image not deleted, server error on save attempt');
+          console.log('setStatus()::error attempting to save image status');
+          res.send(500, 'image status not saved, server error on save attempt');
         } else {
-          res.redirect('/edit');
+          res.redirect('/' + status);
         }
       });// end save
 
