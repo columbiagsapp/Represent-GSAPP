@@ -189,7 +189,7 @@ var saveImagesInArray_handler = exports.saveImagesInArray = function(medias, ind
 
 
 // return all images as array
-exports.getAll = function(req, res){
+exports.renderAll = function(req, res){
   Image.find().exec(function(err, images) {
     if(err){
       console.log('getAll()::error finding all images: '+ err);
