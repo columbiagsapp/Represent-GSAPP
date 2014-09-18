@@ -36,9 +36,14 @@
           <header>
             <div id="header-top">
               <div id="nav1">
+                <h1>EDIT</h1>
               </div><!-- /#nav1 -->
 
-              <h1 id="title" class="titles">EDIT <%= status %></h1>
+              <div id="title" class="titles">
+                <h1><%= status %></h1>
+                <h1><a href="/edit/pending" target="_self">Pending</a></h1>
+                <h1><a href="/edit/hidden" target="_self">Hidden</a></h1>
+              </div>
 
               <div id="x">
                 <form name="fetch" action="/fetch" method="get">
