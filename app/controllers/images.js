@@ -14,6 +14,12 @@ var FETCHING_FROM_INSTAGRAM_BUSY_FLAG = false; //flag if in the middle of fetchi
 var DOWNLOADING_FROM_INSTAGRAM_BUSY_FLAG = false; //flag if in the middle of downloading
 /////// END GLOBALS
 
+/////// HELPER FUNCTIONS
+function pushArray(arr, arr2) {
+    arr.push.apply(arr, arr2);
+}
+/////// END HELPER FUNCTIONS
+
 var mongoose = require('mongoose'),
 	fs = require('fs');
   //request = require('request'),
