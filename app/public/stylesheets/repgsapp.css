@@ -110,3 +110,40 @@
   margin-left:3px;
   margin-right:3px;
 }
+
+/* Program colors */
+
+.draw{
+  color:red;
+}
+
+.read{
+  color:green;
+}
+
+.write{
+  color:cyan;
+}
+
+.discuss{
+
+}
+
+.present{
+
+}
+.make{}
+.lecture{}
+.render{}
+.celebrate{}
+.critique{}
+.plot{}
+.photoraph{}
+.exhibit{}
+.install{}
+.teach{}
+.test{}
+.learn{}
+.spray{}
+.sleep{}
+.smile{}
