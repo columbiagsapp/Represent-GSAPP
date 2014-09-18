@@ -25,7 +25,7 @@ var mongoose = require('mongoose'),
   //request = require('request'),
   //_ = require('lodash');
 
-var programs = require('programs');
+var programs = require('../programs');
 
 // load image model schema
 require('../models/image');
