@@ -65,7 +65,7 @@ exports.test = function(req, res){
 exports.fetchByHashtag = function(req, res, tag){
   console.log('searching for tag: ' + tag);
 
-  //ig.tag_media_recent(tag, instagram_handler);
+  ig.tag_media_recent(tag, instagram_handler);
 };
 
 
@@ -82,12 +82,8 @@ var instagram_handler = function(err, medias, pagination, limit) {
 
         if(pagination.next){
           console.log('\nPAGINATION.NEXT()\n');
-          pagination.next(instagram_handler);
 
-        //no pagination, move on to next program
-        }else{
-
-          ig.tag_media_recent(tags[tag_index], instagram_handler);
+          //pagination.next(instagram_handler);
         }
     }
 };
