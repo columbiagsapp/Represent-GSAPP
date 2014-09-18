@@ -147,6 +147,8 @@ var saveImagesInArray_handler = exports.saveImagesInArray = function(medias, ind
       console.log('*******error attempting to get image by instagram id with msg: ' + err);
     }else{
       console.log('*******no error checking for duplicate by instagram id');
+      console.log('image:');
+      console.dir(image);
       already_in_db = true;
     }
   });
