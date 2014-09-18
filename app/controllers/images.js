@@ -143,7 +143,7 @@ var extractLocation = function(tags){
     for(var l = 0; l < locations.length; l++){
       if(tags[t].toLowerCase() == locations[l].toLowerCase()){
         location = locations[l].toLowerCase();
-        break();
+        break;
       }
     }
   }
