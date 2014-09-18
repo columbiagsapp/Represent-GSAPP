@@ -318,7 +318,10 @@ exports.update = function(req, res){
       image.programs = [];//clear array
       image.programs = programs.split(', ');
 
+      image.location = location;
+
       image.markModified('programs');
+      image.markModified('location');
 
       image.save(function(err) {
         if (err) {
