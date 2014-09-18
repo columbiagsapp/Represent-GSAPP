@@ -131,13 +131,13 @@ var extractPrograms = function(tags){
 // save array of sanitized media to db
 var saveArray = exports.addArray = function(medias){
 
-  saveImage(medias, 0);
+  saveImagesInArray(medias, 0);
 
 };
 
 
 
-var saveImage = exports.save = function(medias, index){
+var saveImagesInArray = exports.saveImagesInArray = function(medias, index){
 
   var image = new Image();
 
@@ -153,6 +153,8 @@ var saveImage = exports.save = function(medias, index){
       index++;
       if(index < medias.length){
         saveImage(medias, index);
+      }else{
+        console.log('finished saving*******');
       }
     }
   });

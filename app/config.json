@@ -1,5 +1,5 @@
 {
-  "db": "mongodb://localhost/ConnectionTest",
+  "db": "mongodb://localhost/RepGSAPP-dev",
   "instagram":{
 
   }
