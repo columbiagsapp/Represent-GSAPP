@@ -241,7 +241,7 @@ exports.edit = function(req, res, status){
       res.send(500);
     }else{
 
-      res.render('edit', { images: images });
+      res.render(status, { images: images });
     }
   });
 };
