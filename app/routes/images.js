@@ -32,7 +32,7 @@ var fetched_array; //container array for all fetched Instagram images
 var tags = []; //array to hold tags for all programs (eg. xrio, xbeirut)
 var tag_index = 0; //counter: current city fetching from Instagram by index in tags[] array
 var total_found = 0; //counter: total images found from Instagram for given city
-var current_city = ''; //pointer: current city fetching from Instagram
+var current_program = ''; //pointer: current city fetching from Instagram
 
 var interval_id; //global ID for the main interval for fetching from Instagram
 
@@ -52,21 +52,14 @@ function pushArray(arr, arr2) {
 //pull in array of programs from json file
 var programs = require('../../programs.json');
 
-//create tags in form of xcity based on programs array
-programs.forEach(function(c){
-    tags.push( 'x' + c );
-});
 /////// END INITIALIZE programs ARRAY
 
 
 //Initializes downloading all undownloaded images from Instagram
 function initImageDownloadCycle(){
-    images.downloadAll(uploadAllToFlickr);
+    images.downloadAll();
 }
 
-function uploadAllToFlickr(){
-    images.uploadAllToFlickr(flickr_api);
-}
 
 //Initializes fetching all images from Instagram and puts them in the database
 //to be later downloaded then uploaded to Flickr
@@ -77,10 +70,10 @@ function initInstagramFetchCycle(){
     fetched_array = []; //clear out container array for all fetched Instagram images
     tag_index = 0;
 
-    current_city = tags[tag_index].substring(1);
+    current_program = tags[tag_index].substring(1);
 
     //start to fetch from Instagram
-    fetchAllprogramsFromInstagram();
+    fetchAllProgramsFromInstagram();
 }
 
 
@@ -136,7 +129,7 @@ var instagram_handler = function(err, medias, pagination, limit) {
 
 
 
-function fetchAllprogramsFromInstagram(){
+function fetchAllProgramsFromInstagram(){
     var images_array = [];
 
     console.log('searching for tag: ' + tags[tag_index]);
@@ -155,12 +148,8 @@ function fetchAllprogramsFromInstagram(){
 
 module.exports = function(app) {
 
-    app.get('/fetch-images-from-instagram', function(req, res){
+    app.get('/fetch', function(req, res){
         initInstagramFetchCycle();
-    });
-
-    app.get('/upload-images-to-flickr', function(req, res){
-        initImageDownloadCycle();
     });
 
     app.all ('/callback', function(req, res){
