@@ -114,6 +114,25 @@
   margin-right:3px;
 }
 
+/* Edit grid */
+
+.edit-grid{
+
+}
+
+.edit-grid .item{
+  width:250px;
+  height:500px;
+  float:left;
+  margin:10px;
+  display:block;
+}
+
+.edit-grid .item img{
+  width:250px;
+  height:auto;
+}
+
 /* Program colors */
 
 .draw{

@@ -188,7 +188,7 @@ var saveImagesInArray_handler = exports.saveImagesInArray = function(medias, ind
 
 
 
-// return all images as array
+// render all images through the grid view
 exports.renderAll = function(req, res){
   Image.find().exec(function(err, images) {
     if(err){
@@ -199,6 +199,20 @@ exports.renderAll = function(req, res){
       console.dir(images[0].content.images.standard_resolution.url);
 
       res.render('grid', { images: images, programs: programs });
+    }
+  });
+};
+
+
+// render all images through the edit view
+exports.renderAll = function(req, res){
+  Image.find().exec(function(err, images) {
+    if(err){
+      console.log('getAll()::error finding all images: '+ err);
+      res.send(500);
+    }else{
+
+      res.render('edit', { images: images });
     }
   });
 };
