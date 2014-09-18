@@ -81,7 +81,7 @@ exports.hide = function(req, res){
 
 exports.update = function(req, res){
   console.log('/api/update');
-  var images = Images.update(req, res, req.body.programs);
+  var images = Images.update(req, res);
 };
 
 

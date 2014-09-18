@@ -282,7 +282,9 @@ exports.setStatus = function(req, res, id, status){
 
 
 // sets programs based on a comma-separated string for image with id
-exports.update = function(req, res, id, programs){
+exports.update = function(req, res){
+  var id = req.body.update;
+  var programs = req.body.programs;
 
   Image.findOne({ '_id': id}, function(err, image) {
     if(err){
