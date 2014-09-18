@@ -25,6 +25,8 @@ var mongoose = require('mongoose'),
   //request = require('request'),
   //_ = require('lodash');
 
+var programs = require('programs');
+
 // load image model schema
 require('../models/image');
 var Image = mongoose.model('Image');
@@ -86,16 +88,50 @@ var instagram_handler = function(err, medias, pagination, limit) {
 
           pagination.next(instagram_handler);
         }else{
+          // add all other information
+          var clean_buffer = sanitizeArray(media_buffer);
+
           // store all media in media_buffer[] in db
-          console.log('media_buffer:'.magenta);
-          console.dir(media_buffer);
-          // Image.add(media_buffer);
+           saveArray(clean_buffer);
         }
     }
 };
 
+// takes raw Instagram fetch data in an array and adds other data
+var sanitizeArray = function(medias){
+  var sanitized_array = [];
+  for(var m = 0; m < medias.length; m++){
+    var obj = {};
+    obj.content = medias[m];
+    obj.downloaded = false;
+    obj.programs = extractPrograms(media[m].tags);
+
+    sanitized_array.push(obj);
+  }
+
+  return sanitized_array;
+};
+
+// hunts through tags for programs, return programs that are in tags as arrray in all lowercase
+var extractPrograms = function(tags){
+  var pgms = [];
+
+  for(var t = 0; t < tags.length; t++){
+    for(var p = 0; p < programs.length; p++){
+      if(tags[t].toLowerCase() == programs[p].toLowerCase()){
+        pgms.push( programs[p].toLowerCase() );
+      }
+    }
+  }
+
+  return pgms;
+};
 
 
+exports.addArray = var saveArray = function(medias){
+  console.log('saveArray');
+
+};
 
 
 
