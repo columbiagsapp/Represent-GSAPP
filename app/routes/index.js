@@ -79,6 +79,11 @@ exports.hide = function(req, res){
   var images = Images.setStatus(req, res, req.body.hide, 'hidden');
 };
 
+exports.update = function(req, res){
+  console.log('/api/update');
+  var images = Images.update(req, res, req.body.programs);
+};
+
 
 /*
 

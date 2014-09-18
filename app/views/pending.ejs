@@ -62,10 +62,13 @@
                     <div><label>likes: </label><%= images[i].content.likes.count %></div>
                   </div><!-- /.metadata -->
                   <div class="edit-controls">
-                    <form name="edit" action="/api/hide" method="post">
+                    <form name="update" action="/api/update" method="post">
+                      <input type="text" name="programs">art, architecture</input>
+                    </form>
+                    <form name="hide" action="/api/hide" method="post">
                       <button name="hide" type="submit" value="<%= images[i]._id %>">Hide</button>
                     </form>
-                    <form name="edit" action="/api/publish" method="post">
+                    <form name="publish" action="/api/publish" method="post">
                       <button name="publish" type="submit" value="<%= images[i]._id %>">Publish</button>
                     </form>
                   </div><!-- /.edit-controls -->

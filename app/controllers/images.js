@@ -281,7 +281,34 @@ exports.setStatus = function(req, res, id, status){
 }
 
 
-// return all images of a certain program
+// sets programs based on a comma-separated string for image with id
+exports.update = function(req, res, id, programs){
+
+  Image.findOne({ '_id': id}, function(err, image) {
+    if(err){
+      console.log('setPrograms()::error finding image to set programs: '+ err);
+      res.send(500, 'image not hidden, server error');
+    }else{
+
+      image.programs = [];//clear array
+      image.programs = programs;
+
+      image.markModified('programs');
+
+      image.save(function(err) {
+        if (err) {
+          console.log('setPrograms()::error attempting to save image programs');
+          res.send(500, 'image status not saved, server error on save attempt');
+        } else {
+          res.redirect('/edit/' + status);
+        }
+      });// end save
+
+    }//end else no error
+  });//end findOne
+
+
+};
 
 
 

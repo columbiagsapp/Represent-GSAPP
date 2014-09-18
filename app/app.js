@@ -68,6 +68,8 @@ app.post('/api/hide', routes.hide);
 
 app.post('/api/pend', routes.pend);
 
+app.post('/api/update', routes.update);
+
 
 
 
