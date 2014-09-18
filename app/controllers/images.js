@@ -71,7 +71,7 @@ var instagram_handler = function(err, medias, pagination, limit) {
     }else{
         console.log('\nFetched ' + medias.length + ' images'.cyan);
 
-        media_buffer.push(medias);
+        pushArray(media_buffer, medias);
 
         if(pagination.next && (media_buffer.length < 100)){
           console.log('\nPAGINATION.NEXT()\n');
