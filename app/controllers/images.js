@@ -592,25 +592,6 @@ exports.downloadAll = function(next){
 
 
 
-/**
- * Update an image
- */
-exports.update = function(req, res) {
-    var image = req.image;
-
-    image = _.extend(image, req.body);
-
-    image.save(function(err) {
-        if (err) {
-            return res.send('users/signup', {
-                errors: err.errors,
-                image: image
-            });
-        } else {
-            res.jsonp(image);
-        }
-    });
-};
 
 /**
  * Delete an image
