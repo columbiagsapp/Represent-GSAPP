@@ -205,7 +205,7 @@ exports.renderAll = function(req, res){
 
 
 // render all images through the edit view
-exports.renderAll = function(req, res){
+exports.editAll = function(req, res){
   Image.find().exec(function(err, images) {
     if(err){
       console.log('getAll()::error finding all images: '+ err);
