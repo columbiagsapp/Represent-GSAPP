@@ -104,7 +104,7 @@ var sanitizeArray = function(medias){
     var obj = {};
     obj.content = medias[m];
     obj.downloaded = false;
-    obj.programs = extractPrograms(media[m].tags);
+    obj.programs = extractPrograms(medias[m].tags);
 
     sanitized_array.push(obj);
   }
