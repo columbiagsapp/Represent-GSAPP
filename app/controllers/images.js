@@ -293,7 +293,7 @@ exports.update = function(req, res){
     }else{
 
       image.programs = [];//clear array
-      image.programs = programs;
+      image.programs = programs.split(', ');
 
       image.markModified('programs');
 
