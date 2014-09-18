@@ -67,6 +67,8 @@ exports.fetchByHashtag = function(req, res, tag){
   console.log('searching for tag: ' + tag);
 
   ig.tag_media_recent(tag, instagram_fetch_handler);
+
+  res.redirect('/edit');
 };
 
 
