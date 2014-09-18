@@ -218,7 +218,35 @@ exports.editAll = function(req, res){
 };
 
 
+// sets the visible flag to false
+exports.editDelete = function(req, res){
+
+  console.log('req.body.delete: ' + req.body.delete);
+  var id = "ll";
+  Image.findOne({ _id: id}, function(err, image) {
+    if(err){
+      console.log('getAll()::error finding all images: '+ err);
+      res.send(500);
+    }else{
+
+      res.render('edit', { images: images });
+    }
+  });
+}
+
+
 // return all images of a certain program
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -51,8 +51,8 @@
                 <div class="item">
                   <img src="<%= images[i].content.images.standard_resolution.url %>" />
                   <div class="edit-controls">
-                    <form name="edit" action="edit/delete/<%= images[i]._id %>" method="post">
-                      <input type="submit" value="Delete">
+                    <form name="edit" action="edit/delete" method="post">
+                      <button name="delete" type="submit" value="<%= images[i]._id %>">Delete</button>
                     </form>
                   </div><!-- /.edit-controls -->
                 </div>
