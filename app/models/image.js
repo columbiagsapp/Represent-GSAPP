@@ -13,6 +13,10 @@ var mongoose = require('mongoose'),
  * Image Schema
  */
 var ImageSchema = new Schema({
+    visible: {
+        type: Boolean,
+        defaut: true
+    },
     content: Schema.Types.Mixed,
     programs: [String],
     downloaded: {

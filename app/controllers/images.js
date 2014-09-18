@@ -229,11 +229,20 @@ exports.editDelete = function(req, res){
       console.log('getAll()::error finding all images: '+ err);
       res.send(500, 'image not deleted, server error');
     }else{
-      console.log('image found!');
-      console.dir(image);
-      res.redirect('/edit');
-    }
-  });
+
+      image.visible = false;
+
+      image.save(function(err) {
+        if (err) {
+          console.log('editDelete()::error attempting to save invisible image');
+          res.send(500, 'image not deleted, server error on save attempt');
+        } else {
+          res.redirect('/edit');
+        }
+      });// end save
+
+    }//end else no error
+  });//end findOne
 }
 
 
