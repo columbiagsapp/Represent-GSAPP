@@ -49,6 +49,8 @@ app.get('/stats', routes.stats);
 
 app.get('/fetch', routes.fetch);
 
+app.get('/grid', routes.grid);
+
 
 
 

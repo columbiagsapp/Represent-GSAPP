@@ -130,13 +130,13 @@ var extractPrograms = function(tags){
 
 // save array of sanitized media to db
 var saveImagesInArray = exports.addArray = function(medias){
-
+  // passes off the recursive saving to a handler function
   saveImagesInArray_handler(medias, 0);
-
 };
 
 
 // saves all Instagram data in a sanitized array to the db
+// only saves new images, skips those already in the db
 var saveImagesInArray_handler = exports.saveImagesInArray = function(medias, index){
 
   // flag to avoid saving the same images again
@@ -185,6 +185,22 @@ var saveImagesInArray_handler = exports.saveImagesInArray = function(medias, ind
 };// end saveImagesInArray_handler()
 
 
+
+
+
+// return all images as array
+exports.getAll = function(){
+  Image.find(function(err, images){
+    if(err){
+      console.log('getAll()::error finding all images: '+ err);
+    }else{
+      return images;
+    }
+  });
+};
+
+
+// return all images of a certain program
 
 
 
