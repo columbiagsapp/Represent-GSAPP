@@ -195,6 +195,9 @@ exports.renderAll = function(req, res){
       console.log('getAll()::error finding all images: '+ err);
       res.send(500);
     }else{
+      console.log('images[0].images.standard_resolution');
+      console.dir(images[0].images.standard_resolution);
+
       res.render('grid', { images: images });
     }
   });
