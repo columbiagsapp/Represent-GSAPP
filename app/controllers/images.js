@@ -7,7 +7,7 @@ var image_files_extension = ".jpg";
 var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-var media_buffer; //container array for all fetched Instagram images
+var media_buffer = []; //container array for all fetched Instagram images
 
 var FETCH_TIME = 3000; //fetch every 3 seconds
 var FETCHING_FROM_INSTAGRAM_BUSY_FLAG = false; //flag if in the middle of fetching
