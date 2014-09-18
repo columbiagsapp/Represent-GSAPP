@@ -10,6 +10,7 @@
     "ejs": "*",
     "colors": "*",
     "mongoose": "3.8.16",
-    "instagram-node": "*"
+    "instagram-node": "*",
+    "node-sass": "*"
   }
 }
