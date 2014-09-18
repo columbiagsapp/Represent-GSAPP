@@ -66,17 +66,17 @@ exports.editHidden = function(req, res){
 
 exports.publish = function(req, res){
   console.log('/api/publish');
-  var images = Images.setStatus(req, res, req.body.publish, 'publish');
+  var images = Images.setStatus(req, res, req.body.publish, 'published');
 };
 
 exports.pend = function(req, res){
   console.log('/api/pend');
-  var images = Images.setStatus(req, res, req.body.pend, 'pend');
+  var images = Images.setStatus(req, res, req.body.pend, 'pending');
 };
 
 exports.hide = function(req, res){
   console.log('/api/hide');
-  var images = Images.setStatus(req, res, req.body.hide, 'hide');
+  var images = Images.setStatus(req, res, req.body.hide, 'hidden');
 };
 
 
