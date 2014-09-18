@@ -142,7 +142,7 @@ var saveImagesInArray_handler = exports.saveImagesInArray = function(medias, ind
 
   var already_in_db = false;
 
-  Image.findOne({ content.id: medias[index].content.id}, function(err, image) {
+  Image.findOne({ 'content.id': medias[index].content.id}, function(err, image) {
     if (err){
       console.log('*******error attempting to get image by instagram id with msg: ' + err);
     }else{
