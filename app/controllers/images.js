@@ -227,11 +227,11 @@ exports.editDelete = function(req, res){
   Image.findOne({ '_id': id}, function(err, image) {
     if(err){
       console.log('getAll()::error finding all images: '+ err);
-      res.send(500);
+      res.send(500, 'image not deleted, server error');
     }else{
       console.log('image found!');
       console.dir(image);
-      res.send(200);
+      res.redirect('/edit');
     }
   });
 }
