@@ -209,7 +209,7 @@ exports.renderAll = function(req, res){
 
 // render all images through the edit view
 exports.editAll = function(req, res){
-  Image.find({ 'visible': true }).exec(function(err, images) {
+  Image.find({ 'visible': true }).sort('content.created_time').exec(function(err, images) {
     if(err){
       console.log('editAll()::error finding all images: '+ err);
       res.send(500);
