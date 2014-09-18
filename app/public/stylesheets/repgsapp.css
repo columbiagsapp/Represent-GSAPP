@@ -6,6 +6,12 @@
   max-width:100%;
 }
 
+.gradient {
+  background-color: #ffffff;
+  @include filter-gradient(#ffffff, #ffffff, horizontal);
+  @include background-image(linear-gradient(left, #ffffff 0%,#ed1b24 48%,#ed1b24 52%,#ed1b24 52%,#ffffff 100%));
+}
+
 #repgsapp-wrapper{
   background-color: yellow;
 }
