@@ -42,12 +42,24 @@
       "total_images": 12
     },
     {
+      "name": "photograph",
+      "total_images": 46
+    },
+    {
       "name": "exhibit",
       "total_images": 17
     },
     {
+      "name": "install",
+      "total_images": 22
+    },
+    {
       "name": "teach",
       "total_images": 27
+    },
+    {
+      "name": "test",
+      "total_images": 17
     },
     {
       "name": "learn",
