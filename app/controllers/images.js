@@ -112,7 +112,7 @@ var sanitizeArray = function(medias){
     obj.programs = extractPrograms(medias[m].tags);
     obj.location = extractLocation(medias[m].tags);
     obj.status = "pending";
-    obj.created_time = moment.unix(medias[m].content.created_time).format("dddd, MMMM Do YYYY, h:mm:ss a");
+    obj.created_time = moment.unix(medias[m].created_time).format("dddd, MMMM Do YYYY, h:mm:ss a");
 
     sanitized_array.push(obj);
   }
