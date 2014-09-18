@@ -133,6 +133,12 @@
   height:auto;
 }
 
+.controls-float{
+  text-align:left;
+  display:inline-block;
+  margin-right:5px;
+}
+
 /* Program colors */
 
 .draw{

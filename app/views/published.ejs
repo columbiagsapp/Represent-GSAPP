@@ -68,10 +68,10 @@
                       <button name="update" type="submit" value="<%= images[i]._id %>">Save Updates</button>
                     </form>
                     <br>
-                    <form name="hide" action="/api/hide" method="post">
+                    <form class="controls-float" name="hide" action="/api/hide" method="post">
                       <button name="hide" type="submit" value="<%= images[i]._id %>">Hide</button>
                     </form>
-                    <form name="pend" action="/api/pend" method="post">
+                    <form class="controls-float" name="pend" action="/api/pend" method="post">
                       <button name="pend" type="submit" value="<%= images[i]._id %>">Set to Pending</button>
                     </form>
                   </div><!-- /.edit-controls -->
