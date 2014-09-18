@@ -139,43 +139,50 @@ var saveImagesInArray = exports.addArray = function(medias){
 // saves all Instagram data in a sanitized array to the db
 var saveImagesInArray_handler = exports.saveImagesInArray = function(medias, index){
 
-
+  // flag to avoid saving the same images again
   var already_in_db = false;
 
+  // hunt for images already in the db
   Image.findOne({ 'content.id': medias[index].content.id}, function(err, image) {
     if (err){
-      console.log('*******error attempting to get image by instagram id with msg: ' + err);
+      console.log('saveImagesInArray_handler()::error attempting to get image by instagram id with msg: ' + err);
     }else{
-      console.log('*******no error checking for duplicate by instagram id');
-      console.log('image:');
-      console.dir(image);
-      already_in_db = true;
-    }
-  });
+      // don't save it again if already in db
+      if(image != null){
+        already_in_db = true;
 
-
-
-  var image = new Image();
-
-  image.content = medias[index].content;
-  image.programs = medias[index].programs;
-  image.downloaded = medias[index].downloaded;
-
-  image.save(function(err) {
-    if (err) {
-      console.log('error attempting to save image');
-    } else {
-      console.log('saved new image');
-      index++;
-      if(index < medias.length){
-        saveImagesInArray_handler(medias, index);
+        // recursion
+        index++;
+        if(index < medias.length){
+          saveImagesInArray_handler(medias, index);
+        }else{
+          console.log('finished saving*******');
+        }
       }else{
-        console.log('finished saving*******');
+        // not in db, so save the image
+        var image = new Image();
+
+        image.content = medias[index].content;
+        image.programs = medias[index].programs;
+        image.downloaded = medias[index].downloaded;
+
+        image.save(function(err) {
+          if (err) {
+            console.log('saveImagesInArray_handler()::error attempting to save new image');
+          } else {
+            // recursion
+            index++;
+            if(index < medias.length){
+              saveImagesInArray_handler(medias, index);
+            }else{
+              console.log('finished saving*******');
+            }
+          }
+        });
       }
     }
   });
-
-};
+};// end saveImagesInArray_handler()
 
 
 
