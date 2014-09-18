@@ -128,13 +128,32 @@ var extractPrograms = function(tags){
 };
 
 
+// save array of sanitized media to db
 var saveArray = exports.addArray = function(medias){
-  console.log('saveArray');
+
+  saveImage(medias[0]);
 
 };
 
 
 
+var saveImage = exports.save = function(im){
+
+  var image = new Image();
+
+  image.content = im.content;
+  image.programs = im.programs;
+  image.downloaded = im.downloaded;
+
+  image.save(function(err) {
+    if (err) {
+      console.log('error attempting to save image');
+    } else {
+      console.log('saved new image');
+    }
+  });
+
+};
 
 
 
@@ -404,41 +423,6 @@ exports.downloadAll = function(next){
 
 
 
-/**
- * Create an image
- */
-exports.create = function(im) {
-
-	var image = new Image();
-	//image._id = mongoose.Types.ObjectId(im.id);//set _id to Instagram id
-
-	image.created_time = im.created_time;
-	image.username = im.user.username;
-	image.caption = im.caption.text;
-	image.link = im.link;
-
-	if(im.location){
-		image.latitutde = im.location.latitude;
-		image.longitude = im.location.longitude;
-	}else{
-		image.latitutde = null;
-		image.longitude = null;
-	}
-
-	image.filter = im.filter;
-	image.image_url = im.images.standard_resolution.url;
-	image.user_website = im.user.website;
-	image.instagram_id = im.id;
-
-
-    image.save(function(err) {
-        if (err) {
-        	console.log('error attempting to save image');
-        } else {
-        	//console.log('created new image');
-        }
-    });
-};
 
 /**
  * Update an image
