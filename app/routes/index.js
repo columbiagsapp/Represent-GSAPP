@@ -39,12 +39,7 @@ exports.fetch = function(req, res){
 
 exports.grid = function(req, res){
   console.log('/grid');
-  var images = Images.getAll();
-
-  console.log('/grid::images:');
-  console.dir(images);
-
-  res.render('grid', { images: images });
+  var images = Images.renderAll(req, res);  
 };
 
 
