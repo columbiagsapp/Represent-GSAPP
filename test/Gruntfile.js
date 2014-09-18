@@ -7,7 +7,7 @@ module.exports = function(grunt) {
         uglify: {
             build: {
                 files: {
-                    'js/script.min.js': ['js/script.js']
+                    'js/min/script.js': ['js/lib/snap.js', 'js/lib/underscore.js', 'js/src/script.js']
                 }
             }
         },
@@ -35,14 +35,14 @@ module.exports = function(grunt) {
 
         watch: {
             scripts: {
-                files: ['js/*.js'],
+                files: ['js/**/*.js'],
                 tasks: ['uglify'],
                 options: {
                     spawn: false,
                 }
             },
             css: {
-                files: ['sass/*.scss', 'css/style.css'],
+                files: ['scss/*.scss', 'css/style.css'],
                 tasks: ['sass', 'autoprefixer'],
                 options: {
                     spawn: false
