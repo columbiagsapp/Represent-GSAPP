@@ -131,25 +131,29 @@ var extractPrograms = function(tags){
 // save array of sanitized media to db
 var saveArray = exports.addArray = function(medias){
 
-  saveImage(medias[0]);
+  saveImage(medias, 0);
 
 };
 
 
 
-var saveImage = exports.save = function(im){
+var saveImage = exports.save = function(medias, index){
 
   var image = new Image();
 
-  image.content = im.content;
-  image.programs = im.programs;
-  image.downloaded = im.downloaded;
+  image.content = medias[index].content;
+  image.programs = medias[index].programs;
+  image.downloaded = medias[index].downloaded;
 
   image.save(function(err) {
     if (err) {
       console.log('error attempting to save image');
     } else {
       console.log('saved new image');
+      index++;
+      if(index < medias.length){
+        saveImage(medias, index);
+      }
     }
   });
 
