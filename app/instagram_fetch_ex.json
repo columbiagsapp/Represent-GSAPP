@@ -1,4 +1,4 @@
-{}
+{
   attribution: null,
   tags: [ 'galavanting', 'gsapp', 'architects', 'tbt' ],
   location:
@@ -23,7 +23,7 @@
      id: '782106520436954406' },
   type: 'image',
   id: '782106519472265162_174702644',
-  user: 
+  user:
    { username: 'cgkeech',
      website: '',
      profile_picture: 'http://images.ak.instagram.com/profiles/profile_174702644_75sq_1361042487.jpg',

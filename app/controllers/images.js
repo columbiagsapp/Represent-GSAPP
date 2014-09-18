@@ -66,14 +66,14 @@ exports.test = function(req, res){
 exports.fetchByHashtag = function(req, res, tag){
   console.log('searching for tag: ' + tag);
 
-  ig.tag_media_recent(tag, instagram_handler);
+  ig.tag_media_recent(tag, instagram_fetch_handler);
 };
 
 
 
 
 
-var instagram_handler = function(err, medias, pagination, limit) {
+var instagram_fetch_handler = function(err, medias, pagination, limit) {
     if(err){
         console.log(err);
     }else{
@@ -86,13 +86,13 @@ var instagram_handler = function(err, medias, pagination, limit) {
 
           console.log('media_buffer.length: '+ media_buffer.length);
 
-          pagination.next(instagram_handler);
+          pagination.next(instagram_fetch_handler);
         }else{
           // add all other information
           var clean_buffer = sanitizeArray(media_buffer);
 
           // store all media in media_buffer[] in db
-           saveArray(clean_buffer);
+          saveImagesInArray(clean_buffer);
         }
     }
 };
@@ -129,15 +129,29 @@ var extractPrograms = function(tags){
 
 
 // save array of sanitized media to db
-var saveArray = exports.addArray = function(medias){
+var saveImagesInArray = exports.addArray = function(medias){
 
-  saveImagesInArray(medias, 0);
+  saveImagesInArray_handler(medias, 0);
 
 };
 
 
+// saves all Instagram data in a sanitized array to the db
+var saveImagesInArray_handler = exports.saveImagesInArray = function(medias, index){
 
-var saveImagesInArray = exports.saveImagesInArray = function(medias, index){
+
+  var already_in_db = false;
+
+  Image.findOne({ content.id: medias[index].content.id}, function(err, image) {
+    if (err){
+      console.log('*******error attempting to get image by instagram id with msg: ' + err);
+    }else{
+      console.log('*******no error checking for duplicate by instagram id');
+      already_in_db = true;
+    }
+  });
+
+
 
   var image = new Image();
 
@@ -160,6 +174,8 @@ var saveImagesInArray = exports.saveImagesInArray = function(medias, index){
   });
 
 };
+
+
 
 
 
