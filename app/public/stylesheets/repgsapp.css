@@ -87,6 +87,7 @@
 #repgsapp-wrapper header #nav2 .nav-program{
   text-transform:uppercase;
   margin-right:5px;
+  text-decoration:none;
 }
 
 /* Main elements */
