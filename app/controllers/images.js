@@ -76,6 +76,8 @@ var instagram_handler = function(err, medias, pagination, limit) {
         if(pagination.next && (media_buffer.length < 100)){
           console.log('\nPAGINATION.NEXT()\n');
 
+          console.log('media_buffer.length: '+ media_buffer.length);
+
           pagination.next(instagram_handler);
         }else{
           // store all media in media_buffer[] in db
