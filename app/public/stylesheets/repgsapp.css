@@ -153,10 +153,12 @@
   display:block;
   margin:0 auto;
   text-align:center;
+  clear:both;
 }
 
 #repgsapp-wrapper.edit-page #header-bottom .menu .item{
   display:inline-block;
+  float:left;
 }
 
 

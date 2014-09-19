@@ -39,17 +39,17 @@
             </div><!-- /#header-top -->
 
             <div id="header-bottom">
-              <div id="menu" class="titles">
+              <div class="menu titles">
                 <div class="item"><a href="/edit/pending" target="_self">Pending</a></div>
                 <div class="item"><a href="/edit/published" target="_self">Published</a></div>
                 <div class="item"><a href="/edit/hidden" target="_self">Hidden</a></div>
+                <div class="item">
+                  <form name="fetch" action="/fetch" method="get">
+                    <button name="fetch" type="submit">Fetch</button>
+                  </form>
+                </div><!-- /.item -->
               </div>
 
-              <div id="x">
-                <form name="fetch" action="/fetch" method="get">
-                  <button name="fetch" type="submit">Fetch</button>
-                </form>
-              </div>
 
             </div><!-- /#header-bottom -->
           </header>
