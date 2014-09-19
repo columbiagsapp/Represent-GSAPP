@@ -52,9 +52,7 @@
   position:fixed;
   top:10px;
   right:10px;
-  font-size:10px;
-  background-color:black;
-  color:white;
+  font-size:14px;
 }
 
 #repgsapp-wrapper header{
@@ -167,6 +165,16 @@
 
 #repgsapp-wrapper.edit-page #header-bottom .menu .item{
   display:inline-block;
+}
+
+#repgsapp-wrapper.edit-page #header-bottom .menu .item a{
+  text-decoration:none;
+  border-bottom:2px dotted;
+  color:black;
+}
+
+#repgsapp-wrapper.edit-page #header-bottom .menu .item.selected{
+  border:2px dotted;
 }
 
 
