@@ -78,7 +78,6 @@
                     </div>
                     <br>–
                     <div>
-                      <label>Change status:</label><br>
                       <label>Current status: </label><%= images[i].status %><br>
                       <% if(images[i].status != 'pending'){ %>
                         <form class="controls-float" name="pend" action="/api/pend" method="post">
