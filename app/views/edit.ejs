@@ -110,7 +110,9 @@
 
         <script>
           $(document).ready(function(){
+            console.log('ready!');
             $('.status-buttons button').click(function(){
+              console.log('clicked!');
               $(this).closest('.item').remove();
             });
 
