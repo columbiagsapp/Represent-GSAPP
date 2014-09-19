@@ -178,7 +178,8 @@
 }
 
 #repgsapp-wrapper.edit-page main.content{
-  font:11px/14px bold Arial, Helvetica, sans-serif;
+  font:14px/17px Arial, Helvetica, sans-serif;
+  font-weight:bold;
 }
 
 
