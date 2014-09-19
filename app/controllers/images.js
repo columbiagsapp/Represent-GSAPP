@@ -264,7 +264,7 @@ exports.setStatus = function(req, res, id, status){
           console.log('setStatus()::error attempting to save image status');
           res.send(500, 'image status not saved, server error on save attempt');
         } else {
-          res.redirect('/edit/' + status);
+          res.send(200);
         }
       });// end save
 
