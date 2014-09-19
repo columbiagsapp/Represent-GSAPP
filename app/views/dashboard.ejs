@@ -64,10 +64,11 @@
                   </div><!-- /.metadata -->
                   <div class="edit-controls">
                     <form name="update" action="/api/update" method="post">
-                      <label>Programs: </label><input type="text" name="programs" value="<%= images[i].programs %>">
-                      <label>Location: </label><input type="text" name="location" value="<%= images[i].location %>">
+                      <label>Programs: </label><br><input type="text" name="programs" value="<%= images[i].programs %>">
+                      <label>Location: </label><br><input type="text" name="location" value="<%= images[i].location %>">
                       <button name="update" type="submit" value="<%= images[i]._id %>">Save Updates</button>
                     </form>
+                    <br>
                     <br>
                     <form class="controls-float" name="hide" action="/api/hide" method="post">
                       <button name="hide" type="submit" value="<%= images[i]._id %>">Hide</button>
