@@ -195,6 +195,7 @@
   float:left;
   margin:10px;
   display:block;
+  overflow-x:hidden;
 }
 
 .edit-grid .item img{
