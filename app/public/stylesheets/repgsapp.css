@@ -172,7 +172,7 @@
   margin:0 1px;
   text-decoration:none;
   border-bottom:2px dotted;
-  color:black;
+  color:#222;
 }
 
 #repgsapp-wrapper.edit-page #header-bottom .menu .item.selected a{
