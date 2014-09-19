@@ -236,7 +236,7 @@ exports.edit = function(req, res, status){
       res.send(500);
     }else{
 
-      res.render(status, { images: images, status: status });
+      res.render('edit', { images: images, status: status });
     }
   });
 };
