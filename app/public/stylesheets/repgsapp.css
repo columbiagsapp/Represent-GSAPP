@@ -48,6 +48,15 @@
 
 
 /* Header elements */
+#fetch-button{
+  position:fixed;
+  top:10px;
+  right:10px;
+  font-size:10px;
+  background-color:black;
+  color:white;
+}
+
 #repgsapp-wrapper header{
   width:100%;
   font-size:24px;
