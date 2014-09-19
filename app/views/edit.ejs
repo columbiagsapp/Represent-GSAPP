@@ -68,20 +68,25 @@
                   </div><!-- /.metadata -->
                   <br>–
                   <div class="edit-controls">
-                    <label>Update tags:</label><br>
-                    <form name="update" action="/api/update" method="post">
-                      <label>Programs: </label><br><input type="text" name="programs" value="<%= images[i].programs %>">
-                      <label>Location: </label><br><input type="text" name="location" value="<%= images[i].location %>">
-                      <button name="update" type="submit" value="<%= images[i]._id %>">Save Updates</button>
-                    </form>
+                    <div>
+                      <label>Update tags:</label><br>
+                      <form name="update" action="/api/update" method="post">
+                        <label>Programs: </label><br><input type="text" name="programs" value="<%= images[i].programs %>">
+                        <label>Location: </label><br><input type="text" name="location" value="<%= images[i].location %>">
+                        <button name="update" type="submit" value="<%= images[i]._id %>">Save Updates</button>
+                      </form>
+                    </div>
                     <br>–
-                    <label>Change status:</label><br>
-                    <form class="controls-float" name="hide" action="/api/hide" method="post">
-                      <button name="hide" type="submit" value="<%= images[i]._id %>">Hide</button>
-                    </form>
-                    <form class="controls-float" name="publish" action="/api/publish" method="post">
-                      <button name="publish" type="submit" value="<%= images[i]._id %>">Publish</button>
-                    </form>
+                    <div>
+                      <label>Change status:</label><br>
+                      <label>Current status: </label><%= images[i].status %><br>
+                      <form class="controls-float" name="hide" action="/api/hide" method="post">
+                        <button name="hide" type="submit" value="<%= images[i]._id %>">Hide</button>
+                      </form>
+                      <form class="controls-float" name="publish" action="/api/publish" method="post">
+                        <button name="publish" type="submit" value="<%= images[i]._id %>">Publish</button>
+                      </form>
+                    </div>
                   </div><!-- /.edit-controls -->
                 </div>
               <% } %>
