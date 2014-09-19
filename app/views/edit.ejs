@@ -62,7 +62,9 @@
                     <div><label>full_name: </label><%= images[i].content.user.full_name %></div>
                     <div><label>created_time: </label><%= images[i].created_time %></div>
                     <div><label>likes: </label><%= images[i].content.likes.count %></div>
-                    <div><label>caption: </label><%= images[i].content.caption.text %></div>
+                    <% if(images[i].content.caption != undefined){ %>
+                      <div><label>caption: </label><%= images[i].content.caption.text %></div>
+                    <% } %>
                   </div><!-- /.metadata -->
                   <br>–
                   <div class="edit-controls">
