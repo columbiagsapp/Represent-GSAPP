@@ -165,7 +165,7 @@
 
 #repgsapp-wrapper.edit-page #header-bottom .menu .item{
   display:inline-block;
-  margin:0 3px;
+  padding:0 3px;
 }
 
 #repgsapp-wrapper.edit-page #header-bottom .menu .item a{
@@ -175,6 +175,8 @@
 }
 
 #repgsapp-wrapper.edit-page #header-bottom .menu .item.selected{
+  border-bottom:none;
+  text-decoration:none;
   border:2px dotted;
 }
 
