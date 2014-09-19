@@ -217,14 +217,11 @@ var saveImagesInArray_handler = exports.saveImagesInArray = function(medias, ind
 
 // render all images through the view
 exports.renderAll = function(req, res, view){
-  Image.find({ 'status': 'published' }).exec(function(err, images) {
+  Image.find().exec(function(err, images) {
     if(err){
       console.log('renderAll()::error finding all images: '+ err);
       res.send(500);
     }else{
-      console.log('images[0].content.images.standard_resolution');
-      console.dir(images[0].content.images.standard_resolution.url);
-
       res.render(view, { images: images, programs: programs });
     }
   });
