@@ -36,10 +36,16 @@ exports.fetch = function(req, res){
 
 };
 
-
+// render the carousel
 exports.grid = function(req, res){
   console.log('/grid');
-  var images = Images.renderAll(req, res);
+  var images = Images.renderAll(req, res, 'grid');
+};
+
+// render the carousel
+exports.dashboard = function(req, res){
+  console.log('/dashboard');
+  var images = Images.renderAll(req, res, 'dashboard');
 };
 
 
