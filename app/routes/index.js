@@ -43,9 +43,9 @@ exports.grid = function(req, res){
 };
 
 // render the carousel
-exports.dashboard = function(req, res){
-  console.log('/dashboard');
-  var images = Images.renderAll(req, res, 'dashboard');
+exports.edit = function(req, res){
+  console.log('/edit');
+  var images = Images.renderAll(req, res, 'edit');
 };
 
 

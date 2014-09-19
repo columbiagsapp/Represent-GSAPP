@@ -51,7 +51,7 @@ app.get('/fetch', routes.fetch);
 
 app.get('/grid', routes.grid);
 
-app.get('/dashboard', routes.dashboard);
+app.get('/edit', routes.edit);
 
 
 
