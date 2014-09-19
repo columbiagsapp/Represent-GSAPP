@@ -175,9 +175,7 @@
   color:black;
 }
 
-#repgsapp-wrapper.edit-page #header-bottom .menu .item.selected{
-  border-bottom:none;
-  text-decoration:none;
+#repgsapp-wrapper.edit-page #header-bottom .menu .item.selected a{
   border:2px dotted;
 }
 
