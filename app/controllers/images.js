@@ -222,7 +222,7 @@ exports.renderAll = function(req, res, view){
       console.log('renderAll()::error finding all images: '+ err);
       res.send(500);
     }else{
-      res.render(view, { images: images, programs: programs });
+      res.render(view, { images: images, programs: programs, status: 'edit' });
     }
   });
 };
