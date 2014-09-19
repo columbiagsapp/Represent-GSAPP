@@ -8,7 +8,7 @@ console.log('images.js entered'.cyan);
 // Images routes use images controller
 var Images = require('../controllers/images');
 
-var stats = require('../../test/stats');
+var statsTest = require('../../test/stats');
 
 /////// END DEPENDENCIES
 
@@ -22,11 +22,8 @@ exports.landing = function(req, res){
   res.render('landing', { title: 'Represent GSAPP' });
 };
 
-exports.stats = function(req, res){
-  console.log('stats:');
-  console.dir(stats);
-
-  res.json(stats);
+exports.statsTest = function(req, res){
+  res.json(statsTest);
 };
 
 exports.fetch = function(req, res){
@@ -47,6 +44,14 @@ exports.edit = function(req, res){
   console.log('/edit');
   var images = Images.renderAll(req, res, 'edit');
 };
+
+
+exports.stats = function(req, res){
+  console.log('/api/stats');
+  Images.renderStats(req, res);
+}
+
+
 
 
 exports.editPublished = function(req, res){

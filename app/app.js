@@ -45,7 +45,7 @@ app.get('/', routes.index);
 
 app.get('/landing', routes.landing);
 
-app.get('/stats', routes.stats);
+app.get('/stats', routes.statsTest);
 
 app.get('/fetch', routes.fetch);
 
@@ -71,6 +71,8 @@ app.post('/api/hide', routes.hide);
 app.post('/api/pend', routes.pend);
 
 app.post('/api/update', routes.update);
+
+app.post('/api/stats', routes.stats);
 
 
 

@@ -242,6 +242,43 @@ exports.edit = function(req, res, status){
 };
 
 
+// send the stats as json
+exports.renderStats = function(req, res){
+  Image.find({'status': 'published'}).exec(function(err, images) {
+    if(err){
+      console.log('renderStats()::error finding all images: '+ err);
+      res.send(500);
+    }else{
+
+      var stats = {};
+
+      stats.total_images = images.length;
+      stats.programs = [];
+
+      for(var p = 0; p < programs.length; p++){
+        stats.programs[p] = {};
+        stats.programs[p].name = programs[p];
+        stats.programs[p].total_images = 0;
+      }
+
+      for(var i = 0; i < images.length; i++){
+        for(var j = 0; j < images[i].programs.length; j++){
+          for(var p = 0; p < programs.length; p++){
+            if(images[i].programs[j].toLowerCase().indexOf(programs[p].toLowerCase()) > 1){
+              stats.programs[p].total_images++;
+            }
+          }
+        }
+      }
+
+
+      res.json(stats);
+    }
+  });
+
+}
+
+
 
 
 // sets the status flag to status={published, pending, hidden} for image with id
