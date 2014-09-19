@@ -62,15 +62,17 @@
                     <div><label>full_name: </label><%= images[i].content.user.full_name %></div>
                     <div><label>created_time: </label><%= images[i].created_time %></div>
                     <div><label>likes: </label><%= images[i].content.likes.count %></div>
+                    <div><label>caption: </label><%= images[i].content.caption.text %></div>
                   </div><!-- /.metadata -->
+                  <br>–
                   <div class="edit-controls">
+                    <label>Update tags:</label><br>
                     <form name="update" action="/api/update" method="post">
                       <label>Programs: </label><br><input type="text" name="programs" value="<%= images[i].programs %>">
                       <label>Location: </label><br><input type="text" name="location" value="<%= images[i].location %>">
                       <button name="update" type="submit" value="<%= images[i]._id %>">Save Updates</button>
                     </form>
-                    <br>
-                    <br>
+                    <br>–
                     <label>Change status:</label><br>
                     <form class="controls-float" name="hide" action="/api/hide" method="post">
                       <button name="hide" type="submit" value="<%= images[i]._id %>">Hide</button>
