@@ -44,10 +44,10 @@
 
             <div id="header-bottom">
               <div class="menu titles">
-                <div class="item selected"><a href="/edit" target="_self">All</a></div>
-                <div class="item"><a href="/edit/pending" target="_self">Pending</a></div>
-                <div class="item"><a href="/edit/published" target="_self">Published</a></div>
-                <div class="item"><a href="/edit/hidden" target="_self">Hidden</a></div>
+                <div class="item <% if(status == undefined){ %> selected<% } %>"><a href="/edit" target="_self">All</a></div>
+                <div class="item <% if(status == 'pending'){ %> selected<% } %>"><a href="/edit/pending" target="_self">Pending</a></div>
+                <div class="item <% if(status == 'published'){ %> selected<% } %>"><a href="/edit/published" target="_self">Published</a></div>
+                <div class="item <% if(status == 'hidden'){ %> selected<% } %>"><a href="/edit/hidden" target="_self">Hidden</a></div>
               </div>
             </div><!-- /#header-bottom -->
           </header>
@@ -55,7 +55,7 @@
           <main class="content">
             <div class="edit-grid">
               <% for(var i = 0; i < images.length; i++){ %>
-                <div class="item">
+                <div class="item images[i].status">
                   <img src="<%= images[i].content.images.standard_resolution.url %>" />
                   <div class="metadata">
                     <div><label>username: </label><%= images[i].content.user.username %></div>
@@ -80,12 +80,21 @@
                     <div>
                       <label>Change status:</label><br>
                       <label>Current status: </label><%= images[i].status %><br>
-                      <form class="controls-float" name="hide" action="/api/hide" method="post">
-                        <button name="hide" type="submit" value="<%= images[i]._id %>">Hide</button>
-                      </form>
-                      <form class="controls-float" name="publish" action="/api/publish" method="post">
-                        <button name="publish" type="submit" value="<%= images[i]._id %>">Publish</button>
-                      </form>
+                      <% if(images[i].status != 'pending'){ %>
+                        <form class="controls-float" name="pend" action="/api/pend" method="post">
+                          <button name="pend" type="submit" value="<%= images[i]._id %>">Pend</button>
+                        </form>
+                      <% } %>
+                      <% if(images[i].status != 'hidden'){ %>
+                        <form class="controls-float" name="hide" action="/api/hide" method="post">
+                          <button name="hide" type="submit" value="<%= images[i]._id %>">Hide</button>
+                        </form>
+                      <% } %>
+                      <% if(images[i].status != 'published'){ %>
+                        <form class="controls-float" name="publish" action="/api/publish" method="post">
+                          <button name="publish" type="submit" value="<%= images[i]._id %>">Publish</button>
+                        </form>
+                      <% } %>
                     </div>
                   </div><!-- /.edit-controls -->
                 </div>
