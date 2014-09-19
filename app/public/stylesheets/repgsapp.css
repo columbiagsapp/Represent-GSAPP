@@ -177,7 +177,9 @@
   border:2px dotted;
 }
 
-
+#repgsapp-wrapper.edit-page main.content{
+  font:11px/14px bold Arial, Helvetica, sans-serif;
+}
 
 
 .edit-grid{
