@@ -77,7 +77,7 @@
                       </form>
                     </div>
                     <br>–
-                    <div>
+                    <div class="status-buttons">
                       <label>Current status: </label><%= images[i].status %><br>
                       <% if(images[i].status != 'pending'){ %>
                         <form class="controls-float" name="pend" action="/api/pend" method="post">
@@ -108,7 +108,15 @@
 
 
 
+        <script>
+          $(document).ready(function(){
+            $('.status-buttons button').click(function(){
+              $(this).closest('.item').remove();
+            });
 
+          });
+
+        </script>
 
 
 
