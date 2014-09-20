@@ -214,12 +214,13 @@ var saveImagesInArray_handler = exports.saveImagesInArray = function(medias, ind
 
 
 function(){
+  console.log('\n\n*******adding featured:');
   Image.find().exec(function(err, images) {
     if(err){
       console.log('initFeatured()::error finding all images: '+ err);
     }else{
 
-
+      console.log('images.length: ' + images.length);
 
       for(var i = 0; i < images.length; i++){
 
