@@ -213,7 +213,7 @@ var saveImagesInArray_handler = exports.saveImagesInArray = function(medias, ind
 
 
 
-function(){
+function featured(){
   console.log('\n\n*******adding featured:');
   Image.find().exec(function(err, images) {
     if(err){
@@ -236,6 +236,8 @@ function(){
   });
 
 }
+
+featured();
 
 
 // render all images through the view
