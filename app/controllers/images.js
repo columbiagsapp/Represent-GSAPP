@@ -213,6 +213,28 @@ var saveImagesInArray_handler = exports.saveImagesInArray = function(medias, ind
 
 
 
+function(){
+  Image.find().exec(function(err, images) {
+    if(err){
+      console.log('initFeatured()::error finding all images: '+ err);
+    }else{
+
+
+
+      for(var i = 0; i < images.length; i++){
+
+        images[i].featured = false;
+        images[i].markModified('featured');
+
+        images[i].save();// end save
+
+      }
+
+
+    }
+  });
+
+}
 
 
 // render all images through the view
