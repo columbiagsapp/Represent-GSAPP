@@ -90,10 +90,17 @@ exports.hide = function(req, res){
   var images = Images.setStatus(req, res, req.body.hide, 'hidden');
 };
 
+exports.feature = function(req, res){
+  console.log('/api/feature');
+  var images = Images.setStatus(req, res, req.body.publish, 'featured');
+};
+
 exports.update = function(req, res){
   console.log('/api/update');
   var images = Images.update(req, res);
 };
+
+
 
 
 /*

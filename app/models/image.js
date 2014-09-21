@@ -24,10 +24,6 @@ var ImageSchema = new Schema({
     downloaded: {
         type: Boolean,
         defaut: false
-    },
-    featured:{
-        type: Boolean,
-        defaut: false
     }
 });
 

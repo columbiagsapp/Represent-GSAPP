@@ -76,6 +76,12 @@
                         <button name="update" type="submit" value="<%= images[i]._id %>">Save Updates</button>
                       </form>
                     </div>
+                    <br>-
+                    <div>
+                      <form name="feature" action="/api/feature" method="post">
+                        <button name="feature" type="submit" value="<%= images[i]._id %>">Feature</button>
+                      </form>
+                    </div>
                     <br>–
                     <div class="status-buttons">
                       <label>Current status: </label><%= images[i].status %><br>
