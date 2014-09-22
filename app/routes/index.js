@@ -10,6 +10,8 @@ var Images = require('../controllers/images');
 
 var statsTest = require('../../test/stats');
 
+var programs = require('../programs');
+
 /////// END DEPENDENCIES
 
 
@@ -19,7 +21,7 @@ exports.index = function(req, res){
 };
 
 exports.landing = function(req, res){
-  res.render('landing', { title: 'Represent GSAPP' });
+  res.render('landing', { title: 'Represent GSAPP', programs: programs });
 };
 
 exports.statsTest = function(req, res){
