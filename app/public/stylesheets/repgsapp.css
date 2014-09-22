@@ -232,6 +232,20 @@
   margin-right:5px;
 }
 
+
+
+/* Slick carousel */
+
+.slick-slide .image{
+  padding: 10px;
+}
+
+.slick-slide img {
+  display: block;
+  width: 100%;
+}
+
+
 /* Program colors */
 
 .draw{
