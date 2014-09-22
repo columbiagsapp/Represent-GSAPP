@@ -51,8 +51,9 @@
                   console.dir(data.images[0]);
                   console.log();
 
-                  $("#carousel ." + data.program + ' img').attr('src', data.images[0].content.images.standard_resolution.url);
-
+                  if(data.images[0] != undefined){
+                    $("#carousel ." + data.program + ' img').attr('src', data.images[0].content.images.standard_resolution.url);
+                  }
                 });
               }// end for
             });// end original get
