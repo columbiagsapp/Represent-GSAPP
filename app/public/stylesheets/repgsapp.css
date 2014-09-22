@@ -42,6 +42,17 @@
   background: -ms-linear-gradient(left, #ffffff 0%,#ed1b24 48%,#ed1b24 52%,#ffffff 100%);
   background: linear-gradient(to right, #ffffff 0%,#ed1b24 48%,#ed1b24 52%,#ffffff 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 );
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -moz-transform: rotate(-45deg);
+  -moz-transform-origin: 0 0;
+  -webkit-transform: rotate(-45deg);
+  -webkit-transform-origin: 0 0;
+
 }
 
 #repgsapp-wrapper{
