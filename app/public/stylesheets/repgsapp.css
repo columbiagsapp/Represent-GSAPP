@@ -125,6 +125,10 @@
   height:400px;
 }
 
+.slick-list{
+  width:100%;
+}
+
 .owl-carousel{
   height:400px;
 }
