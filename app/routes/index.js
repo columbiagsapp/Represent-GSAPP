@@ -100,7 +100,9 @@ exports.update = function(req, res){
   var images = Images.update(req, res);
 };
 
-
+exports.getByProgram = function(req, res){
+  var images = Images.getByProgram(req, res);
+}
 
 
 /*

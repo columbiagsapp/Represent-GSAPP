@@ -66,6 +66,8 @@ app.get('/edit/pending', routes.editPending);
 
 app.get('/api/stats', routes.stats);
 
+app.get('/api/get/program/:program', routes.getByProgram);
+
 app.post('/api/publish', routes.publish);
 
 app.post('/api/hide', routes.hide);
