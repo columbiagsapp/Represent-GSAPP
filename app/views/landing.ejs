@@ -52,9 +52,9 @@
                   if(data.images[0] != undefined){
                     console.log('<div class="item '+ data.program +'"><img src="'+ data.images[0].content.images.standard_resolution.url +'"><label>'+ data.program +'</label></div>');
 
-                    $("#carousel").slickAdd('<div><h3>'+ slideIndex++ +'</h3></div>');
+                    //$("#carousel").slickAdd('<div><h3>'+ slideIndex++ +'</h3></div>');
 
-                    //$("#carousel").slickAdd('<div class="item '+ data.program +'"><img src="'+ data.images[0].content.images.standard_resolution.url +'"><label>'+ data.program +'</label></div>');
+                    $("#carousel").slickAdd('<div class="item '+ data.program +'"><img src="'+ data.images[0].content.images.standard_resolution.url +'"><label>'+ data.program +'</label></div>');
 
                   }
                 });
