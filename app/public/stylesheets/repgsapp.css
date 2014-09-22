@@ -269,30 +269,42 @@
 /* Program colors */
 
 .draw{
-  color:red;
+  color:#ed1b24;
 }
 
 .read{
-  color:green;
+  color:#f37020;
 }
 
 .write{
-  color:cyan;
+  color:#f89f1c;
 }
 
 .discuss{
-
+ color:#f596c0;
 }
 
 .present{
-
+  color:#f7b1a9;
 }
-.make{}
-.lecture{}
-.render{}
-.celebrate{}
-.critique{}
-.plot{}
+.make{
+  color:#6299d3;
+}
+.lecture{
+  color:#0091d5;
+}
+.render{
+  color:#2f3192;
+}
+.celebrate{
+  color:#792d80;
+}
+.critique{
+  color:#b61e8d;
+}
+.plot{
+  color:#ee1067;
+}
 .photoraph{}
 .exhibit{}
 .install{}
