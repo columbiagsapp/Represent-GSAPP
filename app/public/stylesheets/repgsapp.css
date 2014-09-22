@@ -236,6 +236,12 @@
 
 /* Slick carousel */
 
+#carousel{
+  width:130%;
+  position:relative;
+  left:-15%;
+}
+
 .slick-slide .image{
   padding: 10px;
 }
