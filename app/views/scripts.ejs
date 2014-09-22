@@ -1,0 +1,29 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="javascript/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+<script src="/javascript/plugins.js"></script>
+<script src="/javascript/owl-carousel/owl.carousel.js"></script>
+
+<script src="/javascript/main.js"></script>
+
+<script>
+  $(document).ready(function(){
+    console.log('ready!');
+    $('.status-buttons button').click(function(){
+      console.log('clicked!');
+      $(this).closest('.item').remove();
+    });
+
+  });
+
+</script>
+
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='//www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-XXXXX-X');ga('send','pageview');
+</script>
