@@ -242,6 +242,20 @@
   left:-15%;
 }
 
+#carousel .image{
+  position:relative;
+}
+
+#carousel .image label{
+  text-transform:uppercase;
+  font-size:2em;
+  position:absolute;
+  z-index:100;
+  top:48%;
+  width:100%;
+  text-align:center;
+}
+
 .slick-slide .image{
   padding: 10px;
 }
