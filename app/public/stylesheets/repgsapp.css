@@ -98,6 +98,15 @@
   padding:0;
 }
 
+#repgsapp-wrapper #subtitle{
+  width:100%;
+  text-align:center;
+  float:left;
+  margin:0;
+  padding:0;
+  display:block;
+}
+
 #repgsapp-wrapper .titles{
   font-size:1.5em;
 }
