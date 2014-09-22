@@ -27,6 +27,7 @@
 }
 
 .gradient {
+  opacity:0.5;
   display:block;
   height:10000%;
   width:17%;
