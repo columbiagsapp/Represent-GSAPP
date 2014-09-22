@@ -1,1 +1,72 @@
 .red{color:#ed1b24;stroke:#ed1b24;fill:#ed1b24}.red-orange{color:#f37020;stroke:#f37020;fill:#f37020}.orange{color:#f89f1c;stroke:#f89f1c;fill:#f89f1c}.pink{color:#f596c0;stroke:#f596c0;fill:#f596c0}.salmon{color:#f7b1a9;stroke:#f7b1a9;fill:#f7b1a9}.blue{color:#6299d3;stroke:#6299d3;fill:#6299d3}.blue-alt{color:#0091d5;stroke:#0091d5;fill:#0091d5}.purple{color:#2f3192;stroke:#2f3192;fill:#2f3192}.violet{color:#792d80;stroke:#792d80;fill:#792d80}.fuchsia{color:#b61e8d;stroke:#b61e8d;fill:#b61e8d}.red-purple{color:#ee1067;stroke:#ee1067;fill:#ee1067}
+
+
+/* Program colors */
+
+.draw{
+  color:#ed1b24;
+}
+
+.read{
+  color:#f37020;
+}
+
+.write{
+  color:#f89f1c;
+}
+
+.discuss{
+ color:#f596c0;
+}
+
+.present{
+  color:#f7b1a9;
+}
+.make{
+  color:#6299d3;
+}
+.lecture{
+  color:#0091d5;
+}
+.render{
+  color:#2f3192;
+}
+.celebrate{
+  color:#792d80;
+}
+.critique{
+  color:#b61e8d;
+}
+.plot{
+  color:#ee1067;
+}
+
+
+
+.photoraph{
+  color:#ed1b24;
+}
+.exhibit{
+  color:#f37020;
+}
+.install{
+  color:#f89f1c;
+}
+.teach{
+  color:#f596c0;
+}
+.test{
+  color:#f7b1a9;
+}
+.learn{
+  color:#6299d3;
+}
+.spray{
+  color:#0091d5;
+}
+.sleep{
+  color:#2f3192;
+}
+.smile{
+  color:#792d80;
+}
