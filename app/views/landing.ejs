@@ -48,6 +48,7 @@
                   console.log(data.program);
 
                   if(data.images[0] != undefined){
+                    console.log('$: ' + "#carousel ." + data.program + ' img');
                     console.log(data.images[0].content.images.standard_resolution.url);
                     $("#carousel ." + data.program + ' img').attr('src', data.images[0].content.images.standard_resolution.url);
                   }
