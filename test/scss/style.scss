@@ -1,6 +1,55 @@
 @import "vars";
 @import "normalize";
 
+* {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	position: relative;
+}
+
+body { 
+	overflow-x: hidden;
+}
+
+header {
+	color: #333;
+	font-size: 150%;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.gradient {
+	height: 9999px;
+	left: 30%;
+	position: fixed;
+	top: 0;
+	width: 300px;
+
+	transform: rotate(-45deg);
+	transform-origin: 0 0;
+	-moz-transform: rotate(-45deg);
+	-moz-transform-origin: 0 0;
+	-webkit-transform: rotate(-45deg);
+	-webkit-transform-origin: 0 0;
+
+	background: #ffffff;
+	background: -moz-linear-gradient(left, #ffffff 0%, $red 48%, $red 52%, #ffffff 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ffffff), color-stop(48%,$red), color-stop(52%,$red), color-stop(100%,#ffffff));
+	background: -webkit-linear-gradient(left, #ffffff 0%,$red 48%,$red 52%,#ffffff 100%);
+	background: -o-linear-gradient(left, #ffffff 0%,$red 48%,$red 52%,#ffffff 100%);
+	background: -ms-linear-gradient(left, #ffffff 0%,$red 48%,$red 52%,#ffffff 100%);
+	background: linear-gradient(to right, #ffffff 0%,$red 48%,$red 52%,#ffffff 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 );
+}
+
 .chart-label {
 	text-transform: uppercase;
+}
+
+#stats {
+	display: block;
+	// cursor: move;
+	margin: 0 auto;
+	top: 140px;
 }
