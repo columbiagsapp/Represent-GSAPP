@@ -34,7 +34,6 @@
           $(document).ready(function(){
 
             $.get( "/api/get/programs", function( programs ) {
-              console.dir(programs);
 
               // build up carousel with dummy containers
               for(var p = 0; p < programs.length; p++){
@@ -43,15 +42,13 @@
 
 
               for(var p = 0; p < programs.length; p++){
-                console.log('program:' + programs[p]);
 
                 $.get( "/api/get/program/" + programs[p], function( data ) {
-                  console.log('p:'+ p);
-                  console.dir(data.program);
-                  console.dir(data.images[0]);
                   console.log();
+                  console.log(data.program);
 
                   if(data.images[0] != undefined){
+                    console.log(data.images[0].content.images.standard_resolution.url);
                     $("#carousel ." + data.program + ' img').attr('src', data.images[0].content.images.standard_resolution.url);
                   }
                 });
