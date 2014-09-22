@@ -19,7 +19,7 @@
 
           <main>
             <ul id="carousel">
-              
+
             </ul>
 
           </main>
@@ -33,11 +33,11 @@
         <script>
           $(document).ready(function(){
 
-            $.get( "/api/get/programs", function( data ) {
-              console.dir(data);
+            $.get( "/api/get/programs", function( programs ) {
+              console.dir(programs);
 
-              for(var p = 0; p < data.programs.length; p++){
-                console.log('program:' + data.programs[p]);
+              for(var p = 0; p < programs.length; p++){
+                console.log('program:' + programs[p]);
               }
 
 
