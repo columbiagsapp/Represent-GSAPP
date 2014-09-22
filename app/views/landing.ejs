@@ -45,11 +45,11 @@
 
                 $.get( "/api/get/program/" + programs[p], function( data ) {
                   console.log();
-                  console.log(data.program);
+
 
                   if(data.images[0] != undefined){
-                    console.log('$: ' + "#carousel ." + data.program + ' img');
-                    console.log(data.images[0].content.images.standard_resolution.url);
+                    console.log(<div class="item '+ data.program +'"><img src="'+ data.images[0].content.images.standard_resolution.url +'"><label>'+ data.program +'</label></div>);
+
                     $("#carousel").slickAdd('<div class="item '+ data.program +'"><img src="'+ data.images[0].content.images.standard_resolution.url +'"><label>'+ data.program +'</label></div>');
 
                   }
