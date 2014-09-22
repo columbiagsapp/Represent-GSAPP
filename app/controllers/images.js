@@ -353,7 +353,7 @@ exports.update = function(req, res){
 exports.getByProgram = function(req, res){
   var program = req.params.program; //from the url path /api/get/program/:program
   console.log('getByProgram()::' + program);
-  Image.find({ "programs" : program }).exec(function(err, images) {
+  Image.find({ "status", "published"}, { "programs" : program }).exec(function(err, images) {
     if(err){
       console.log('renderAll()::error finding all images: '+ err);
       res.send(500);
