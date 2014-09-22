@@ -104,7 +104,11 @@ exports.update = function(req, res){
 
 exports.getByProgram = function(req, res){
   var images = Images.getByProgram(req, res);
-}
+};
+
+exports.getPrograms = function(req, res){
+  res.json(programs);
+};
 
 
 /*

@@ -6,7 +6,7 @@
 <% include head %>
 
 
-    <body class="gradient">
+    <body id="landing" class="gradient">
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -17,14 +17,37 @@
 
           <% include header %>
 
-          test
+          <main>
+            <ul id="carousel">
+              <% for(var p = 0; p < programs.length; p++){ %>
+                <li class="item"><img src="<%= images[i].content.images.standard_resolution.url %>" /></li>
+              <% } %>
+            </ul>
+
+          </main>
 
 
         </div><!-- #repgsapp-wrapper -->
 
 
-
-
         <% include scripts %>
+
+        <script>
+          $(document).ready(function(){
+
+            $.get( "/api/get/programs", function( data ) {
+              console.dir(data);
+
+              for(var p = 0; p < data.programs.length; p++){
+                console.log('program:' + data.programs[p]);
+              }
+
+
+
+            });
+
+
+          });
+        </script>
     </body>
 </html>
