@@ -1,0 +1,20 @@
+<header>
+  <div id="header-top">
+    <div id="nav1">
+      <ul>
+        <li id="analytics" class="item"><a href="#"><img src="img/analytics.jpg" /></a></li>
+        <li id="about" class="item"><a href="#"><img src="img/question.jpg" /></a></li>
+      </ul>
+    </div><!-- /#nav1 -->
+
+    <h1 id="title" class="titles">R-PR-SENT GSAPP</h1>
+
+    <div id="x">X</div>
+
+  </div><!-- /#header-top -->
+  <nav id="nav2">
+    <% for(var p = 0; p < programs.length; p++){ %>
+      <a class="nav-program titles <%= programs[p] %>" href="#" target="_self"><%= programs[p] %></a>
+    <% } %>
+  </nav>
+</header>
