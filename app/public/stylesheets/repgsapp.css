@@ -34,7 +34,7 @@
   position:fixed;
   z-index:-100;
   top:0;
-  left:35%;
+  left:15%;
   background: #ffffff;
   background: -moz-linear-gradient(left, #ffffff 0%, #ed1b24 48%, #ed1b24 52%, #ffffff 100%);
   background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ffffff), color-stop(48%,#ed1b24), color-stop(52%,#ed1b24), color-stop(100%,#ffffff));
