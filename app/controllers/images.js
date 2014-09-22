@@ -350,8 +350,10 @@ exports.update = function(req, res){
 
 
 // return json of all images in a given program
-exports.getByProgram = function(req, res, program){
-  Image.find({ "status": "published", "programs" : program }).exec(function(err, images) {
+exports.getByProgram = function(req, res){
+  var program = req.params.program; //from the url path /api/get/program/:program
+  console.log('getByProgram()::' + program);
+  Image.find({ "programs" : program }).exec(function(err, images) {
     if(err){
       console.log('renderAll()::error finding all images: '+ err);
       res.send(500);
