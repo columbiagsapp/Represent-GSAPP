@@ -13,35 +13,51 @@ body {
 }
 
 header {
-	color: #333;
-	font-size: 150%;
+	padding: 20px 0;
 	text-align: center;
-	text-transform: uppercase;
 }
 
-.gradient {
+@mixin gradient($color) {
 	height: 9999px;
-	left: 30%;
+	left: -50%;
 	position: fixed;
-	top: 0;
-	width: 300px;
+	top: -50%;
+	width: 100%;
 
 	transform: rotate(-45deg);
-	transform-origin: 0 0;
+	transform-origin: 50% 0;
 	-moz-transform: rotate(-45deg);
-	-moz-transform-origin: 0 0;
+	-moz-transform-origin: 50% 0;
 	-webkit-transform: rotate(-45deg);
-	-webkit-transform-origin: 0 0;
+	-webkit-transform-origin: 50% 0;
+	transition: opacity 5s;
+	-webkit-transition: opacity 5s;
+	-moz-transition: opacity 5s;
 
 	background: #ffffff;
-	background: -moz-linear-gradient(left, #ffffff 0%, $red 48%, $red 52%, #ffffff 100%);
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ffffff), color-stop(48%,$red), color-stop(52%,$red), color-stop(100%,#ffffff));
-	background: -webkit-linear-gradient(left, #ffffff 0%,$red 48%,$red 52%,#ffffff 100%);
-	background: -o-linear-gradient(left, #ffffff 0%,$red 48%,$red 52%,#ffffff 100%);
-	background: -ms-linear-gradient(left, #ffffff 0%,$red 48%,$red 52%,#ffffff 100%);
-	background: linear-gradient(to right, #ffffff 0%,$red 48%,$red 52%,#ffffff 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 );
+	background: -moz-linear-gradient(left, #ffffff 0%, #ffffff 10%, $color 48%, $color 52%, #ffffff 90%, #ffffff 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ffffff), color-stop(48%,$color), color-stop(52%,$color), color-stop(100%,#ffffff));
+	background: -webkit-linear-gradient(left, #ffffff 0%, #ffffff 10%,$color 48%,$color 52%,#ffffff 90%, #ffffff 100%);
+	background: -o-linear-gradient(left, #ffffff 0%, #ffffff 10%,$color 48%,$color 52%,#ffffff 90%, #ffffff 100%);
+	background: -ms-linear-gradient(left, #ffffff 0%, #ffffff 10%,$color 48%,$color 52%,#ffffff 90%, #ffffff 100%);
+	background: linear-gradient(to right, #ffffff 0%, #ffffff 10%,$color 48%,$color 52%,#ffffff 90%, #ffffff 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 );	
 }
+
+.gradient { @include gradient($red); } // red is default
+.gradient.gradient-red { @include gradient($red); }
+.gradient.gradient-red-orange { @include gradient($red-orange); }
+.gradient.gradient-orange { @include gradient($orange); }
+.gradient.gradient-pink { @include gradient($pink); }
+.gradient.gradient-salmon { @include gradient($salmon); }
+.gradient.gradient-blue { @include gradient($blue); }
+.gradient.gradient-blue-alt { @include gradient($blue-alt); }
+.gradient.gradient-purple { @include gradient($purple); }
+.gradient.gradient-violet { @include gradient($violet); }
+.gradient.gradient-fuchsia { @include gradient($fuchsia); }
+.gradient.gradient-red-purple { @include gradient($red-purple); }
+
+.gradient.faded { opacity: 0; }
 
 .chart-label {
 	text-transform: uppercase;
@@ -51,5 +67,5 @@ header {
 	display: block;
 	// cursor: move;
 	margin: 0 auto;
-	top: 140px;
+	top: 20px;
 }

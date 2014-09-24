@@ -5,6 +5,8 @@
 		columnWidth = 50, // might want to dynamically set this from text width
 		data;
 
+	var gradient = $('.gradient');
+
 	var height = +chart.attr('height'),
 		width = +chart.attr('width');
 
@@ -34,7 +36,7 @@
 			// create bar
 			// TODO: height should be relative to program with highest # of total images,
 			// which is 100% height of the chart
-			var bar = chart.rect( columnWidth * i + columnWidth / 10, height - data.programs[i].total_images - 145, columnWidth - columnWidth / 5, data.programs[i].total_images ).attr({
+			var bar = chart.rect( columnWidth * i + columnWidth / 10, height - 5 * data.programs[i].total_images - 145, columnWidth - columnWidth / 5, 5 * data.programs[i].total_images ).attr({
 				'class': colors[i % colors.length]
 			});
 		}
@@ -73,6 +75,32 @@
 			});
 		}
 	}
+
+	function gradientCycle() {
+		var classes = gradient.attr('class').split(' '),
+			oldClass;
+		for ( var i = 0; i < classes.length; i++ ) {
+			if ( classes[i] !== 'gradient') {
+				oldClass = classes[i];
+				oldClass = oldClass.replace('gradient-', '');
+				break;
+			}
+		}
+		var newClass = colors[(colors.indexOf(oldClass) + 1) % colors.length];
+		var newGradient = $('<div class="gradient gradient-' + newClass + ' faded">');
+		$('.gradient-' + oldClass).last().after(newGradient);
+		
+		//gradient.addClass('faded');
+		setTimeout(function(){
+			newGradient.removeClass('faded');
+		}, 100);
+		
+		setTimeout(function(){
+			gradient = newGradient;
+			gradientCycle();
+		}, 5000);
+	}
+	gradientCycle();
 
 	function init() {
 		retrieveData();
