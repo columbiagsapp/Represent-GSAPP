@@ -26,7 +26,7 @@ $(document).ready(function(){
     }, cycle);
   }
 
-  fadeSwitchElements('full', 'hash', 1000, 3000);
+  fadeSwitchElements('full', 'hash', 2000, 5000);
 
 
   // Gradient background
