@@ -116,7 +116,7 @@
 }
 
 #repgsapp-wrapper .titles{
-  font-size:1.5em;
+  font-size:2.5em;
 }
 
 #repgsapp-wrapper #x{
@@ -183,7 +183,7 @@
 #repgsapp-wrapper .scroll-arrow {
   width: 5%;
   height: 100%;
-  font-size:1.5em;
+  font-size:2.5em;
   display: block;
   position: absolute;
   bottom: 0;
@@ -316,7 +316,7 @@
 
 #carousel .image label{
   text-transform:uppercase;
-  font-size:2em;
+  font-size:2.5em;
   position:absolute;
   z-index:100;
   top:48%;
