@@ -297,9 +297,9 @@
 /* Slick carousel */
 
 #carousel{
-  width:120%;
+  width:117%;
   position:relative;
-  left:-10%;
+  left:-8.5%;
 }
 
 #carousel .item{
@@ -307,7 +307,7 @@
   display:inline-block;
   width:37%;
   text-align:left;
-  padding:0 1.5%;
+  padding:0 1%;
 }
 
 #carousel .image label{
