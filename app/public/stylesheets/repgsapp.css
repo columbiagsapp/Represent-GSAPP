@@ -76,8 +76,6 @@
 
 #repgsapp-wrapper header{
   width:100%;
-  font-size:24px;
-  float:left;
 }
 
 
@@ -142,12 +140,11 @@
 }
 
 #repgsapp-wrapper header #nav2{
-  clear:both;
-  float:left;
   display:block;
   width:98%;
   padding:0 1%;
   text-align:left;
+  margin: 60px 0 0;
 }
 
 #repgsapp-wrapper header #nav2 .nav-program{
