@@ -72,7 +72,6 @@ $(document).ready(function(){
   var gradient = $('.gradient');
 
   function gradientCycle() {
-    console.log('gradientCycle()');
     var classes = gradient.attr('class').split(' '),
       oldClass;
     for ( var i = 0; i < classes.length; i++ ) {
