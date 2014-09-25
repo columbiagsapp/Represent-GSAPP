@@ -19,8 +19,11 @@ $(document).ready(function(){
     {
       element2.fadeToggle(500, function() {
         element1.fadeToggle(500);
-      });   
+      });
     }
+    setTimeout(function(){
+      fadeSwitchElements(id2, id1);
+    }, 2000);
   }
 
   fadeSwitchElements('full', 'hash');
