@@ -15,7 +15,7 @@ $(document).ready(function(){
     });
   };
 
-  var hover = false;
+  var hover = false;//global flag
 
   $('.scroll-arrow').each(function(){
     var modifier = ($(this).hasClass('right')) ? 1 : -1;
@@ -59,7 +59,7 @@ $(document).ready(function(){
   }
   //start the title fade after 3s
   setTimeout(function(){
-    fadeSwitchElements('full', 'hash', 2000, 0);//only do once, set last var to 0
+    fadeSwitchElements('full', 'hash', 2000, 7000);//only do once, set last var to 0
   }, 3000);
 
 
