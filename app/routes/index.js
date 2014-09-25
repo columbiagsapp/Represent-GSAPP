@@ -71,6 +71,11 @@ exports.editHidden = function(req, res){
   var images = Images.edit(req, res, 'hidden');
 };
 
+exports.editFeatured = function(req, res){
+  console.log('/edit/featured');
+  var images = Images.edit(req, res, 'featured');
+};
+
 
 
 

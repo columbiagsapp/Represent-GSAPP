@@ -61,6 +61,8 @@ app.get('/edit/hidden', routes.editHidden);
 
 app.get('/edit/pending', routes.editPending);
 
+app.get('/edit/featured', routes.editFeatured);
+
 
 // api for editing
 
