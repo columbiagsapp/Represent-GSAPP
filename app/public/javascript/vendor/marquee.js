@@ -1,6 +1,5 @@
 function start() {
-   new mq('m1');
-   new mq('m2');
+   new mq('nav2');
    mqRotate(mqr); // must come last
 }
 window.onload = start;
