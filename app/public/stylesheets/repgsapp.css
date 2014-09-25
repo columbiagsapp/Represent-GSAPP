@@ -174,23 +174,29 @@
 }
 #repgsapp-wrapper .inside {
   position: absolute;
-  left: 2%;
-  right: 2%;
+  left: 5%;
+  right: 5%;
   bottom: 0px;
   top: 0px;
-  width:96%;
+  width:90%;
   white-space: nowrap;
   overflow-x: hidden;
 }
 
 #repgsapp-wrapper .scroll-arrow {
-  width: 2%;
+  width: 5%;
   height: 100%;
   font-size:2em;
   display: block;
   position: absolute;
   bottom: 0;
   z-index: 199;
+}
+
+#repgsapp-wrapper .scroll-arrow{
+  color:black;
+  text-decoration:none;
+  vertical-align:middle;
 }
 
 #repgsapp-wrapper .left { left: 0;}
