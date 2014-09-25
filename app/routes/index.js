@@ -94,7 +94,7 @@ exports.hide = function(req, res){
 
 exports.feature = function(req, res){
   console.log('/api/feature');
-  var images = Images.setStatus(req, res, req.body.publish, 'featured');
+  var images = Images.setStatus(req, res, req.body.feature, 'featured');
 };
 
 exports.update = function(req, res){
