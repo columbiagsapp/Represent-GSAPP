@@ -297,15 +297,15 @@
 /* Slick carousel */
 
 #carousel{
-  width:117%;
+  width:120%;
   position:relative;
-  left:-8.5%;
+  left:-10%;
 }
 
 #carousel .item{
   position:relative;
   display:inline-block;
-  width:37%;
+  width:31%;
   text-align:left;
   padding:0 1%;
 }
