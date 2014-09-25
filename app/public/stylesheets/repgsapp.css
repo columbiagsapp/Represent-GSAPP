@@ -101,9 +101,6 @@
   z-index:100;
 }
 
-#repgsapp-wrapper #title {
-    position: relative;
-}
 #repgsapp-wrapper #title span {
     position: absolute;
     top: 0px;
