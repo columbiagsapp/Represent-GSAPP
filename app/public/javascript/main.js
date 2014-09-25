@@ -8,7 +8,7 @@ $(document).ready(function(){
   // program list scroll horizontally on hover
   function animatecontent(ele,modifier){
     var sl = ele.scrollLeft();
-    ele.animate({scrollLeft: sl + (modifier * 120)}, 500, 'linear',function(){
+    ele.animate({scrollLeft: sl + (modifier * 60)}, 500, 'linear',function(){
       if(hover){
         animatecontent(ele,modifier);
       }
