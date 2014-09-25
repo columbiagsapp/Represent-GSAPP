@@ -41,15 +41,16 @@
 
             $.get( "/api/get/programs", function( programs ) {
 
-              $('#carousel').slick({
-                slidesToShow: 3,
-                slidesToScroll: 1
-              });
+
+
+
 
               var slideIndex = 0;
 
+              var start = Math.floor( Math.random()*(programs.length-2) );
+              var end = start + 2;
 
-              for(var p = 0; p < programs.length; p++){
+              for(var p = start; p <= end; p++){
 
                 $.get( "/api/get/program/" + programs[p], function( data ) {
                   console.log();
@@ -59,7 +60,7 @@
                     console.log('<div class="item '+ data.program +'"><img data-lazy="'+ data.images[0].content.images.standard_resolution.url +'"><label>'+ data.program +'</label></div>');
 
 
-                    $("#carousel").slickAdd('<div class="item '+ data.program +'"><div class="image"><img data-lazy="'+ data.images[0].content.images.standard_resolution.url +'"><label>'+ data.program +'</label></div></div>');
+                    $("#carousel").append('<div class="item '+ data.program +'"><div class="image"><img data-lazy="'+ data.images[0].content.images.standard_resolution.url +'"><label>'+ data.program +'</label></div></div>');
 
                   }
                 });
