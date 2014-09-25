@@ -297,15 +297,15 @@
 /* Slick carousel */
 
 #carousel{
-  width:132%;
+  width:120%;
   position:relative;
-  left:-16%;
+  left:-10%;
 }
 
 #carousel .item{
   position:relative;
   display:inline-block;
-  width:41%;
+  width:37%;
   text-align:left;
   padding:0 1.5%;
 }
@@ -320,11 +320,8 @@
   text-align:center;
 }
 
-#carousel .item .image{
-  padding: 10px;
-}
-
-.slick-slide img {
-  display: block;
-  width: 100%;
+#carousel .item img{
+  width:100%;
+  height:auto;
+  display:block;
 }
