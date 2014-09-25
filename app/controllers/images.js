@@ -283,6 +283,7 @@ exports.renderStats = function(req, res){
 exports.setStatus = function(req, res, id, status){
 
   console.log('\n\n status:' + status + '\n');
+  console.log('\n\n id:' + id + '\n');
 
   var id = id;
 
