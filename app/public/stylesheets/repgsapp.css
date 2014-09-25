@@ -297,13 +297,17 @@
 /* Slick carousel */
 
 #carousel{
-  width:130%;
+  width:134%;
   position:relative;
-  left:-15%;
+  left:-17%;
 }
 
-#carousel .image{
+#carousel .item{
   position:relative;
+  display:inline-block;
+  width:43%;
+  text-align:left;
+  margin-right:2.5%
 }
 
 #carousel .image label{
