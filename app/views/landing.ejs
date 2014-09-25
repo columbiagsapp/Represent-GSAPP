@@ -38,41 +38,26 @@
         <script>
           $(document).ready(function(){
 
+            var programs = [];
+
             $.get( "/api/get/featured", function( images ) {
+
+              var start = Math.floor( Math.random()*(images.length-2) );
+              var end = start + 2;
 
               // extract programs from array
               for(var i = 0; i < images.length; i++){
-                console.log("images[0]");
-                console.dir(images[0]);
+                programs.push( images[0].programs[0] );
+
+                if((i >= start) && (i <= end)){
+                  console.log('<div class="item '+ images[0].programs[0] +'"><div class="image"><img data-lazy="'+ images[0].content.images.standard_resolution.url +'"><label>'+ images[0].programs[0] +'</label></div></div>');
+
+                  $("#carousel").append('<div class="item '+ images[0].programs[0] +'"><div class="image"><img data-lazy="'+ images[0].content.images.standard_resolution.url +'"><label>'+ images[0].programs[0] +'</label></div></div>');
+
+                }
               }
 
 
-/*
-              var slideIndex = 0;
-
-              var start = Math.floor( Math.random()*(programs.length-2) );
-              var end = start + 3;
-
-              console.log('start: ' + start);
-              console.log('end' + end);
-
-              for(var p = start; p < end; p++){
-                console.log('p: ' + p);
-
-                $.get( "/api/get/program/" + programs[p], function( data ) {
-                  console.log();
-
-
-                  if(data.images[0] != undefined){
-                    console.log('<div class="item '+ data.program +'"><img data-lazy="'+ data.images[0].content.images.standard_resolution.url +'"><label>'+ data.program +'</label></div>');
-
-
-                    $("#carousel").append('<div class="item '+ data.program +'"><div class="image"><img data-lazy="'+ data.images[0].content.images.standard_resolution.url +'"><label>'+ data.program +'</label></div></div>');
-
-                  }
-                });
-              }// end for
-              */
             });// end original get
 
 
