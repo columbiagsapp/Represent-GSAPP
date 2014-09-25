@@ -101,6 +101,15 @@
   z-index:100;
 }
 
+#repgsapp-wrapper #title {
+    position: relative;
+}
+#repgsapp-wrapper #title span {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
 #repgsapp-wrapper #subtitle{
   width:100%;
   text-align:center;
