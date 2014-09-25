@@ -7,8 +7,8 @@ $(document).ready(function(){
   // header fade in and out
   function fadeSwitchElements(id1, id2)
   {
-    var element1 = $('#' + id1);
-    var element2 = $('#' + id2);
+    var element1 = $('.' + id1);
+    var element2 = $('.' + id2);
 
     if(element1.is(':visible'))
     {
