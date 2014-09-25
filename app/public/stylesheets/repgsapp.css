@@ -144,7 +144,8 @@
   width:98%;
   padding:0 1%;
   text-align:left;
-  margin: 5em 0 0;
+  top: 4em;
+  position:fixed;
 }
 
 #repgsapp-wrapper header #nav2 .nav-program{
