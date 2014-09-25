@@ -47,12 +47,12 @@
 
               // extract programs from array
               for(var i = 0; i < images.length; i++){
-                programs.push( images[i].programs[i] );
+                programs.push( images[i].programs[0] );
 
                 if((i >= start) && (i <= end)){
-                  console.log('<div class="item '+ images[i].programs[i] +'"><div class="image"><img data-lazy="'+ images[i].content.images.standard_resolution.url +'"><label>'+ images[i].programs[i] +'</label></div></div>');
+                  console.log('<div class="item '+ images[i].programs[0] +'"><div class="image"><img data-lazy="'+ images[i].content.images.standard_resolution.url +'"><label>'+ images[i].programs[0] +'</label></div></div>');
 
-                  $("#carousel").append('<div class="item '+ images[i].programs[i] +'"><div class="image"><img data-lazy="'+ images[i].content.images.standard_resolution.url +'"><label>'+ images[i].programs[i] +'</label></div></div>');
+                  $("#carousel").append('<div class="item '+ images[i].programs[0] +'"><div class="image"><img data-lazy="'+ images[i].content.images.standard_resolution.url +'"><label>'+ images[i].programs[0] +'</label></div></div>');
 
                 }
               }// end for
