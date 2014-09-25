@@ -56,24 +56,6 @@ exports.stats = function(req, res){
 
 
 
-exports.editPublished = function(req, res){
-  console.log('/edit/published');
-  var images = Images.edit(req, res, 'published');
-};
-
-exports.editPending = function(req, res){
-  console.log('/edit/pending');
-  var images = Images.edit(req, res, 'pending');
-};
-
-exports.editHidden = function(req, res){
-  console.log('/edit/hidden');
-  var images = Images.edit(req, res, 'hidden');
-};
-
-
-
-
 
 // api
 
