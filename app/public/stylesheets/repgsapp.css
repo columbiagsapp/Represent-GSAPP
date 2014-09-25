@@ -156,6 +156,17 @@
   text-decoration:none;
 }
 
+#repgsapp-wrapper .marquee {
+  position:relative;
+  overflow:hidden;
+  width:500px;
+  height:22px;
+  border:solid black 1px;
+}
+#repgsapp-wrapper .marquee span {
+  white-space:nowrap;
+}
+
 /* Main elements */
 
 #repgsapp-wrapper main{
