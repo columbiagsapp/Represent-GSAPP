@@ -365,6 +365,18 @@ exports.getByProgram = function(req, res){
 };
 
 
+// return all featured images
+exports.getFeatured = function(req, res){
+  Image.find({ "status" : "featured" }).exec(function(err, images) {
+    if(err){
+      console.log('getFeatured()::error finding all featured images: '+ err);
+      res.send(500);
+    }else{
+      res.json(images);
+    }
+  });
+}
+
 
 
 

@@ -72,6 +72,8 @@ app.get('/api/get/program/:program', routes.getByProgram);
 
 app.get('/api/get/programs', routes.getPrograms);
 
+app.get('/api/get/featured', routes.getFeatured);
+
 app.post('/api/publish', routes.publish);
 
 app.post('/api/hide', routes.hide);

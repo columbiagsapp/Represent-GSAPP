@@ -115,6 +115,10 @@ exports.getPrograms = function(req, res){
   res.json(programs);
 };
 
+exports.getFeatured = function(req, res){
+  Images.getFeatured(req, res);
+};
+
 
 /*
 

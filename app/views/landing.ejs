@@ -38,12 +38,16 @@
         <script>
           $(document).ready(function(){
 
-            $.get( "/api/get/programs", function( programs ) {
+            $.get( "/api/get/featured", function( images ) {
+
+              // extract programs from array
+              for(var i = 0; i < images.length; i++){
+                console.log("images[0]");
+                console.dir(images[0]);
+              }
 
 
-
-
-
+/*
               var slideIndex = 0;
 
               var start = Math.floor( Math.random()*(programs.length-2) );
@@ -68,6 +72,7 @@
                   }
                 });
               }// end for
+              */
             });// end original get
 
 
