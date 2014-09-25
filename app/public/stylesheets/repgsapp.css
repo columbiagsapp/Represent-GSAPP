@@ -76,6 +76,7 @@
 
 #repgsapp-wrapper header{
   width:100%;
+  height:0;
 }
 
 
@@ -144,8 +145,9 @@
   width:98%;
   padding:0 1%;
   text-align:left;
-  top: 4em;
+  top: 5em;
   position:fixed;
+  z-index:100;
 }
 
 #repgsapp-wrapper header #nav2 .nav-program{
@@ -201,8 +203,7 @@
 /* Main elements */
 
 #repgsapp-wrapper main{
-  margin-top:1em;
-  height:400px;
+  margin-top:7em;
 }
 
 .slick-list{
