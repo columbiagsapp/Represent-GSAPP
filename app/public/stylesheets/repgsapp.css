@@ -166,6 +166,7 @@
 
 #repgsapp-wrapper .shelf {
   height: 2em;
+  line-height: 2em;
   width: 100%;
   position: relative;
 }
