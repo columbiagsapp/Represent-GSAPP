@@ -4,6 +4,11 @@ $(document).ready(function(){
 
 
 
+
+  // program list runs across top
+
+
+
   // header fade in and out
   function fadeSwitchElements(id1, id2, fade_time, cycle)
   {
@@ -21,12 +26,17 @@ $(document).ready(function(){
         element1.fadeToggle(fade_time);
       });
     }
-    setTimeout(function(){
-      fadeSwitchElements(id2, id1, fade_time, cycle);
-    }, cycle);
+    if(cycle > 0){
+      setTimeout(function(){
+        fadeSwitchElements(id2, id1, fade_time, cycle);
+      }, cycle);
+    }
   }
+  //start the title fade after 3s
+  setTimeout(function(){
+    fadeSwitchElements('full', 'hash', 2000, 0);//only do once
+  }, 3000);
 
-  fadeSwitchElements('full', 'hash', 2000, 5000);
 
 
   // Gradient background
