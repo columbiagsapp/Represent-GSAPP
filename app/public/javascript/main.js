@@ -5,7 +5,32 @@ $(document).ready(function(){
 
 
 
-  // program list runs across top
+  // program list scroll horizontally on hover
+  function animatecontent(ele,modifier){
+    var sl = ele.scrollLeft();
+    ele.animate({scrollLeft: sl + (modifier * 120)}, 500, 'linear',function(){
+      if(hover){
+        animatecontent(ele,modifier);
+      }
+    });
+  };
+
+  var hover = false;
+
+  $('.scroll-arrow').each(function(){
+    var modifier = ($(this).hasClass('right')) ? 1 : -1;
+    var sib = ('.shelf-slide');
+    $(this).hover(function() {
+      console.log('hovering!');
+      hover=true;
+      $(this).siblings(sib).stop();
+      animatecontent($(this).siblings(sib),modifier);
+    }, function() {
+      hover=false;
+      $(this).siblings(sib).stop();
+    });
+  });
+
 
 
 
