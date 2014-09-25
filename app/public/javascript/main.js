@@ -34,7 +34,7 @@ $(document).ready(function(){
   }
   //start the title fade after 3s
   setTimeout(function(){
-    fadeSwitchElements('full', 'hash', 2000, 0);//only do once
+    fadeSwitchElements('full', 'hash', 2000, 0);//only do once, set last var to 0
   }, 3000);
 
 

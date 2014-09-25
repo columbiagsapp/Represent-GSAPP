@@ -166,6 +166,41 @@
   white-space:nowrap;
 }
 
+
+#repgsapp-wrapper .shelf {
+  height: 40px;
+  width: 100%;
+  position: relative;
+}
+#repgsapp-wrapper .inside {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  top: 0px;
+  white-space: nowrap;
+  font-size: 0;
+  line-height: 0;
+  overflow-x: scroll;
+}
+
+#repgsapp-wrapper .scroll-arrow {
+  width: 40%;
+  height: 100%;
+  background-color: red;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  z-index: 199;
+}
+
+#repgsapp-wrapper .left { left: 0;}
+#repgsapp-wrapper .right { right: 0;}
+
+#repgsapp-wrapper .content { display: inline-block; width: 150px; height: 100%; background-color: #797979; margin-right: 10px;}
+
+
+
 /* Main elements */
 
 #repgsapp-wrapper main{

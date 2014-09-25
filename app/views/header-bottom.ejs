@@ -1,6 +1,10 @@
-<nav id="nav2" class="marquee"><span>
-  <% for(var p = 0; p < programs.length; p++){ %>
-    <a class="nav-program titles <%= programs[p] %>" href="#" target="_self"><%= programs[p] %></a>
-  <% } %>
-  </span>
+<nav id="nav2" class="shelf">
+  <a href="#" class="scroll-arrow left"></a>
+  <a href="#" class="scroll-arrow right"></a>
+
+  <div class="inside shelf-slide">
+    <% for(var p = 0; p < programs.length; p++){ %>
+      <a class="nav-program titles content <%= programs[p] %>" href="#" target="_self"><%= programs[p] %></a>
+    <% } %>
+  </div>
 </nav>
