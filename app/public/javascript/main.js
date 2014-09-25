@@ -5,28 +5,28 @@ $(document).ready(function(){
 
 
   // header fade in and out
-  function fadeSwitchElements(id1, id2)
+  function fadeSwitchElements(id1, id2, fade_time, cycle)
   {
     var element1 = $('.' + id1);
     var element2 = $('.' + id2);
 
     if(element1.is(':visible'))
     {
-      element1.fadeToggle(500);
-      element2.fadeToggle(500);
+      element1.fadeToggle(fade_time);
+      element2.fadeToggle(fade_time);
     }
     else
     {
-      element2.fadeToggle(500, function() {
-        element1.fadeToggle(500);
+      element2.fadeToggle(fade_time, function() {
+        element1.fadeToggle(fade_time);
       });
     }
     setTimeout(function(){
-      fadeSwitchElements(id2, id1);
-    }, 2000);
+      fadeSwitchElements(id2, id1, fade_time, cycle);
+    }, cycle);
   }
 
-  fadeSwitchElements('full', 'hash');
+  fadeSwitchElements('full', 'hash', 1000, 3000);
 
 
   // Gradient background
