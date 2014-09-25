@@ -186,10 +186,9 @@
 #repgsapp-wrapper.edit-page #header-top,
 #repgsapp-wrapper.edit-page #header-bottom{
   width:100%;
-  height:60px;
+  height:80px;
   margin:0;
-  padding:10px 0;
-  text-align:center;
+  padding:0;
 }
 
 #repgsapp-wrapper.edit-page #header-bottom .menu{
