@@ -52,7 +52,8 @@
               console.log('start: ' + start);
               console.log('end' + end);
 
-              for(var p = start; p <= end; p++){
+              for(var p = start; p < end; p++){
+                console.log('p: ' + p);
 
                 $.get( "/api/get/program/" + programs[p], function( data ) {
                   console.log();
