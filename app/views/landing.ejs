@@ -51,36 +51,39 @@
 
                 switch(i){
                   case start:
+                    console.log('i = start');
                     $("#carousel").append('<div class="item prev'+ images[i].programs[0] +'"><div class="image"><img src="'+ images[i].content.images.standard_resolution.url +'"><label>'+ images[i].programs[0] +'</label></div></div>');
                     break;
+
                   case ((i > start) && (i < end)):
                     $("#carousel").append('<div class="item current'+ images[i].programs[0] +'"><div class="image"><img src="'+ images[i].content.images.standard_resolution.url +'"><label>'+ images[i].programs[0] +'</label></div></div>');
                     break;
-                  case end;
+
+                  case end:
                     $("#carousel").append('<div class="item next'+ images[i].programs[0] +'"><div class="image"><img src="'+ images[i].content.images.standard_resolution.url +'"><label>'+ images[i].programs[0] +'</label></div></div>');
                     break;
+                    
                   default:
                     $("#carousel").append('<div class="sliver item '+ images[i].programs[0] +'"><div class="image"><img src="'+ images[i].content.images.standard_resolution.url +'"><label>'+ images[i].programs[0] +'</label></div></div>');
                     break;
                 }//end switch
               }// end for
 
-              $('#carousel .item.prev').click(function(){
-                console.log('clicked prev');
+            });// end get
 
-                $('#carousel .item.next').removeClass('next').addClass('sliver');
-                $(this).prev().addClass('prev').removeClass('sliver');
-                $('#carousel .item.current').removeClass('current').addClass('next');
+            $('#carousel .item.prev').click(function(){
+              console.log('clicked prev');
 
-
-                $(this).removeClass('prev').addClass('current');
-              });//end click function prev
-
-              console.log('programs: ');
-              console.dir(programs);
+              $('#carousel .item.next').removeClass('next').addClass('sliver');
+              $(this).prev().addClass('prev').removeClass('sliver');
+              $('#carousel .item.current').removeClass('current').addClass('next');
 
 
-            });// end original get
+              $(this).removeClass('prev').addClass('current');
+            });//end click function prev
+
+            console.log('programs: ');
+            console.dir(programs);
 
 
           });
