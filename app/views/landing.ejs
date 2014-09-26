@@ -36,6 +36,20 @@
         <% include scripts %>
 
         <script>
+
+          function clickPrev(){
+              console.log('clicked prev');
+
+              $('#carousel .next').removeClass('next').hide(200);
+              $(this).prev().addClass('prev').show(200);
+              $('#carousel .current').removeClass('current').addClass('next');
+
+
+              $(this).removeClass('prev').addClass('current').unbind('click');
+
+              $('#carousel .prev').click(clickPrev);
+          }//end function clickPrev()
+
           $(document).ready(function(){
 
             var programs = [];
@@ -71,16 +85,9 @@
 
             });// end get
 
-            $('#carousel .item.prev').click(function(){
-              console.log('clicked prev');
-
-              $('#carousel .item.next').removeClass('next').hide(200);
-              $(this).prev().addClass('prev').show(200);
-              $('#carousel .item.current').removeClass('current').addClass('next');
 
 
-              $(this).removeClass('prev').addClass('current');
-            });//end click function prev
+            $('#carousel .prev').click(clickPrev);//end click function prev
 
             console.log('programs: ');
             console.dir(programs);
