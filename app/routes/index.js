@@ -125,8 +125,15 @@ exports.getFeatured = function(req, res){
 };
 
 exports.updatePrograms = function(req, res){
-  console.log('req.body:');
-  console.dir(req.body);
+  console.log('new_programs:');
+
+  var new_programs = req.body.programs;
+  if(req.body.newprogram != ""){
+    new_programs.push(req.body.newprogram);
+  }
+
+  console.dir(new_programs);
+
   res.send(200);
 }
 
