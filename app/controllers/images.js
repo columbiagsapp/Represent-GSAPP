@@ -306,7 +306,7 @@ exports.setStatus = function(req, res, id, status){
           res.send(500, 'image status not saved, server error on save attempt');
         } else {
           // do nothing, remain on the page
-          res.send(200);
+          res.redirect(req.get('referer'));
         }
       });// end save
 
