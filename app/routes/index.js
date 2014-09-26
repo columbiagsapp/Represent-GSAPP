@@ -132,6 +132,7 @@ exports.getFeatured = function(req, res){
   Images.getFeatured(req, res);
 };
 
+// update the programs.json file with new programs
 exports.updatePrograms = function(req, res){
   console.log('new_programs:');
 
@@ -149,15 +150,11 @@ exports.updatePrograms = function(req, res){
         res.send(500);
     } else {
         console.log("The file was saved!");
-        res.send(new_programs);
+        programs = new_programs;
+        res.redirect(req.get('referer'));
     }
   });
-
-
-
-
-
-}
+};
 
 
 /*

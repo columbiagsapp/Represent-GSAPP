@@ -23,7 +23,7 @@
           <main>
             <form id="programs" class="titles" name="updateprograms" action="/api/update/programs" method="post">
               <% for(var p = 0; p < programs.length; p++){ %>
-                <input type="checkbox" name="programs" value="<%= programs[p] %>" checked><%= programs[p] %><br>
+                <input  class="draggable ui-state-default" type="checkbox" name="programs" value="<%= programs[p] %>" checked><%= programs[p] %><br>
               <% } %>
               <br>
               <label>New: </label><br><input type="text" name="newprogram" value=""><br><br>
@@ -38,6 +38,21 @@
 
 
         <% include scripts %>
+        <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+
+        <script>
+          $(function() {
+            $( "#programs" ).sortable({
+              revert: true
+            });
+            $( ".draggable" ).draggable({
+              connectToSortable: "#sortable",
+              helper: "clone",
+              revert: "invalid"
+            });
+            $( "ul, li" ).disableSelection();
+          });
+        </script>
 
 
     </body>
