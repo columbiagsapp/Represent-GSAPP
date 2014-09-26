@@ -55,6 +55,9 @@
               console.log('clicked next');
 
               $('#carousel .prev').removeClass('prev').unbind('click').hide(200);
+
+              console.log('$(this).next(): ' + $(this).next());
+
               $(this).next().addClass('next').show(200);
               $('#carousel .current').removeClass('current').addClass('prev');
 
