@@ -83,11 +83,16 @@
                 }//end switch
               }// end for
 
+
+              $('#carousel img').load(function(){
+                $('#carousel .prev').click(clickPrev);//end click function prev
+              });
+
+
             });// end get
 
 
 
-            $('#carousel .prev').click(clickPrev);//end click function prev
 
             console.log('programs: ');
             console.dir(programs);
