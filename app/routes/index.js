@@ -138,7 +138,7 @@ exports.updatePrograms = function(req, res){
 
   var new_programs = req.body.programs;
   if(req.body.newprogram != ""){
-    new_programs.push(req.body.newprogram);
+    new_programs.push( req.body.newprogram.toLowerCase() );
   }
 
   console.dir(new_programs);
