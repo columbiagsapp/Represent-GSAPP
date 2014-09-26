@@ -24,7 +24,7 @@
             <form id="programs" class="titles" name="updateprograms" action="/api/update/programs" method="post">
               <ul id="sortable">
                 <% for(var p = 0; p < programs.length; p++){ %>
-                  <li class="draggable"><input type="checkbox" name="programs" value="<%= programs[p] %>" checked><%= programs[p] %></li>
+                  <li class="draggable"><span class="arrow">&uarr;&darr;</span><input class="checkbox" type="checkbox" name="programs" value="<%= programs[p] %>" checked><%= programs[p] %></li>
                 <% } %>
               </ul>
               <br>

@@ -332,6 +332,25 @@
 /* Programs page */
 #programs{
   text-align:center;
+  width:30%;
+  margin:0 auto;
+
+}
+
+#sortable{
+  list-style:none;
+}
+
+#sortable li{
   width:100%;
-  
+  background-color:white;
+  margin-bottom:2px;
+}
+
+#sortable .arrow{
+  text-align:left;
+}
+
+#sortable .checkbox{
+  text-align:right;
 }
