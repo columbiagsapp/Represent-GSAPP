@@ -40,27 +40,29 @@
           function clickPrev(){
               console.log('clicked prev');
 
-              $('#carousel .next').removeClass('next').hide(200);
+              $('#carousel .next').removeClass('next').unbind('click').hide(200);
               $(this).prev().addClass('prev').show(200);
               $('#carousel .current').removeClass('current').addClass('next');
 
 
               $(this).removeClass('prev').addClass('current').unbind('click');
 
-              $('#carousel .prev').click(clickPrev);
+              $('#carousel .prev').click(clickPrev);//end click function prev
+              $('#carousel .next').click(clickNext);//end click function next
           }//end function clickPrev()
 
           function clickNext(){
               console.log('clicked next');
 
-              $('#carousel .prev').removeClass('prev').hide(200);
+              $('#carousel .prev').removeClass('prev').unbind('click').hide(200);
               $(this).next().addClass('next').show(200);
               $('#carousel .current').removeClass('current').addClass('prev');
 
 
               $(this).removeClass('next').addClass('current').unbind('click');
 
-              $('#carousel .next').click(clickNext);
+              $('#carousel .prev').click(clickPrev);//end click function prev
+              $('#carousel .next').click(clickNext);//end click function next
           }//end function clickNext()
 
           $(document).ready(function(){
