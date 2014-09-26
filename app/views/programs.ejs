@@ -24,7 +24,7 @@
             <form id="programs" class="titles" name="updateprograms" action="/api/update/programs" method="post">
               <ul id="sortable">
                 <% for(var p = 0; p < programs.length; p++){ %>
-                  <li class="draggable ui-state-default"><span class="arrow">&uarr;&darr;</span><input class="checkbox" type="checkbox" name="programs" value="<%= programs[p] %>" checked><%= programs[p] %></li>
+                  <li class="ui-state-default"><span class="arrow">&uarr;&darr;</span><input class="checkbox" type="checkbox" name="programs" value="<%= programs[p] %>" checked><%= programs[p] %></li>
                 <% } %>
               </ul>
               <br>
@@ -44,15 +44,8 @@
 
         <script>
           $(function() {
-            $( "#sortable" ).sortable({
-              revert: false
-            });
-            $( ".draggable" ).draggable({
-              connectToSortable: "#sortable",
-              helper: "clone",
-              revert: "invalid"
-            });
-            $( "ul, li" ).disableSelection();
+            $( "#sortable" ).sortable();
+            $( "#sortable" ).disableSelection();
           });
         </script>
 
