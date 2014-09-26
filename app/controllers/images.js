@@ -330,6 +330,8 @@ exports.setStatus = function(req, res, id, status){
 exports.update = function(req, res){
   var id = req.body.update;
   var programs = req.body.programs;
+  console.log('new programs: req.body.programs: ');
+  console.log(req.body.programs);
 
   var location = req.body.location;
 
