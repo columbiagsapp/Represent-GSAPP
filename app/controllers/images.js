@@ -285,6 +285,11 @@ exports.setStatus = function(req, res, id, status){
   console.log('\n\n status:' + status + '\n');
   console.log('\n\n id:' + id + '\n');
 
+  console.log('req:');
+  console.dir(req);
+
+  console.log('\n\n\n');
+
   var id = id;
 
   Image.findOne({ '_id': id}, function(err, image) {
@@ -301,7 +306,7 @@ exports.setStatus = function(req, res, id, status){
           res.send(500, 'image status not saved, server error on save attempt');
         } else {
           // do nothing, remain on the page
-          //res.send(200);
+          res.send(200);
         }
       });// end save
 
