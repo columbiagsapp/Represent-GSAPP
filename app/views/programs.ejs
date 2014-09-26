@@ -21,8 +21,9 @@
           </header>
 
           <main>
-            <h1 class="titles">Programs</h1>
+
             <form id="programs" class="titles" name="updateprograms" action="/api/update/programs" method="post">
+              <h1 class="titles">Programs</h1>
               <ul id="sortable">
                 <% for(var p = 0; p < programs.length; p++){ %>
                   <li class="ui-state-default"><span class="arrow">&uarr;&darr;</span><input class="checkbox" type="checkbox" name="programs" value="<%= programs[p] %>" checked><%= programs[p] %></li>
