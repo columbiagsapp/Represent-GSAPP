@@ -144,11 +144,20 @@ exports.updatePrograms = function(req, res){
   console.dir(new_programs);
 
   //write to disc
-  var fd = fs.openSync(programs_path, 'a+', 0666);
-  fs.writeSync(fd, new_programs + '\n');
-  fs.closeSync(fd);
+  fs.writeFile(programs_path, new_programs, function(err) {
+    if(err) {
+        console.log('Error: attempting to write programs.json to disc:' + err);
+        res.send(500);
+    } else {
+        console.log("The file was saved!");
+        res.send(new_programs);
+    }
+  });
 
-  res.send(new_programs);
+
+
+
+
 }
 
 
