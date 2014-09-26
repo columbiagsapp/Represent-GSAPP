@@ -15,7 +15,6 @@ var fs = require('fs');
 
 // Images routes use images controller
 var Images = require('../controllers/images');
-var Programs = require('../controllers/programs');
 
 var statsTest = require('../../test/stats');
 
