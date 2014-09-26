@@ -53,6 +53,8 @@ app.get('/grid', routes.grid);
 
 app.get('/edit', routes.edit);
 
+app.get('/programs', routes.programs);
+
 
 
 app.get('/edit/published', routes.editPublished);

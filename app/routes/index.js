@@ -53,6 +53,11 @@ exports.stats = function(req, res){
   Images.renderStats(req, res);
 }
 
+exports.programs = function(req, res){
+  console.log('/programs');
+  res.render('programs', { programs: programs });
+}
+
 
 
 
