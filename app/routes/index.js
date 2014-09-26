@@ -151,6 +151,8 @@ exports.updatePrograms = function(req, res){
     } else {
         console.log("The file was saved!");
         programs = new_programs;
+        Images.resetPrograms();
+
         res.redirect(req.get('referer'));
     }
   });
