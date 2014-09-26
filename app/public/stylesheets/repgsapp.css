@@ -344,12 +344,12 @@
 #sortable li{
   background-color:white;
   margin-bottom:2px;
+  text-align:left;
+  padding:2px 5px;
 }
 
-#sortable .arrow{
-  text-align:left;
-}
+
 
 #sortable .checkbox{
-  text-align:right;
+  margin:0 20px 0 50px;
 }
