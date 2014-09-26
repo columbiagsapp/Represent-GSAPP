@@ -1,12 +1,21 @@
 'use strict';
 
+// GLOBALS
+
+var programs_path = '/var/www/represent.gsapp.org/public_html/Represent-GSAPP/app/programs.json';
+
+// END GLOBALS
+
 
 /////// DEPENDENCIES
 var colors  = require('colors');
 console.log('images.js entered'.cyan);
 
+var fs = require('fs');
+
 // Images routes use images controller
 var Images = require('../controllers/images');
+var Programs = require('../controllers/programs');
 
 var statsTest = require('../../test/stats');
 
@@ -134,7 +143,12 @@ exports.updatePrograms = function(req, res){
 
   console.dir(new_programs);
 
-  res.send(200);
+  //write to disc
+  var fd = fs.openSync(programs_path, 'a+', 0666);
+  fs.writeSync(fd, new_programs + '\n');
+  fs.closeSync(fd);
+
+  res.send(new_programs);
 }
 
 
