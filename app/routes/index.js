@@ -143,7 +143,7 @@ exports.updatePrograms = function(req, res){
   console.dir(new_programs);
 
   //write to disc
-  fs.writeFile(programs_path, new_programs, function(err) {
+  fs.writeFile(programs_path, JSON.stringify(new_programs), function(err) {
     if(err) {
         console.log('Error: attempting to write programs.json to disc:' + err);
         res.send(500);
