@@ -52,6 +52,7 @@ ig.use({ client_id: instagram_secrets.client_id,
 // pulls in programs.json as a reset
 exports.resetPrograms = function(){
   console.log('reload programs');
+  delete require.cache[require.resolve('../programs')];
   programs = require('../programs');
   console.dir(programs);
 };
