@@ -50,6 +50,19 @@
               $('#carousel .prev').click(clickPrev);
           }//end function clickPrev()
 
+          function clickNext(){
+              console.log('clicked next');
+
+              $('#carousel .prev').removeClass('prev').hide(200);
+              $(this).next().addClass('next').show(200);
+              $('#carousel .current').removeClass('current').addClass('prev');
+
+
+              $(this).removeClass('next').addClass('current').unbind('click');
+
+              $('#carousel .next').click(clickNext);
+          }//end function clickNext()
+
           $(document).ready(function(){
 
             var programs = [];
@@ -84,9 +97,8 @@
               }// end for
 
 
-              //$('#carousel img').load(function(){
-                $('#carousel .prev').click(clickPrev);//end click function prev
-              //});
+              $('#carousel .prev').click(clickPrev);//end click function prev
+              $('#carousel .next').click(clickNext);//end click function next
 
 
             });// end get
