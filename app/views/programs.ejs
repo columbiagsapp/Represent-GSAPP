@@ -22,9 +22,11 @@
 
           <main>
             <form id="programs" class="titles" name="updateprograms" action="/api/update/programs" method="post">
-              <% for(var p = 0; p < programs.length; p++){ %>
-                <input  class="draggable ui-state-default" type="checkbox" name="programs" value="<%= programs[p] %>" checked><%= programs[p] %><br>
-              <% } %>
+              <ul id="sortable">
+                <% for(var p = 0; p < programs.length; p++){ %>
+                  <li class="draggable ui-state-default"><input type="checkbox" name="programs" value="<%= programs[p] %>" checked><%= programs[p] %><li>
+                <% } %>
+              </ul>
               <br>
               <label>New: </label><br><input type="text" name="newprogram" value=""><br><br>
               <button name="updateprograms" type="submit">Save</button>
@@ -42,7 +44,7 @@
 
         <script>
           $(function() {
-            $( "#programs" ).sortable({
+            $( "#sortable" ).sortable({
               revert: true
             });
             $( ".draggable" ).draggable({
