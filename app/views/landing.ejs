@@ -64,7 +64,7 @@
                     break;
 
                   default:
-                    $("#carousel").append('<div class="sliver item '+ images[i].programs[0] +'"><div class="image"><img src="'+ images[i].content.images.standard_resolution.url +'"><label>'+ images[i].programs[0] +'</label></div></div>');
+                    $("#carousel").append('<div style="display:none;" class="item '+ images[i].programs[0] +'"><div class="image"><img src="'+ images[i].content.images.standard_resolution.url +'"><label>'+ images[i].programs[0] +'</label></div></div>');
                     break;
                 }//end switch
               }// end for
@@ -74,8 +74,8 @@
             $('#carousel .item.prev').click(function(){
               console.log('clicked prev');
 
-              $('#carousel .item.next').removeClass('next').addClass('sliver');
-              $(this).prev().addClass('prev').removeClass('sliver');
+              $('#carousel .item.next').removeClass('next').hide(200);
+              $(this).prev().addClass('prev').show(200);
               $('#carousel .item.current').removeClass('current').addClass('next');
 
 
