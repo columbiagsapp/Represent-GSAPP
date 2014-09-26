@@ -73,16 +73,13 @@
                     <div>
                       <label>Update tags:</label><br>
                       <form name="update" action="/api/update" method="post">
-                        <label>Programs: </label><br><input type="text" name="programsold" value="<%= images[i].programs %>">
+                        <label>Programs: </label><br>
                         <select name="programs">
                           <option value="">-</option>
                           <% for(var p = 0; p < programs.length; p++){ %>
                             <option value="<%= programs[p] %>"<% if(images[i].programs[0] == programs[p]){ %> selected<% } %>><%= programs[p] %></option>
                           <% } %>
                         </select>
-
-
-
 
                         <label>Location: </label><br><input type="text" name="location" value="<%= images[i].location %>">
                         <button name="update" type="submit" value="<%= images[i]._id %>">Save Updates</button>
