@@ -86,6 +86,8 @@ app.post('/api/feature', routes.feature);
 
 app.post('/api/update', routes.update);
 
+app.post('/api/update/programs', routes.updatePrograms);
+
 
 
 

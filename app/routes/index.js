@@ -124,6 +124,12 @@ exports.getFeatured = function(req, res){
   Images.getFeatured(req, res);
 };
 
+exports.updatePrograms = function(req, res){
+  console.log('req.body:');
+  console.dir(req.body);
+  res.send(200);
+}
+
 
 /*
 
