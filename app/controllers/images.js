@@ -122,6 +122,9 @@ var sanitizeArray = function(medias){
 
 // hunts through tags for programs, return programs that are in tags as arrray in all lowercase
 var extractPrograms = function(tags){
+  //refresh programs
+  programs = require('../programs');
+
   var pgms = [];
 
   for(var t = 0; t < tags.length; t++){
@@ -220,6 +223,9 @@ exports.renderAll = function(req, res, view){
       console.log('renderAll()::error finding all images: '+ err);
       res.send(500);
     }else{
+      //refresh programs
+      programs = require('../programs');
+
       res.render(view, { images: images, programs: programs, status: 'edit' });
     }
   });
@@ -233,8 +239,10 @@ exports.edit = function(req, res, status){
       console.log('editAll()::error finding all images: '+ err);
       res.send(500);
     }else{
+      //refresh programs
+      programs = require('../programs');
 
-      res.render('edit', { images: images, status: status });
+      res.render('edit', { images: images, status: status, programs: programs });
     }
   });
 };
@@ -242,6 +250,9 @@ exports.edit = function(req, res, status){
 
 // send the stats as json
 exports.renderStats = function(req, res){
+  //refresh programs
+  programs = require('../programs');
+
   Image.find({'status': 'published'}).exec(function(err, images) {
     if(err){
       console.log('renderStats()::error finding all images: '+ err);
