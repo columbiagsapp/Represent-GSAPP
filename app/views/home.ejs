@@ -61,53 +61,57 @@
 
           // handler for when user clicks previous image in carousel
           function clickPrev(){
-              $('#carousel .next').removeClass('next').unbind('click').hide();
+            $('body').scrollTop(0)
+            $('#carousel .next').removeClass('next').unbind('click').hide();
 
-              if( $(this).prev().length > 0 ){
-                var $prev = $(this).prev();
-                $prev.addClass('prev').show();
-                $prev.find('img').imggrayscale({hoverShowOrigin: true});
-              }
+            if( $(this).prev().length > 0 ){
+              var $prev = $(this).prev();
+              $prev.addClass('prev').show();
+              $prev.find('img').imggrayscale({hoverShowOrigin: true});
+            }
 
-              $('#carousel .current').removeClass('current').addClass('next').find('img').imggrayscale({hoverShowOrigin: true});
+            $('#carousel .current').removeClass('current').addClass('next').find('img').imggrayscale({hoverShowOrigin: true});
 
-              $(this).removeClass('prev').addClass('current').unbind('click').find('img').imggrayscale("destroy");
+            $(this).removeClass('prev').addClass('current').unbind('click').find('img').imggrayscale("destroy");
 
-              $('#carousel .prev').click(clickPrev);//end click function prev
-              $('#carousel .next').click(clickNext);//end click function next
+            $('#carousel .prev').click(clickPrev);//end click function prev
+            $('#carousel .next').click(clickNext);//end click function next
 
-              // if images not loaded, go get them
-              if( !$('#carousel .current').hasClass('loaded') ){
-                loadImages();
-              }//end if not loaded
+            // if images not loaded, go get them
+            if( !$('#carousel .current').hasClass('loaded') ){
+              loadImages();
+            }//end if not loaded
 
           }//end function clickPrev()
 
 
           // handler for when user clicks next image in carousel
           function clickNext(){
-              $('#carousel .prev').removeClass('prev').unbind('click').hide();
+            $('body').scrollTop(0)
+            $('#carousel .prev').removeClass('prev').unbind('click').hide();
 
-              if( $(this).next().length > 0 ){
-                console.log('.next() > 0');
-                var $next = $(this).next();
-                $next.addClass('next').show();
-                $next.find('img').imggrayscale({hoverShowOrigin: true});
-              }
+            if( $(this).next().length > 0 ){
+              console.log('.next() > 0');
+              var $next = $(this).next();
+              $next.addClass('next').show();
+              $next.find('img').imggrayscale({hoverShowOrigin: true});
+            }
 
-              $('#carousel .current').removeClass('current').addClass('prev').find('img').imggrayscale({hoverShowOrigin: true});
+            $('#carousel .current').removeClass('current').addClass('prev').find('img').imggrayscale({hoverShowOrigin: true});
 
-              $(this).removeClass('next').addClass('current').unbind('click').find('img').imggrayscale("destroy");
+            $(this).removeClass('next').addClass('current').unbind('click').find('img').imggrayscale("destroy");
 
-              $('#carousel .prev').click(clickPrev);//end click function prev
-              $('#carousel .next').click(clickNext);//end click function next
+            $('#carousel .prev').click(clickPrev);//end click function prev
+            $('#carousel .next').click(clickNext);//end click function next
 
-              // if images not loaded, go get them
-              if( !$('#carousel .current').hasClass('loaded') ){
-                loadImages();
-              }//end if not loaded
+            // if images not loaded, go get them
+            if( !$('#carousel .current').hasClass('loaded') ){
+              loadImages();
+            }//end if not loaded
 
           }//end function clickNext()
+
+          
 
           $(document).ready(function(){
 
