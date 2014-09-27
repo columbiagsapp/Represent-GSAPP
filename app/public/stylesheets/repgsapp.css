@@ -305,13 +305,14 @@
 }
 
 #carousel .image label{
-  text-transform:uppercase;
-  font-size:2em;
-  position:absolute;
-  z-index:100;
-  top:48%;
-  width:100%;
-  text-align:center;
+  text-transform: uppercase;
+  font-size: 2em;
+  position: absolute;
+  z-index: 100;
+  top: 48%;
+  text-align: center;
+  width: 100%;
+  left: 0;
 }
 
 #carousel .item img{
