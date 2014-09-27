@@ -131,19 +131,19 @@
                 switch(i){
                   case start:
                     console.log('i = start');
-                    $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" class="item prev '+ images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"><label>'+ images[i].programs[0] +'</label></li></ul>');
+                    $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" class="item prev '+ images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"></li></ul>');
                     break;
 
                   case (start + 1):
-                    $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" class="item current '+ images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"><label>'+ images[i].programs[0] +'</label></li></ul>');
+                    $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" class="item current '+ images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"></li></ul>');
                     break;
 
                   case end:
-                    $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" class="item next '+ images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"><label>'+ images[i].programs[0] +'</label></li></ul>');
+                    $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" class="item next '+ images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"></li></ul>');
                     break;
 
                   default:
-                    $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" style="display:none;" class="item '+ images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"><label>'+ images[i].programs[0] +'</label></li></ul>');
+                    $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" style="display:none;" class="item '+ images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"></li></ul>');
                     break;
                 }//end switch
               }// end for
