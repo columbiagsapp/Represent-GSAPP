@@ -45,6 +45,8 @@ app.get('/', routes.index);
 
 app.get('/landing', routes.landing);
 
+app.get('/home', routes.home);
+
 app.get('/stats', routes.statsTest);
 
 app.get('/fetch', routes.fetch);

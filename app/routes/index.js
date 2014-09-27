@@ -22,6 +22,15 @@ var programs = require('../programs');
 
 /////// END DEPENDENCIES
 
+// pulls in programs.json as a reset
+var resetPrograms = function(){
+  console.log('reload programs');
+  delete require.cache[require.resolve('../programs')];
+  programs = require('../programs');
+  console.dir(programs);
+};
+
+
 
 // routes
 exports.index = function(req, res){
@@ -30,6 +39,12 @@ exports.index = function(req, res){
 
 exports.landing = function(req, res){
   res.render('landing', { title: 'Represent GSAPP', programs: programs });
+};
+
+exports.home = function(req, res){
+  resetPrograms();
+  
+  res.render('home', { title: 'Represent GSAPP', programs: programs });
 };
 
 exports.statsTest = function(req, res){
