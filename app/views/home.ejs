@@ -122,6 +122,8 @@
               $.get( "/api/get/program/" + current_program, function( images ) {
 
                 console.log('got current_program: '+ current_program);
+                console.log('images:');
+                console.dir(images);
 
                 $("#carousel ." + current_program).append('"<li class="image"><img src="'+ images[i].content.images.standard_resolution.url +'"></li>');
 
