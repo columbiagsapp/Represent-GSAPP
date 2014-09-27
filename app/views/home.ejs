@@ -148,21 +148,8 @@
               $('#carousel .prev').click(clickPrev).find('img').imggrayscale({hoverShowOrigin: true});;//end click function prev
               $('#carousel .next').click(clickNext).find('img').imggrayscale({hoverShowOrigin: true});;//end click function next
 
-              var current_program = images[start+1].programs[0];
-
-              // get all the images for the current program
-              $.get( "/api/get/program/" + current_program, function( data ) {
-
-                console.log('got current_program: '+ current_program);
-                console.log('data.images:');
-                console.dir(data.images);
-
-                for(var i = 0; i < data.images.length; i++){
-                  $("#carousel ." + current_program).append('"<li class="image"><img src="'+ data.images[i].content.images.standard_resolution.url +'"></li>');
-                }
-
-
-              }); // end second get
+              // load images into .current
+              loadImages();
 
 
             });// end first get
