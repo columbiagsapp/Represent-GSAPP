@@ -60,6 +60,7 @@
 
           function clickNext(){
               $('#carousel .prev').removeClass('prev').unbind('click').hide(200);
+
               if( $(this).next().length > 0 ){
                 console.log('.next() > 0');
                 var $next = $(this).next();
@@ -115,7 +116,20 @@
               $('#carousel .next').click(clickNext).find('img').imggrayscale({hoverShowOrigin: true});;//end click function next
 
 
-            });// end get
+              var current_program = images[start+1].programs[0];
+
+              // get all the images for the current program
+              $.get( "/api/get/program/" + current_program, function( images ) {
+
+                console.log('got current_program: '+ current_program);
+
+                $("#carousel ." + current_program).append('"<li class="image"><img src="'+ images[i].content.images.standard_resolution.url +'"></li>');
+
+
+              }); // end second get
+
+
+            });// end first get
 
 
 
