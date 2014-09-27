@@ -214,23 +214,7 @@
   margin-top:9em;
 }
 
-.slick-list{
-  width:100%;
-}
 
-.owl-carousel{
-  height:400px;
-}
-
-#repgsapp-wrapper main .owl-carousel img{
-  height: 400px;
-  overflow-x:hidden;
-}
-
-#repgsapp-wrapper main .owl-carousel .item{
-  margin-left:3px;
-  margin-right:3px;
-}
 
 /* Edit pages */
 
@@ -304,7 +288,7 @@
 
 
 
-/* Slick carousel */
+/* Carousel */
 
 #carousel{
   width:120%;
@@ -334,6 +318,10 @@
   width:100%;
   height:auto;
   display:block;
+}
+
+#carousel .next:hover, #carousel .prev:hover{
+  cursor:pointer;
 }
 
 
