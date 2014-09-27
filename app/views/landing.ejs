@@ -52,9 +52,9 @@
                 $prev.find('img').imggrayscale({hoverShowOrigin: true});
               }
 
-              $('#carousel .current').removeClass('current').addClass('next');
+              $('#carousel .current').removeClass('current').addClass('next').find('img').imggrayscale({hoverShowOrigin: true});
 
-              $(this).removeClass('prev').addClass('current').unbind('click');
+              $(this).removeClass('prev').addClass('current').unbind('click').find('img').imggrayscale("destroy");
 
               $('#carousel .prev').click(clickPrev);//end click function prev
               $('#carousel .next').click(clickNext);//end click function next
@@ -69,13 +69,11 @@
                 var $next = $(this).next();
                 $next.addClass('next').show(200);
                 $next.find('img').imggrayscale({hoverShowOrigin: true});
-                console.dir($next);
-                console.log();
               }
 
-              $('#carousel .current').removeClass('current').addClass('prev');
+              $('#carousel .current').removeClass('current').addClass('prev').find('img').imggrayscale({hoverShowOrigin: true});
 
-              $(this).removeClass('next').addClass('current').unbind('click');
+              $(this).removeClass('next').addClass('current').unbind('click').find('img').imggrayscale("destroy");
 
               $('#carousel .prev').click(clickPrev);//end click function prev
               $('#carousel .next').click(clickNext);//end click function next
