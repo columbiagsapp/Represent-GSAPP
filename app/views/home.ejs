@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<% include head %>
+
+
+    <body id="home">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div class="gradient gradient-red"></div>
+
+        <div id="repgsapp-wrapper" class="edit-page">
+
+          <header>
+            <% include header-top %>
+            <% include header-bottom %>
+          </header>
+
+          <main>
+            <div id="carousel">
+
+            </div>
+
+          </main>
+
+
+
+        </div><!-- #repgsapp-wrapper -->
+
+
+        <% include scripts %>
+
+        <script>
+
+          $(window).on("resize", function() {
+            $("#carousel .prev, #carousel .next").imggrayscale("resize");
+          });
+
+          function clickPrev(){
+              $('#carousel .next').removeClass('next').unbind('click').hide(200);
+
+              if( $(this).prev().length > 0 ){
+                var $prev = $(this).prev();
+                $prev.addClass('prev').show(200);
+                $prev.find('img').imggrayscale({hoverShowOrigin: true});
+              }
+
+              $('#carousel .current').removeClass('current').addClass('next').find('img').imggrayscale({hoverShowOrigin: true});
+
+              $(this).removeClass('prev').addClass('current').unbind('click').find('img').imggrayscale("destroy");
+
+              $('#carousel .prev').click(clickPrev);//end click function prev
+              $('#carousel .next').click(clickNext);//end click function next
+          }//end function clickPrev()
+
+          function clickNext(){
+              $('#carousel .prev').removeClass('prev').unbind('click').hide(200);
+              if( $(this).next().length > 0 ){
+                console.log('.next() > 0');
+                var $next = $(this).next();
+                $next.addClass('next').show(200);
+                $next.find('img').imggrayscale({hoverShowOrigin: true});
+              }
+
+              $('#carousel .current').removeClass('current').addClass('prev').find('img').imggrayscale({hoverShowOrigin: true});
+
+              $(this).removeClass('next').addClass('current').unbind('click').find('img').imggrayscale("destroy");
+
+              $('#carousel .prev').click(clickPrev);//end click function prev
+              $('#carousel .next').click(clickNext);//end click function next
+          }//end function clickNext()
+
+          $(document).ready(function(){
+
+            var programs = [];
+
+
+            // dynamically load image content into custom carousel
+            $.get( "/api/get/featured", function( images ) {
+
+              var start = Math.floor( Math.random()*(images.length-2) );
+              var end = start + 2;
+
+              // extract programs from array
+              for(var i = 0; i < images.length; i++){
+                programs.push( images[i].programs[0] );
+
+                switch(i){
+                  case start:
+                    console.log('i = start');
+                    $("#carousel").append('<ul class="item prev '+ images[i].programs[0] +'"><li class="image"><img src="'+ images[i].content.images.standard_resolution.url +'"><label>'+ images[i].programs[0] +'</label></li></ul>');
+                    break;
+
+                  case (start + 1):
+                    $("#carousel").append('<ul class="item current '+ images[i].programs[0] +'"><li class="image"><img src="'+ images[i].content.images.standard_resolution.url +'"><label>'+ images[i].programs[0] +'</label></li></ul>');
+                    break;
+
+                  case end:
+                    $("#carousel").append('<ul class="item next '+ images[i].programs[0] +'"><li class="image"><img src="'+ images[i].content.images.standard_resolution.url +'"><label>'+ images[i].programs[0] +'</label></li></ul>');
+                    break;
+
+                  default:
+                    $("#carousel").append('<ul style="display:none;" class="item '+ images[i].programs[0] +'"><li class="image"><img src="'+ images[i].content.images.standard_resolution.url +'"><label>'+ images[i].programs[0] +'</label></li></ul>');
+                    break;
+                }//end switch
+              }// end for
+
+
+              $('#carousel .prev').click(clickPrev).find('img').imggrayscale({hoverShowOrigin: true});;//end click function prev
+              $('#carousel .next').click(clickNext).find('img').imggrayscale({hoverShowOrigin: true});;//end click function next
+
+
+            });// end get
+
+
+
+
+            console.log('programs: ');
+            console.dir(programs);
+
+
+          });
+        </script>
+    </body>
+</html>
