@@ -323,13 +323,13 @@
 #carousel .prev{
   position:fixed;
   top:9em;
-  left:-5%;
+  left:-7%;
 }
 
 #carousel .next{
   position:fixed;
   top:9em;
-  right:-5%;
+  right:-7%;
 }
 
 #carousel .next:hover, #carousel .prev:hover{
