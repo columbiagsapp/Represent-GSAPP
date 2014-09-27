@@ -42,8 +42,6 @@
           });
 
           function clickPrev(){
-              console.log('clicked prev');
-
               $('#carousel .next').removeClass('next').unbind('click').hide(200);
 
               if( $(this).prev().length > 0 ){
@@ -61,8 +59,6 @@
           }//end function clickPrev()
 
           function clickNext(){
-              console.log('clicked next');
-
               $('#carousel .prev').removeClass('prev').unbind('click').hide(200);
               if( $(this).next().length > 0 ){
                 console.log('.next() > 0');
@@ -113,8 +109,8 @@
               }// end for
 
 
-              $('#carousel .prev').click(clickPrev);//end click function prev
-              $('#carousel .next').click(clickNext);//end click function next
+              $('#carousel .prev').click(clickPrev).find('img').imggrayscale({hoverShowOrigin: true});;//end click function prev
+              $('#carousel .next').click(clickNext).find('img').imggrayscale({hoverShowOrigin: true});;//end click function next
 
 
             });// end get
