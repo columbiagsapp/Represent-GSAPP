@@ -65,8 +65,9 @@
 
               $('#carousel .prev').removeClass('prev').unbind('click').hide(200);
               if( $(this).next().length > 0 ){
-                $(this).next().addClass('next').show(200);
-                $prev.imggrayscale({hoverShowOrigin: true});
+                var $next = $(this).next();
+                $next.addClass('next').show(200);
+                $next.imggrayscale({hoverShowOrigin: true});
               }
 
               $('#carousel .current').removeClass('current').addClass('prev');
