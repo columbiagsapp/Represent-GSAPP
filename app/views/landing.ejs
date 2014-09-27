@@ -34,9 +34,12 @@
 
 
         <% include scripts %>
-        <script type="text/javascript" src="/javascript/vendor/jquery.hoverizer.min.js"></script>
 
         <script>
+
+          $(window).on("resize", function() {
+            $("#carousel .prev, #carousel .next").imggrayscale("resize");
+          });
 
           function clickPrev(){
               console.log('clicked prev');
@@ -44,8 +47,9 @@
               $('#carousel .next').removeClass('next').unbind('click').hide(200);
 
               if( $(this).prev().length > 0 ){
-                $(this).prev().addClass('prev').show(200);
-                $('img', this).hoverizr({effect:"grayscale",width:"responsive"});
+                var $prev = $(this).prev();
+                $prev.addClass('prev').show(200);
+                $prev.imggrayscale({hoverShowOrigin: true});
               }
 
               $('#carousel .current').removeClass('current').addClass('next');
@@ -62,7 +66,7 @@
               $('#carousel .prev').removeClass('prev').unbind('click').hide(200);
               if( $(this).next().length > 0 ){
                 $(this).next().addClass('next').show(200);
-                $('img', this).hoverizr({effect:"grayscale",width:"responsive"});
+                $prev.imggrayscale({hoverShowOrigin: true});
               }
 
               $('#carousel .current').removeClass('current').addClass('prev');
