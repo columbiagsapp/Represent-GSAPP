@@ -65,9 +65,12 @@
 
               $('#carousel .prev').removeClass('prev').unbind('click').hide(200);
               if( $(this).next().length > 0 ){
+                console.log('.next() > 0');
                 var $next = $(this).next();
                 $next.addClass('next').show(200);
                 $next.imggrayscale({hoverShowOrigin: true});
+                console.dir($next);
+                console.log();
               }
 
               $('#carousel .current').removeClass('current').addClass('prev');
