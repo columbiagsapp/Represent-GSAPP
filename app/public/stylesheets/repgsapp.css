@@ -302,6 +302,11 @@
   width:37%;
   text-align:center;
   margin:0 auto;
+  list-style:none;
+}
+
+#carousel .item li{
+  margin-bottom:5px;
 }
 
 #carousel .image label{
