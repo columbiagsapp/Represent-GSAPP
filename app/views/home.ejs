@@ -51,7 +51,7 @@
               $.get( "/api/get/program/" + current_program, function( data ) {
 
                 for(var i = 0; i < data.images.length; i++){
-                  $("#carousel ." + current_program).append('"<li class="image"><img src="'+ data.images[i].content.images.standard_resolution.url +'"></li>');
+                  $("#carousel ." + current_program).append('<li class="image"><img src="'+ data.images[i].content.images.standard_resolution.url +'"></li>');
                 }
 
                 $('#carousel .current').addClass('loaded');
@@ -111,7 +111,7 @@
 
           }//end function clickNext()
 
-          
+
 
           $(document).ready(function(){
 
