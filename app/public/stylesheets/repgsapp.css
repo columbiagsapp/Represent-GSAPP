@@ -342,6 +342,20 @@
   cursor:pointer;
 }
 
+#carousel .item li{
+  display:none;
+}
+
+#carousel .item.current li{
+  display:block;
+}
+
+#carousel .item li.featured{
+  display:block;
+}
+
+
+
 
 /* Programs page */
 #programs{
