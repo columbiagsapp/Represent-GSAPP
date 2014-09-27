@@ -75,21 +75,7 @@
               $('#carousel .prev').click(clickPrev);//end click function prev
               $('#carousel .next').click(clickNext);//end click function next
 
-              var current_program = $('#carousel .current').attr('data-program');
-
-              console.log('current_program: '+ current_program);
-
-              $.get( "/api/get/program/" + current_program, function( data ) {
-
-                console.log('got current_program: '+ current_program);
-                console.log('data.images:');
-                console.dir(data.images);
-
-                for(var i = 0; i < images.length; i++){
-                  $("#carousel ." + current_program).append('"<li class="image"><img src="'+ data.images[i].content.images.standard_resolution.url +'"></li>');
-                }//end for
-
-              }); // end get
+              
 
           }//end function clickNext()
 
