@@ -86,7 +86,7 @@
                 console.log('data.images:');
                 console.dir(data.images);
 
-                for(var i = 0; i < images.length; i++){
+                for(var i = 0; i < data.images.length; i++){
                   $("#carousel ." + current_program).append('"<li class="image"><img src="'+ data.images[i].content.images.standard_resolution.url +'"></li>');
                 }
               }); //end get
@@ -142,7 +142,7 @@
                 console.log('data.images:');
                 console.dir(data.images);
 
-                for(var i = 0; i < images.length; i++){
+                for(var i = 0; i < data.images.length; i++){
                   $("#carousel ." + current_program).append('"<li class="image"><img src="'+ data.images[i].content.images.standard_resolution.url +'"></li>');
                 }
 
