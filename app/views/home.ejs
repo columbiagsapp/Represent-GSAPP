@@ -41,6 +41,25 @@
             $("#carousel .prev, #carousel .next").imggrayscale("resize");
           });
 
+          //load images into current
+          function loadImages(){
+            // if images not loaded, go get them
+
+              var current_program = $('#carousel .current').attr('data-program');
+
+
+              $.get( "/api/get/program/" + current_program, function( data ) {
+
+                for(var i = 0; i < data.images.length; i++){
+                  $("#carousel ." + current_program).append('"<li class="image"><img src="'+ data.images[i].content.images.standard_resolution.url +'"></li>');
+                }
+
+                $('#carousel .current').addClass('loaded');
+              }); //end get
+          }
+
+
+          // handler for when user clicks previous image in carousel
           function clickPrev(){
               $('#carousel .next').removeClass('next').unbind('click').hide();
 
@@ -56,8 +75,16 @@
 
               $('#carousel .prev').click(clickPrev);//end click function prev
               $('#carousel .next').click(clickNext);//end click function next
+
+              // if images not loaded, go get them
+              if( !$('#carousel .current').hasClass('loaded') ){
+                loadImages();
+              }//end if not loaded
+
           }//end function clickPrev()
 
+
+          // handler for when user clicks next image in carousel
           function clickNext(){
               $('#carousel .prev').removeClass('prev').unbind('click').hide();
 
@@ -75,21 +102,10 @@
               $('#carousel .prev').click(clickPrev);//end click function prev
               $('#carousel .next').click(clickNext);//end click function next
 
-
-              var current_program = $('#carousel .current').attr('data-program');
-
-              console.log("current_program: " + current_program);
-
-              $.get( "/api/get/program/" + current_program, function( data ) {
-
-                console.log('got current_program: '+ current_program);
-                console.log('data.images:');
-                console.dir(data.images);
-
-                for(var i = 0; i < data.images.length; i++){
-                  $("#carousel ." + current_program).append('"<li class="image"><img src="'+ data.images[i].content.images.standard_resolution.url +'"></li>');
-                }
-              }); //end get
+              // if images not loaded, go get them
+              if( !$('#carousel .current').hasClass('loaded') ){
+                loadImages();
+              }//end if not loaded
 
           }//end function clickNext()
 
@@ -131,7 +147,6 @@
 
               $('#carousel .prev').click(clickPrev).find('img').imggrayscale({hoverShowOrigin: true});;//end click function prev
               $('#carousel .next').click(clickNext).find('img').imggrayscale({hoverShowOrigin: true});;//end click function next
-
 
               var current_program = images[start+1].programs[0];
 
