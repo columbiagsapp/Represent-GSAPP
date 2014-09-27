@@ -320,6 +320,23 @@
   display:block;
 }
 
+#carousel .prev{
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+#carousel .next{
+  position:absolute;
+  top:0;
+  right:0;
+}
+
+#carousel .current{
+  text-align:center;
+  margin:0 auto;
+}
+
 #carousel .next:hover, #carousel .prev:hover{
   cursor:pointer;
 }
