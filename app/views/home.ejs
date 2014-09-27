@@ -119,14 +119,14 @@
               var current_program = images[start+1].programs[0];
 
               // get all the images for the current program
-              $.get( "/api/get/program/" + current_program, function( images ) {
+              $.get( "/api/get/program/" + current_program, function( data ) {
 
                 console.log('got current_program: '+ current_program);
-                console.log('images:');
-                console.dir(images);
+                console.log('data.images:');
+                console.dir(data.images);
 
                 for(var i = 0; i < images.length; i++){
-                  $("#carousel ." + current_program).append('"<li class="image"><img src="'+ images[i].content.images.standard_resolution.url +'"></li>');
+                  $("#carousel ." + current_program).append('"<li class="image"><img src="'+ data.images[i].content.images.standard_resolution.url +'"></li>');
                 }
 
 
