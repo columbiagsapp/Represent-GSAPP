@@ -49,7 +49,7 @@
               if( $(this).prev().length > 0 ){
                 var $prev = $(this).prev();
                 $prev.addClass('prev').show(200);
-                $prev.imggrayscale({hoverShowOrigin: true});
+                $prev.find('img').imggrayscale({hoverShowOrigin: true});
               }
 
               $('#carousel .current').removeClass('current').addClass('next');
@@ -68,7 +68,7 @@
                 console.log('.next() > 0');
                 var $next = $(this).next();
                 $next.addClass('next').show(200);
-                $next.imggrayscale({hoverShowOrigin: true});
+                $next.find('img').imggrayscale({hoverShowOrigin: true});
                 console.dir($next);
                 console.log();
               }
