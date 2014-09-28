@@ -121,6 +121,8 @@
             // dynamically load image content into custom carousel
             $.get( "/api/get/featured", function( images ) {
 
+              console.log('featured');
+
               var start = Math.floor( Math.random()*(images.length-2) );
               var end = start + 2;
 
