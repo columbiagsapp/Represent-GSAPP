@@ -149,6 +149,12 @@
               }// end for
 
 
+              // populate programs nav (nav2)
+              for(var p = 0; p < programs.length; p++){
+                $('#nav2 .inside').append('<a class="nav-program titles content '+ programs[p] +'" href="#" target="_self">'+ programs[p] +'</a>');
+              }
+
+
               $('#carousel .prev').click(clickPrev).find('img').imggrayscale({hoverShowOrigin: true});;//end click function prev
               $('#carousel .next').click(clickNext).find('img').imggrayscale({hoverShowOrigin: true});;//end click function next
 
