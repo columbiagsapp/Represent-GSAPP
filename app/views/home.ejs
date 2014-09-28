@@ -130,9 +130,9 @@
             for(var p = 0; p < programs.length; p++){
               var html = '';
               if(p == (start + 1)){
-                html = '<a class="nav-program titles content highlight '+ programs[p] +'" href="#" target="_self">'+ programs[p] +'</a>';
+                html = '<a id="'+programs[p]+'" class="nav-program titles content highlight '+ programs[p] +'" href="#" target="_self">'+ programs[p] +'</a>';
               }else{
-                html = '<a class="nav-program titles content '+ programs[p] +'" href="#" target="_self">'+ programs[p] +'</a>';
+                html = '<a id="'+programs[p]+'" class="nav-program titles content '+ programs[p] +'" href="#" target="_self">'+ programs[p] +'</a>';
               }
               $('#nav2 .inside').append( html );
               console.log('appended; p = ' + p);
@@ -147,6 +147,9 @@
               autoScrollingMode: "" // always, onStart or empty (no auto scrolling) String
 
             });
+
+            $("#nav2 .inside").jumpToElement('id', programs[start + 1]);
+
           }//end initProgramNav()
 
 
