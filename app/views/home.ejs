@@ -50,6 +50,7 @@
 
         <script>
 
+          // handler for greyscale images when window is resized
           $(window).on("resize", function() {
             $("#carousel .prev, #carousel .next").imggrayscale("resize");
           });
@@ -124,6 +125,7 @@
 
           }//end function clickNext()
 
+          // initialize the programs nav and set up scrolling, etc.
           function initProgramNav(programs, start){
             for(var p = 0; p < programs.length; p++){
               var html = '';
@@ -136,12 +138,20 @@
               console.log('appended; p = ' + p);
             }
 
+            // init smoothDivScroll for nav
             $("#nav2 .inside").smoothDivScroll({
-              autoScrollingMode: "onStart"
+              hotSpotScrollingStep: 7, //default 15 pixels
+              easingAfterHotSpotScrollingDistance: 7, // default 10 Pixels
+              mousewheelScrolling: "horizontal", // vertical, horizontal, allDirections or empty (no mousewheel scrolling) String
+			        mousewheelScrollingStep: 7, // default 70 Pixels
+              autoScrollingMode: "onStart", // always, onStart or empty (no auto scrolling) String
+			        autoScrollingDirection: "endlessLoopRight" // right, left, backAndForth, endlessLoopRight, endlessLoopLeft String
+
             });
           }//end initProgramNav()
 
 
+          // initialize main carousel by randomly selecting a program to start with and placing it in the center by pulling all featured images from the DB
           function initCarousel(images, start){
             var programs = [];
             var end = start + 2;
