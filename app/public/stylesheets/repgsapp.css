@@ -162,14 +162,8 @@
 }
 
 #repgsapp-wrapper #nav2 .inside {
-  position: absolute;
-  left: 5%;
-  right: 5%;
-  bottom: 0px;
-  top: 0px;
-  width:90%;
-  white-space: nowrap;
-  overflow-x: hidden;
+  position: relative;
+  width:100%;
 }
 
 #repgsapp-wrapper #nav2 .inside div.scrollableArea a {
