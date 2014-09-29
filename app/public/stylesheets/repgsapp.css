@@ -391,6 +391,7 @@
 
 #carousel .item.current li{
   display:block;
+  position:relative;
 }
 
 #carousel .item li.featured{
