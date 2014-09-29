@@ -111,9 +111,9 @@ var initDate = function(){
   Image.find().exec(function(err, images){
     for(var i = 0; i < images.length; i++){
 
-      console.log('created_time: ' + images[i].caption.created_time);
+      console.log('created_time: ' + images[i].content.created_time);
 
-      var d = moment.unix(images[i].caption.created_time).format("L")
+      var d = moment.unix(images[i].content.created_time).format("L")
 
       console.log('date: ' + d );
 
