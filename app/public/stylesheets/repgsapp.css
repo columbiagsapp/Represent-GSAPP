@@ -357,7 +357,7 @@
   margin:0 0 15px;
 }
 
-#carousel .current li.image.hover{
+#carousel .current li.image.hover img{
   opacity:0.2;
 }
 
