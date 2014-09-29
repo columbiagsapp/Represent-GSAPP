@@ -331,6 +331,10 @@
   display:block;
 }
 
+#carousel .current li.image:hover{
+  opacity:0.2;
+}
+
 #carousel .prev{
   position:fixed;
   top:9em;
