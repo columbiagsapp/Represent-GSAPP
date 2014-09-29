@@ -216,22 +216,24 @@
             for(var i = 0; i < images.length; i++){
               programs.push( images[i].programs[0] );
 
+              var caption = images[i].content.caption.text || 'no caption';
+
               switch(i){
                 case start:
                   console.log('i = start');
-                  $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" class="item prev program'+i +' ' + images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"><label style="display:none;" class="program-label">'+ images[i].programs[0] +'</label></li></ul>');
+                  $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" class="item prev program'+i +' ' + images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"><label style="display:none;" class="program-label">'+ images[i].programs[0] +'</label><div class="caption">'+ caption +'</div></li></ul>');
                   break;
 
                 case (start + 1):
-                  $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" class="item current program'+i +' ' + images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"><label class="program-label">'+ images[i].programs[0] +'</label></li></ul>');
+                  $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" class="item current program'+i +' ' + images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"><label class="program-label">'+ images[i].programs[0] +'</label><div class="caption">'+ caption +'</div></li></ul>');
                   break;
 
                 case end:
-                  $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" class="item next program'+i +' ' + images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"><label style="display:none;" class="program-label">'+ images[i].programs[0] +'</label></li></ul>');
+                  $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" class="item next program'+i +' ' + images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"><label style="display:none;" class="program-label">'+ images[i].programs[0] +'</label><div class="caption">'+ caption +'</div></li></ul>');
                   break;
 
                 default:
-                  $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" style="display:none;" class="item program'+i +' ' + images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"><label style="display:none;" class="program-label">'+ images[i].programs[0] +'</label></li></ul>');
+                  $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" style="display:none;" class="item program'+i +' ' + images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"><label style="display:none;" class="program-label">'+ images[i].programs[0] +'</label><div class="caption">'+ caption +'</div></li></ul>');
                   break;
               }//end switch
             }// end for
