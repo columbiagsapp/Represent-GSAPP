@@ -85,8 +85,10 @@
                 // clear out the hover effect from when it was prev/next
                 $('#carousel .current li.image').removeClass('hover').hover(function(){
                   $(this).addClass('hover');
+                  $('#carousel .current .program-label').hide();
                 }, function(){
                   $(this).removeClass('hover');
+                  $('#carousel .current .program-label').show();
                 });
               }); //end get
           }
