@@ -172,7 +172,12 @@
 
             $('#carousel .current .program-label').css('left', window.innerWidth/2 - $('#carousel .current .program-label').width()/2 ).show();
 
-            $('#carousel .prev .program-label').css('left', (0.37*window.innerWidth)/2 - (0.07*window.innerWidth) - $('#carousel .prev .program-label').width()/2 ).show();
+            $('#carousel .prev .program-label').css('left', (0.37*window.innerWidth)/2 - (0.07*window.innerWidth) - $('#carousel .prev .program-label').width()/2 ).show().hover(function(){
+              $(this).closest('li').find('img').imggrayscale("destroy");
+              console.log( $(this).closest('li').find('img').attr('src') );
+            }, function(){
+              $(this).closest('li').find('img').imggrayscale({hoverShowOrigin: true});
+            });
 
             $('#carousel .next .program-label').css('right', (0.37*window.innerWidth)/2 - (0.07*window.innerWidth) - $('#carousel .next .program-label').width()/2 ).show().hover(function(){
               $(this).closest('li').find('img').imggrayscale("destroy");
