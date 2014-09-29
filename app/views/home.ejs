@@ -190,15 +190,13 @@
             $('#carousel .next').click(clickNext).find('img').imggrayscale({hoverShowOrigin: true});;//end click function next
 
             // add program labels on top of and centered on image
-            $('#carousel .item').each(function(i){
-              var topOffset = $('#carousel .prev').offset().top + $('#carousel .prev img').height();
+            var topOffset = $('#carousel .prev').offset().top + $('#carousel .prev img').height();
+            $('#carousel .item .program-label').css('top', topOffset);
+            $('#carousel .item .program-label', this).css('left', '100px').show();
 
-              console.log('i: '+ i +'  topOffset:'+ topOffset);
+console.log('  topOffset:'+ topOffset);
 
-              $('.program-label', this).css('top', topOffset);
-              $('.program-label', this).css('left', '100px').show();
 
-            });
 
 
             // init hover effects
