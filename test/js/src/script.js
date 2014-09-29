@@ -96,6 +96,7 @@
 		}, 100);
 		
 		setTimeout(function(){
+			gradient.remove();
 			gradient = newGradient;
 			gradientCycle();
 		}, 5000);
