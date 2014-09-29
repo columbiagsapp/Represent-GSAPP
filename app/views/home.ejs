@@ -181,8 +181,10 @@
               $('#carousel .item .program-label').css('top', topOffset);
             }
 
-            console.log('center left: '+ window.innerWidth/2 - $('#carousel .current .program-label').width()/2);
-            $('#carousel .current .program-label').css('left', window.innerWidth/2 - $('#carousel .current .program-label').width()/2 ).show();
+            var current_left = window.innerWidth/2 - $('#carousel .current .program-label').width()/2;
+
+            console.log('center left: '+ current_left);
+            $('#carousel .current .program-label').css('left', current_left).show();
 
             $('#carousel .prev .program-label').css('left', (0.37*window.innerWidth)/2 - (0.07*window.innerWidth) - $('#carousel .prev .program-label').width()/2 ).show().hover(function(){
               $(this).closest('li').find('img').imggrayscale("destroy");
