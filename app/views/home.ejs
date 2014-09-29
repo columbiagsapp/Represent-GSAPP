@@ -108,7 +108,7 @@
             }//end if not loaded
 
             // clear out the hover effect from when it was prev/next
-            $('#carousel .current li.image').css('opacity', 1);
+            $('#carousel .current li.image').removeClass('hover');
 
           }//end function clickPrev()
 
@@ -142,7 +142,7 @@
             }//end if not loaded
 
             // clear out the hover effect from when it was prev/next
-            $('#carousel .current li.image').css('opacity', 1);
+            $('#carousel .current li.image').removeClass('hover');
 
           }//end function clickNext()
 
@@ -238,6 +238,12 @@
             // init greyscale effects on prev and next
             $('#carousel .prev').click(clickPrev).find('img').imggrayscale({hoverShowOrigin: true});;//end click function prev
             $('#carousel .next').click(clickNext).find('img').imggrayscale({hoverShowOrigin: true});;//end click function next
+
+            $('#carousel .current li.image').hover(function(){
+              $(this).addClass('hover');
+            }, function(){
+              $(this).removeClass('hover');
+            });
 
             initCarouselLabels();
 

@@ -332,11 +332,11 @@
   display:block;
 }
 
-#carousel .current li.image:hover{
+#carousel .current li.image.hover{
   opacity:0.2;
 }
 
-#carousel .current li.image:hover .program-label{
+#carousel .current li.image.hover .program-label{
   display:none;
 }
 
