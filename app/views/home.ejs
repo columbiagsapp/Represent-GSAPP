@@ -175,9 +175,11 @@
             $('#carousel .prev .program-label').css('left', (0.37*window.innerWidth)/2 - (0.07*window.innerWidth) - $('#carousel .prev .program-label').width()/2 ).show();
 
             $('#carousel .next .program-label').css('right', (0.37*window.innerWidth)/2 - (0.07*window.innerWidth) - $('#carousel .next .program-label').width()/2 ).show().hover(function(){
-              $(this).closest('li').find('img').imggrayscale({hoverShowOrigin: true});
+              $(this).closest('li').find('img').imggrayscale("destroy");
+              $(this).closest('li').find('img').imggrayscale();
             }, function(){
               $(this).closest('li').find('img').imggrayscale("destroy");
+              $(this).closest('li').find('img').imggrayscale({hoverShowOrigin: true});
             });
           }//end initCarouselLabels()
 
