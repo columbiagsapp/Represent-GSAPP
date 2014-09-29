@@ -146,7 +146,7 @@
               if(p == (start + 1)){
                 html = '<a id="'+programs[p]+'" class="nav-program titles content highlight program' + p + ' ' + programs[p] +'" href="#" target="_self">'+ programs[p] +'</a>';
               }else{
-                html = '<a id="'+programs[p]+'" class="nav-program titles content '+ programs[p] +'" href="#" target="_self">'+ programs[p] +'</a>';
+                html = '<a id="'+programs[p]+'" class="nav-program titles content program' + p + ' ' + programs[p] +'" href="#" target="_self">'+ programs[p] +'</a>';
               }
               $('#nav2 .inside').append( html );
               console.log('appended; p = ' + p);
