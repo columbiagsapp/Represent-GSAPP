@@ -21,6 +21,7 @@ var ImageSchema = new Schema({
     content: Schema.Types.Mixed,
     programs: [String],
     location: String,
+    date: String,
     downloaded: {
         type: Boolean,
         defaut: false

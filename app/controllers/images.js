@@ -107,6 +107,21 @@ var instagram_fetch_handler = function(err, medias, pagination, limit) {
     }
 };
 
+function(){
+  Images.find().exec(function(err, images){
+    for(var i = 0; i < images.length; i++){
+
+      console.log('format L: ' + moment.unix(images[i].created_time).format("L") );
+
+      images[i].date = moment.unix(images[i].created_time).format("L");
+
+      images[i].markModified('date');
+
+      images[i].save();
+    }
+  });
+}
+
 // takes raw Instagram fetch data in an array and adds other data
 var sanitizeArray = function(medias){
   var sanitized_array = [];
@@ -117,7 +132,7 @@ var sanitizeArray = function(medias){
     obj.programs = extractPrograms(medias[m].tags);
     obj.location = extractLocation(medias[m].tags);
     obj.status = "pending";
-    obj.created_time = moment.unix(medias[m].created_time).format("dddd, MMMM Do YYYY, h:mm:ss a");
+    obj.created_time = moment.unix(medias[m].created_time).format("L");//"dddd, MMMM Do YYYY, h:mm:ss a");
 
     sanitized_array.push(obj);
   }
