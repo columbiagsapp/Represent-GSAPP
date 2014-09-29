@@ -71,7 +71,7 @@
                   var HTML_username = '<div class="username">@' + username + '</div>';
 
                   var caption = data.images[i].content.caption.text || 'no caption';
-                  var HTML_caption = '<div class="caption">'+ HTML_username + caption +'</div>';
+                  var HTML_caption = '<div class="caption">' + caption + HTML_username +'</div>';
 
                   $("#carousel ." + current_program).append('<li class="image"><img src="'+ data.images[i].content.images.standard_resolution.url +'">'+HTML_caption+'</li>');
                 }
@@ -229,7 +229,7 @@
               var HTML_username = '<div class="username">@' + username + '</div>';
 
               var caption = images[i].content.caption.text || 'no caption';
-              var HTML_caption = '<div class="caption">'+ HTML_username + caption +'</div>';
+              var HTML_caption = '<div class="caption">' + caption + HTML_username +'</div>';
 
 
               switch(i){

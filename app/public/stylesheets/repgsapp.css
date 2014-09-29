@@ -354,7 +354,7 @@
 }
 
 #carousel li.image .caption .username{
-  margin:0 0 15px;
+  margin:30px 0 0;
 }
 
 #carousel .current li.image.hover img{
