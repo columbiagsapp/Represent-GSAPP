@@ -358,6 +358,10 @@
   margin:15px 0 0;
 }
 
+#carousel li.image .caption .date{
+  margin:0 0 15px;
+}
+
 #carousel .current li.image.hover img{
   opacity:0.2;
 }
