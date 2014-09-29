@@ -99,6 +99,8 @@
 
             $('#nav2 .highlight').removeClass('highlight').prev().addClass('highlight');
 
+            //update labels
+            initCarouselLabels();
 
             // if images not loaded, go get them
             if( !$('#carousel .current').hasClass('loaded') ){
@@ -128,6 +130,9 @@
             $('#carousel .next').click(clickNext);//end click function next
 
             $('#nav2 .highlight').removeClass('highlight').next().addClass('highlight');
+
+            //update labels
+            initCarouselLabels();
 
             // if images not loaded, go get them
             if( !$('#carousel .current').hasClass('loaded') ){
@@ -164,6 +169,9 @@
 
 
           function initCarouselLabels(){
+
+            // remove all labels
+            $('#carousel .program-label').hide().unbind('click').unbind('hover');
 
             // add program labels on top of and centered on image
             var topOffset = $('#carousel .prev').offset().top + (0.37*window.innerWidth)/2;//given by css that says image is 37% width
