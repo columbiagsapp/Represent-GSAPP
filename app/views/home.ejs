@@ -75,6 +75,13 @@
                 // set margin bottom to be uniform with horiz gutter
                 var mb = window.innerWidth*0.015; //gutter is 1.5% of window width
                 //$('#carousel .image').css('margin-bottom', mb);
+
+                // clear out the hover effect from when it was prev/next
+                $('#carousel .current li.image').removeClass('hover').hover(function(){
+                  $(this).addClass('hover');
+                }, function(){
+                  $(this).removeClass('hover');
+                });
               }); //end get
           }
 
@@ -107,13 +114,6 @@
               loadImages();
             }//end if not loaded
 
-            // clear out the hover effect from when it was prev/next
-            $('#carousel .current li.image').removeClass('hover').hover(function(){
-              $(this).addClass('hover');
-            }, function(){
-              $(this).removeClass('hover');
-            });
-
           }//end function clickPrev()
 
 
@@ -144,13 +144,6 @@
             if( !$('#carousel .current').hasClass('loaded') ){
               loadImages();
             }//end if not loaded
-
-            // clear out the hover effect from when it was prev/next
-            $('#carousel .current li.image').removeClass('hover').hover(function(){
-              $(this).addClass('hover');
-            }, function(){
-              $(this).removeClass('hover');
-            });
 
           }//end function clickNext()
 
