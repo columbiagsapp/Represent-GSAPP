@@ -190,8 +190,10 @@
             $('#carousel .next').click(clickNext).find('img').imggrayscale({hoverShowOrigin: true});;//end click function next
 
             // add program labels on top of and centered on image
-            $('#carousel .image').each(function(){
-              var top = $(this).offset().top + $(this).height() - (px(2/2));
+            $('#carousel .image').each(function(i){
+              var top = $(this).offset().top + $(this).height();
+
+              console.log('i: '+ i +'  top:'+ top);
 
               $('.program-label', this).css('top', top);
               $('.program-label', this).css('left', '100px').show();

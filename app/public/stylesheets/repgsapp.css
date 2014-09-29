@@ -321,6 +321,8 @@
   font-size: 2em;
   position: fixed;
   z-index: 200;
+  line-height:1em;
+  margin-top:-1em;
 }
 
 #carousel .item img{
