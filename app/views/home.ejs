@@ -80,7 +80,9 @@
 
                 $('#carousel .current').addClass('loaded');
 
-                
+                // set margin bottom to be uniform with horiz gutter
+                var mb = window.innerWidth*0.015; //gutter is 1.5% of window width
+                $('#carousel .image').css('margin-bottom', mb);
               }); //end get
           }
 
