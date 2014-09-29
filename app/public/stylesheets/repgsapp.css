@@ -315,6 +315,8 @@
 
 #carousel .item li{
   margin-bottom:15px;
+  overflow-x:hidden;
+  overflow-y:scroll;
 }
 
 #carousel .image label{
@@ -341,10 +343,8 @@
   left:0;
   text-align:center;
   width:80%;
-  margin:30px auto;
-  padding:10%;
-  overflow-x:hidden;
-  overflow-y:scroll;
+  margin:0;
+  padding:0 10%;
 }
 
 #carousel .current li.image:hover .caption{
