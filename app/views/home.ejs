@@ -134,6 +134,7 @@
           // handler for when user clicks next image in carousel
           function clickNext(){
             $('body').scrollTop(0);
+            $('.caption').hide();//fixes timing glitch
             $('#carousel .prev').removeClass('prev').unbind('click').hide();
 
             if( $(this).next().length > 0 ){
@@ -191,7 +192,7 @@
               $next.find('img').imggrayscale({hoverShowOrigin: true});
             }
 
-            $(current_selector).addClass('current').show(); 
+            $(current_selector).addClass('current').show();
 
             //update labels
             initCarouselLabels();
