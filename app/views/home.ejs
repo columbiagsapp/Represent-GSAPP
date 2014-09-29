@@ -100,7 +100,6 @@
               }); //end get
           }
 
-
           // handler for when user clicks previous image in carousel
           function clickPrev(){
             $('body').scrollTop(0)
@@ -162,6 +161,13 @@
 
           }//end function clickNext()
 
+
+          // handler for clicking program in nav2
+          function clickNav(){
+            console.log('clickNav: ' + $(this).attr('id'));
+
+          }// end clickNav()
+
           // initialize the programs nav and set up scrolling, etc.
           function initProgramNav(programs, start){
             for(var p = 0; p < programs.length; p++){
@@ -174,6 +180,9 @@
               $('#nav2 .inside').append( html );
               console.log('appended; p = ' + p);
             }
+
+            // bind to click handler
+            $('#nav2 a').click(clickNav);
 
             // init smoothDivScroll for nav
             $("#nav2 .inside").smoothDivScroll({
