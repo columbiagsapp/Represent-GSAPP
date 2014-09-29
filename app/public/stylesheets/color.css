@@ -1,71 +1,71 @@
 /* Program colors */
 
-.draw{
+.program1{
   color:#ed1b24;
 }
 
-.read{
+.program2{
   color:#f37020;
 }
 
-.write{
+.program3{
   color:#f89f1c;
 }
 
-.discuss{
+.program4{
  color:#f596c0;
 }
 
-.present{
+.program5{
   color:#f7b1a9;
 }
-.make{
+.program6{
   color:#6299d3;
 }
-.lecture{
+.program7{
   color:#0091d5;
 }
-.render{
+.program8{
   color:#2f3192;
 }
-.celebrate{
+.program9{
   color:#792d80;
 }
-.critique{
+.program10{
   color:#b61e8d;
 }
-.plot{
+.program11{
   color:#ee1067;
 }
 
-.diagram{
+.program12{
   color:#ed1b24;
 }
 
-.photoraph{
+.program13{
   color:#ed1b24;
 }
-.exhibit{
+.program14{
   color:#f37020;
 }
-.install{
+.program15{
   color:#f89f1c;
 }
-.teach{
+.program16{
   color:#f596c0;
 }
-.test{
+.program17{
   color:#f7b1a9;
 }
-.learn{
+.program18{
   color:#6299d3;
 }
-.spray{
+.program19{
   color:#0091d5;
 }
-.sleep{
+.program20{
   color:#2f3192;
 }
-.smile{
+.program21{
   color:#792d80;
 }
