@@ -97,6 +97,7 @@
                 // position the captions
                 $('#carousel .current .caption').each(function(){
                   var topPos = (0.37*window.innerWidth)/2 - $(this).height()/2;
+                  console.log('topPos: ' + topPos);
                   $(this).css('top', topPos);
                 });
 
