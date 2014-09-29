@@ -1,5 +1,9 @@
 $(document).ready(function(){
 
+  // make sure this matches all the colors in scss/_vars.scss
+  var colors = ['red', 'red-orange', 'orange', 'pink', 'salmon', 'blue', 'blue-alt', 'purple', 'violet', 'fuchsia', 'red-purple'];
+
+  var gradient = $('.gradient');
 
   function gradientCycle() {
     var classes = gradient.attr('class').split(' '),
@@ -28,7 +32,7 @@ $(document).ready(function(){
   }
   gradientCycle();
 
-  
+
 
 
 });
