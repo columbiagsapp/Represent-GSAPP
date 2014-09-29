@@ -107,7 +107,7 @@ var instagram_fetch_handler = function(err, medias, pagination, limit) {
     }
 };
 
-function(){
+var initDate = function(){
   Images.find().exec(function(err, images){
     for(var i = 0; i < images.length; i++){
 
@@ -121,6 +121,8 @@ function(){
     }
   });
 }
+
+initDate();
 
 // takes raw Instagram fetch data in an array and adds other data
 var sanitizeArray = function(medias){
