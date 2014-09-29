@@ -335,6 +335,10 @@
   opacity:0.2;
 }
 
+#carousel .current li.image:hover .program-label{
+  display:none;
+}
+
 #carousel .prev{
   position:fixed;
   top:9em;
