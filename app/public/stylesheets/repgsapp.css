@@ -332,7 +332,7 @@
   display:block;
 }
 
-#carousel .current li.image .caption{
+#carousel li.image .caption{
   display:none;
   position:absolute;
   top:0;
@@ -344,6 +344,7 @@
 
 #carousel .current li.image:hover .caption{
   display:block;
+  z-index:100;
 }
 
 #carousel .current li.image.hover{
