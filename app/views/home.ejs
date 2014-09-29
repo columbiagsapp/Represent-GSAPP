@@ -150,6 +150,12 @@
 
           }//end initProgramNav()
 
+          // helper to convert ems to px
+          function px(input) {
+            var emSize = parseFloat($("body").css("font-size"));
+            return (input / emSize);
+          }
+
 
           // initialize main carousel by randomly selecting a program to start with and placing it in the center by pulling all featured images from the DB
           function initCarousel(images, start){
@@ -162,19 +168,19 @@
               switch(i){
                 case start:
                   console.log('i = start');
-                  $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" class="item prev '+ images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"></li></ul>');
+                  $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" class="item prev '+ images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"><label style="display:none;" class="program-label">'+ images[i].programs[0] +'</label></li></ul>');
                   break;
 
                 case (start + 1):
-                  $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" class="item current '+ images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"></li></ul>');
+                  $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" class="item current '+ images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"><label style="display:none;" class="program-label">'+ images[i].programs[0] +'</label></li></ul>');
                   break;
 
                 case end:
-                  $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" class="item next '+ images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"></li></ul>');
+                  $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" class="item next '+ images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"><label style="display:none;" class="program-label">'+ images[i].programs[0] +'</label></li></ul>');
                   break;
 
                 default:
-                  $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" style="display:none;" class="item '+ images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"></li></ul>');
+                  $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" style="display:none;" class="item '+ images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"><label style="display:none;" class="program-label">'+ images[i].programs[0] +'</label></li></ul>');
                   break;
               }//end switch
             }// end for
@@ -182,6 +188,15 @@
             // init greyscale effects on prev and next
             $('#carousel .prev').click(clickPrev).find('img').imggrayscale({hoverShowOrigin: true});;//end click function prev
             $('#carousel .next').click(clickNext).find('img').imggrayscale({hoverShowOrigin: true});;//end click function next
+
+            // add program labels on top of and centered on image
+            $('#carousel .image').each(function(){
+              var top = $(this).offset().top + $(this).height() - (px(2/2));
+
+              $('.program-label', this).css('top', top);
+              $('.program-label', this).css('left', '100px');
+            });
+
 
             // init hover effects
             $('#carousel li.image').hover(function(){
