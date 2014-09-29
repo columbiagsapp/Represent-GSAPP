@@ -90,7 +90,7 @@
               $prev.find('img').imggrayscale({hoverShowOrigin: true});
             }
 
-            $('#carousel .current').removeClass('current').addClass('next').find('img').imggrayscale({hoverShowOrigin: true});
+            $('#carousel .current').unbind('hover').removeClass('current').addClass('next').find('img').imggrayscale({hoverShowOrigin: true});
 
             $(this).removeClass('prev').addClass('current').unbind('click').find('img').imggrayscale("destroy");
 
@@ -108,7 +108,11 @@
             }//end if not loaded
 
             // clear out the hover effect from when it was prev/next
-            $('#carousel .current li.image').removeClass('hover');
+            $('#carousel .current li.image').removeClass('hover').hover(function(){
+              $(this).addClass('hover');
+            }, function(){
+              $(this).removeClass('hover');
+            });
 
           }//end function clickPrev()
 
@@ -124,7 +128,7 @@
               $next.find('img').imggrayscale({hoverShowOrigin: true});
             }
 
-            $('#carousel .current').removeClass('current').addClass('prev').find('img').imggrayscale({hoverShowOrigin: true});
+            $('#carousel .current').unbind('hover').removeClass('current').addClass('prev').find('img').imggrayscale({hoverShowOrigin: true});
 
             $(this).removeClass('next').addClass('current').unbind('click').find('img').imggrayscale("destroy");
 
@@ -142,7 +146,11 @@
             }//end if not loaded
 
             // clear out the hover effect from when it was prev/next
-            $('#carousel .current li.image').removeClass('hover');
+            $('#carousel .current li.image').removeClass('hover').hover(function(){
+              $(this).addClass('hover');
+            }, function(){
+              $(this).removeClass('hover');
+            });
 
           }//end function clickNext()
 
