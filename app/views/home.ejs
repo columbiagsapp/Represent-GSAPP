@@ -105,6 +105,9 @@
             $('#carousel .prev').click(clickPrev);//end click function prev
             $('#carousel .next').click(clickNext);//end click function next
 
+            $('#nav2 .highlight').removeClass('highlight').prev().addClass('highlight');
+
+
             // if images not loaded, go get them
             if( !$('#carousel .current').hasClass('loaded') ){
               loadImages();
