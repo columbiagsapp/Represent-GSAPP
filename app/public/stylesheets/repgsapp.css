@@ -345,6 +345,7 @@
   width:80%;
   margin:0;
   padding:0 10%;
+  word-break: break-all;
 }
 
 #carousel .current li.image:hover .caption{
