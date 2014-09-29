@@ -67,7 +67,13 @@
               $.get( "/api/get/program/" + current_program, function( data ) {
 
                 for(var i = 0; i < data.images.length; i++){
-                  $("#carousel ." + current_program).append('<li class="image"><img src="'+ data.images[i].content.images.standard_resolution.url +'"></li>');
+                  var username = data.images[i].content.user.username;
+                  var HTML_username = '<div class="username">@' + username + '</div>';
+
+                  var caption = data.images[i].content.caption.text || 'no caption';
+                  var HTML_caption = '<div class="caption">'+ HTML_username + caption +'</div>';
+
+                  $("#carousel ." + current_program).append('<li class="image"><img src="'+ data.images[i].content.images.standard_resolution.url +'">'+HTML_caption+'</li>');
                 }
 
                 $('#carousel .current').addClass('loaded');
