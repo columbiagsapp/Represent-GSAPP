@@ -108,7 +108,7 @@ var instagram_fetch_handler = function(err, medias, pagination, limit) {
 };
 
 var initDate = function(){
-  Images.find().exec(function(err, images){
+  Image.find().exec(function(err, images){
     for(var i = 0; i < images.length; i++){
 
       console.log('format L: ' + moment.unix(images[i].created_time).format("L") );
