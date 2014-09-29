@@ -60,6 +60,7 @@
             $('#carousel .item .program-label').css('top', topOffset);
 
             $('#carousel .item .program-label').each(function(){
+              console.log('$(this).width()/2: '+ $(this).width()/2);
               $(this).css('left', window.innerWidth/2 - $(this).width()/2 );
             });
           });
@@ -78,6 +79,10 @@
                 }
 
                 $('#carousel .current').addClass('loaded');
+
+                // set margin bottom to be uniform with horiz gutter
+                var mb = window.innerWidth*0.015; //gutter is 1.5% of window width
+                $('#carousel .image').css('margin-bottom', mb);
               }); //end get
           }
 
