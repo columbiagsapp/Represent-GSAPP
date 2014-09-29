@@ -12,12 +12,13 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <div class="gradient"></div>
+        <div class="gradient gradient-red"></div>
 
         <div id="repgsapp-wrapper" class="edit-page">
 
           <header>
             <% include header-top %>
+            <% include header-bottom %>
           </header>
 
           <main>
@@ -27,7 +28,6 @@
 
           </main>
 
-          <h1 id="subtitle" class="titles">Represent GSAPP is a collective project to document the spaces and activities of the school today in order to project its future through new representations</h1>
 
 
         </div><!-- #repgsapp-wrapper -->
@@ -36,36 +36,90 @@
         <% include scripts %>
 
         <script>
+
+          $(window).on("resize", function() {
+            $("#carousel .prev, #carousel .next").imggrayscale("resize");
+          });
+
+          function clickPrev(){
+              $('#carousel .next').removeClass('next').unbind('click').hide(200);
+
+              if( $(this).prev().length > 0 ){
+                var $prev = $(this).prev();
+                $prev.addClass('prev').show(200);
+                $prev.find('img').imggrayscale({hoverShowOrigin: true});
+              }
+
+              $('#carousel .current').removeClass('current').addClass('next').find('img').imggrayscale({hoverShowOrigin: true});
+
+              $(this).removeClass('prev').addClass('current').unbind('click').find('img').imggrayscale("destroy");
+
+              $('#carousel .prev').click(clickPrev);//end click function prev
+              $('#carousel .next').click(clickNext);//end click function next
+          }//end function clickPrev()
+
+          function clickNext(){
+              $('#carousel .prev').removeClass('prev').unbind('click').hide(200);
+              if( $(this).next().length > 0 ){
+                console.log('.next() > 0');
+                var $next = $(this).next();
+                $next.addClass('next').show(200);
+                $next.find('img').imggrayscale({hoverShowOrigin: true});
+              }
+
+              $('#carousel .current').removeClass('current').addClass('prev').find('img').imggrayscale({hoverShowOrigin: true});
+
+              $(this).removeClass('next').addClass('current').unbind('click').find('img').imggrayscale("destroy");
+
+              $('#carousel .prev').click(clickPrev);//end click function prev
+              $('#carousel .next').click(clickNext);//end click function next
+          }//end function clickNext()
+
           $(document).ready(function(){
 
-            $.get( "/api/get/programs", function( programs ) {
+            var programs = [];
 
-              $('#carousel').slick({
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 3000
-              });
+            $.get( "/api/get/featured", function( images ) {
 
-              var slideIndex = 0;
+              var start = Math.floor( Math.random()*(images.length-2) );
+              var end = start + 2;
 
+              // extract programs from array
+              for(var i = 0; i < images.length; i++){
+                programs.push( images[i].programs[0] );
 
-              for(var p = 0; p < programs.length; p++){
+                switch(i){
+                  case start:
+                    console.log('i = start');
+                    $("#carousel").append('<div class="item prev '+ images[i].programs[0] +'"><div class="image"><img src="'+ images[i].content.images.standard_resolution.url +'"><label>'+ images[i].programs[0] +'</label></div></div>');
+                    break;
 
-                $.get( "/api/get/program/" + programs[p], function( data ) {
-                  console.log();
+                  case (start + 1):
+                    $("#carousel").append('<div class="item current '+ images[i].programs[0] +'"><div class="image"><img src="'+ images[i].content.images.standard_resolution.url +'"><label>'+ images[i].programs[0] +'</label></div></div>');
+                    break;
 
+                  case end:
+                    $("#carousel").append('<div class="item next '+ images[i].programs[0] +'"><div class="image"><img src="'+ images[i].content.images.standard_resolution.url +'"><label>'+ images[i].programs[0] +'</label></div></div>');
+                    break;
 
-                  if(data.images[0] != undefined){
-                    console.log('<div class="item '+ data.program +'"><img data-lazy="'+ data.images[0].content.images.standard_resolution.url +'"><label>'+ data.program +'</label></div>');
-
-
-                    $("#carousel").slickAdd('<div class="item '+ data.program +'"><div class="image"><img data-lazy="'+ data.images[0].content.images.standard_resolution.url +'"><label>'+ data.program +'</label></div></div>');
-
-                  }
-                });
+                  default:
+                    $("#carousel").append('<div style="display:none;" class="item '+ images[i].programs[0] +'"><div class="image"><img src="'+ images[i].content.images.standard_resolution.url +'"><label>'+ images[i].programs[0] +'</label></div></div>');
+                    break;
+                }//end switch
               }// end for
-            });// end original get
+
+
+              $('#carousel .prev').click(clickPrev).find('img').imggrayscale({hoverShowOrigin: true});;//end click function prev
+              $('#carousel .next').click(clickNext).find('img').imggrayscale({hoverShowOrigin: true});;//end click function next
+
+
+            });// end get
+
+
+
+
+            console.log('programs: ');
+            console.dir(programs);
 
 
           });

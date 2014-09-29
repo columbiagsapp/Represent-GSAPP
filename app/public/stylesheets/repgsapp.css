@@ -14,6 +14,14 @@
   display:block;
 }
 
+.hidden{
+  display:none;
+}
+
+.sliver{
+  width:0;
+}
+
 .left{
   text-align:left;
 }
@@ -58,7 +66,7 @@
 
 #repgsapp-wrapper{
   display:block;
-  font-family:'Poplar W01 Black';
+  font-family:'Avenir Next LT W01 Demi';
 }
 
 #repgsapp-wrapper main.content{
@@ -76,27 +84,33 @@
 
 #repgsapp-wrapper header{
   width:100%;
-  font-size:24px;
-  float:left;
+  height:0;
 }
 
 
 #repgsapp-wrapper #nav1{
-  width:33%;
-  height:100%;
-  text-align:left;
-  float:left;
+  position:fixed;
+  top:20px;
+  left:20px;
   margin:0;
   padding:0;
+  z-index:100;
 }
 
 #repgsapp-wrapper #title{
-  width:34%;
-  height:100%;
+  width:100%;
+  position:fixed;
+  top:20px;
+  left:0;
   text-align:center;
-  float:left;
   margin:0;
   padding:0;
+  z-index:100;
+}
+
+#repgsapp-wrapper #title span {
+    top: 0px;
+    left: 0px;
 }
 
 #repgsapp-wrapper #subtitle{
@@ -111,20 +125,21 @@
 }
 
 #repgsapp-wrapper .titles{
-  font-size:1.5em;
+  font-size:2em;
 }
 
 #repgsapp-wrapper #x{
-  width:33%;
-  height:100%;
-  text-align:right;
-  float:left;
+  position:fixed;
+  top:20px;
+  right:20px;
   margin:0;
   padding:0;
+  z-index:100;
 }
 
 #repgsapp-wrapper #nav1 ul{
-  margin-left:20px;
+  margin:0;
+  padding:0;
   list-style:none;
 }
 
@@ -133,45 +148,80 @@
   margin-right:10px;
 }
 
-#repgsapp-wrapper header #nav2{
-  clear:both;
-  float:left;
+#repgsapp-wrapper #nav2{
+  position:fixed;
+  top: 5em;
+  left:0;
   display:block;
-  width:98%;
-  padding:0 1%;
+  width:100%;
+  padding:0;
   text-align:left;
+  z-index:100;
+  line-height:2em;
 }
 
-#repgsapp-wrapper header #nav2 .nav-program{
+#repgsapp-wrapper #nav2 .inside {
+  position: relative;
+  width:100%;
+}
+
+#repgsapp-wrapper #nav2 .inside div.scrollableArea a {
+	position: relative;
+	float: left;
+	margin: 0 5px 0 0;
+	padding: 0;
+	/* If you don't want the images in the scroller to be selectable, try the following
+	   block of code. It's just a nice feature that prevent the images from
+	   accidentally becoming selected/inverted when the user interacts with the scroller. */
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+
   text-transform:uppercase;
-  margin-right:5px;
   text-decoration:none;
 }
+
+#repgsapp-wrapper header #nav2 .highlight{
+  border-bottom:2px solid;
+}
+
+
+
+
+#repgsapp-wrapper .scroll-arrow {
+  width: 5%;
+  height: 100%;
+  font-size:2em;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  z-index: 199;
+  color:black;
+  text-decoration:none;
+  vertical-align:middle;
+  text-align:center;
+}
+
+#repgsapp-wrapper .left { left: 0;}
+#repgsapp-wrapper .right { right: 0;}
+
+#repgsapp-wrapper .content {
+  display: inline-block;
+  height: 100%;
+  margin-right: 10px;
+}
+
+
 
 /* Main elements */
 
 #repgsapp-wrapper main{
-  margin-top:40px;
-  height:400px;
+  margin-top:9em;
 }
 
-.slick-list{
-  width:100%;
-}
 
-.owl-carousel{
-  height:400px;
-}
-
-#repgsapp-wrapper main .owl-carousel img{
-  height: 400px;
-  overflow-x:hidden;
-}
-
-#repgsapp-wrapper main .owl-carousel .item{
-  margin-left:3px;
-  margin-right:3px;
-}
 
 /* Edit pages */
 
@@ -184,10 +234,9 @@
 #repgsapp-wrapper.edit-page #header-top,
 #repgsapp-wrapper.edit-page #header-bottom{
   width:100%;
-  height:60px;
+  height:80px;
   margin:0;
-  padding:10px 0;
-  text-align:center;
+  padding:0;
 }
 
 #repgsapp-wrapper.edit-page #header-bottom .menu{
@@ -246,33 +295,135 @@
 
 
 
-/* Slick carousel */
+/* Carousel */
 
 #carousel{
-  width:130%;
+  width:100%;
   position:relative;
-  left:-15%;
+  margin:0;
 }
 
-#carousel .image{
+#carousel .item{
   position:relative;
+  display:block;
+  width:37%;
+  text-align:center;
+  margin:0 auto;
+  list-style:none;
+  padding:0;
+}
+
+#carousel .item li{
+  margin-bottom:15px;
 }
 
 #carousel .image label{
-  text-transform:uppercase;
-  font-size:2em;
-  position:absolute;
-  z-index:100;
-  top:48%;
+  text-transform: uppercase;
+  font-size: 2em;
+  position: fixed;
+  z-index: 200;
+  line-height:1em;
+  margin-top:-0.5em;
+}
+
+#carousel .item img{
   width:100%;
+  height:auto;
+  display:block;
+}
+
+#carousel li.image .caption{
+  display:none;
+  position:absolute;
+  text-transform:uppercase;
+  font-size:1.5em;
+  line-height:1em;
+  top:0;
+  left:0;
   text-align:center;
+  width:80%;
+  margin:30px auto;
+  padding:10%;
+  overflow-x:hidden;
+  overflow-y:scroll;
 }
 
-.slick-slide .image{
-  padding: 10px;
+#carousel .current li.image:hover .caption{
+  display:block;
+  z-index:100;
+  color:black;
 }
 
-.slick-slide img {
-  display: block;
-  width: 100%;
+#carousel li.image .caption .username{
+  margin:0 0 15px;
+}
+
+#carousel .current li.image.hover img{
+  opacity:0.2;
+}
+
+#carousel .current li.image.hover .program-label{
+  opacity:0 !important;
+}
+
+#carousel .prev{
+  position:fixed;
+  top:9em;
+  left:-7%;
+  margin:0;
+}
+
+#carousel .next{
+  position:fixed;
+  top:9em;
+  right:-7%;
+  margin:0;
+}
+
+#carousel .next:hover, #carousel .prev:hover,
+#carousel .next label:hover, #carousel .prev label:hover{
+  cursor:pointer;
+}
+
+#carousel .item li{
+  display:none;
+}
+
+#carousel .item.current li{
+  display:block;
+  position:relative;
+}
+
+#carousel .item li.featured{
+  display:block;
+}
+
+
+
+
+/* Programs page */
+#programs{
+  text-align:center;
+  width:30%;
+  margin:0 auto 50px;
+
+}
+
+#sortable{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+#sortable li{
+  background-color:white;
+  margin-bottom:7px;
+  text-align:left;
+  padding:2px 5px;
+}
+
+
+
+#sortable .checkbox{
+  margin:0 20px 0 50px;
 }

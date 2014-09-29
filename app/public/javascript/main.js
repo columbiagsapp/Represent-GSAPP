@@ -2,18 +2,100 @@ $(document).ready(function(){
 
   $('#tmpltzr').width( window.innerWidth - 400 );
 
-  $(".owl-carousel").owlCarousel({
-    items : 3,
-    slideSpeed : 1000,
-    autoPlay : true,
-    stopOnHover : true,
-    responsive: true,
-    responsiveRefreshRate : 200,
-    responsiveBaseWidth: '#repgsapp-wrapper',
-    itemsScaleUp: true
 
+
+
+  // program list scroll horizontally on hover
+  function animatecontent(ele,modifier){
+    var sl = ele.scrollLeft();
+    ele.animate({scrollLeft: sl + (modifier * 60)}, 500, 'linear',function(){
+      if(hover){
+        animatecontent(ele,modifier);
+      }
+    });
+  };
+
+  var hover = false;//global flag
+
+  $('.scroll-arrow').each(function(){
+    var modifier = ($(this).hasClass('right')) ? 1 : -1;
+    var sib = ('.shelf-slide');
+    $(this).hover(function() {
+      console.log('hovering!');
+      hover=true;
+      $(this).siblings(sib).stop();
+      animatecontent($(this).siblings(sib),modifier);
+    }, function() {
+      hover=false;
+      $(this).siblings(sib).stop();
+    });
   });
 
-  
+
+
+
+  // header fade in and out
+  function fadeSwitchElements(id1, id2, fade_time, cycle)
+  {
+    var element1 = $('.' + id1);
+    var element2 = $('.' + id2);
+
+    if(element1.is(':visible'))
+    {
+      element1.fadeToggle(fade_time);
+      element2.fadeToggle(fade_time);
+    }
+    else
+    {
+      element2.fadeToggle(fade_time, function() {
+        element1.fadeToggle(fade_time);
+      });
+    }
+    if(cycle > 0){
+      setTimeout(function(){
+        fadeSwitchElements(id2, id1, fade_time, cycle);
+      }, cycle);
+    }
+  }
+  //start the title fade after 3s
+  setTimeout(function(){
+    fadeSwitchElements('full', 'hash', 2000, 7000);//only do once, set last var to 0
+  }, 3000);
+
+
+
+  // Gradient background
+
+  // make sure this matches all the colors in scss/_vars.scss
+  var colors = ['red', 'red-orange', 'orange', 'pink', 'salmon', 'blue', 'blue-alt', 'purple', 'violet', 'fuchsia', 'red-purple'];
+
+  var gradient = $('.gradient');
+
+  function gradientCycle() {
+    var classes = gradient.attr('class').split(' '),
+      oldClass;
+    for ( var i = 0; i < classes.length; i++ ) {
+      if ( classes[i] !== 'gradient') {
+        oldClass = classes[i];
+        oldClass = oldClass.replace('gradient-', '');
+        break;
+      }
+    }
+    var newClass = colors[(colors.indexOf(oldClass) + 1) % colors.length];
+    var newGradient = $('<div class="gradient gradient-' + newClass + ' faded">');
+    $('.gradient-' + oldClass).last().after(newGradient);
+
+    //gradient.addClass('faded');
+    setTimeout(function(){
+      newGradient.removeClass('faded');
+    }, 100);
+
+    setTimeout(function(){
+      gradient = newGradient;
+      gradientCycle();
+    }, 5000);
+  }
+  gradientCycle();
+
 
 });

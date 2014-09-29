@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<% include head %>
+
+
+    <body id="landing">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div class="gradient gradient-red"></div>
+
+        <div id="repgsapp-wrapper" class="edit-page">
+
+          <header>
+            <% include header-top %>
+          </header>
+
+          <main>
+
+            <form id="programs" class="titles" name="updateprograms" action="/api/update/programs" method="post">
+              <h1 class="titles">Programs</h1>
+              <ul id="sortable">
+                <% for(var p = 0; p < programs.length; p++){ %>
+                  <li class="ui-state-default"><span class="arrow">&uarr;&darr;</span><input class="checkbox" type="checkbox" name="programs" value="<%= programs[p] %>" checked><%= programs[p] %></li>
+                <% } %>
+              </ul>
+              <br>
+              <label>New: </label><br><input type="text" name="newprogram" value=""><br><br>
+              <button name="updateprograms" type="submit">Save</button>
+            </form>
+
+          </main>
+
+
+
+        </div><!-- #repgsapp-wrapper -->
+
+
+        <% include scripts %>
+        <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+
+        <script>
+          $(function() {
+            $( "#sortable" ).sortable();
+            $( "#sortable" ).disableSelection();
+          });
+        </script>
+
+
+    </body>
+</html>

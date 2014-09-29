@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<% include head %>
+
+
+    <body id="home">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div class="gradient gradient-red"></div>
+
+        <div id="repgsapp-wrapper" class="edit-page">
+
+          <header>
+            <% include header-top %>
+            <% include header-bottom %>
+          </header>
+
+          <main>
+            <div id="carousel">
+
+            </div>
+
+          </main>
+
+
+
+        </div><!-- #repgsapp-wrapper -->
+
+
+        <% include scripts %>
+        <!-- jQuery UI (Custom Download containing only Widget and Effects Core) You can make your own at: http://jqueryui.com/download -->
+        <script src="/javascript/vendor/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+
+        <!-- Latest version (3.1.4) of jQuery Mouse Wheel by Brandon Aaron You will find it here: https://github.com/brandonaaron/jquery-mousewheel -->
+      	<script src="/javascript/vendor/jquery.mousewheel.min.js" type="text/javascript"></script>
+
+      	<!-- jQuery Kinectic (1.8.2) used for touch scrolling -->
+      	<!-- https://github.com/davetayls/jquery.kinetic/ -->
+      	<script src="/javascript/vendor/jquery.kinetic.min.js" type="text/javascript"></script>
+
+      	<!-- Smooth Div Scroll 1.3 minified-->
+      	<script src="/javascript/vendor/jquery.smoothdivscroll-1.3-min.js" type="text/javascript"></script>
+
+
+        <script>
+
+          // handler for greyscale images when window is resized
+          $(window).on("resize", function() {
+            $("#carousel .prev, #carousel .next").imggrayscale("resize");
+
+            initCarouselLabels();
+          });
+
+          //load images into current
+          function loadImages(){
+            // if images not loaded, go get them
+
+              var current_program = $('#carousel .current').attr('data-program');
+
+
+              $.get( "/api/get/program/" + current_program, function( data ) {
+
+                for(var i = 0; i < data.images.length; i++){
+                  var username = data.images[i].content.user.username;
+                  var HTML_username = '<div class="username">@' + username + '</div>';
+
+                  var caption = data.images[i].content.caption.text || 'no caption';
+                  var HTML_caption = '<div class="caption">'+ HTML_username + caption +'</div>';
+
+                  $("#carousel ." + current_program).append('<li class="image"><img src="'+ data.images[i].content.images.standard_resolution.url +'">'+HTML_caption+'</li>');
+                }
+
+                $('#carousel .current').addClass('loaded');
+
+                // set margin bottom to be uniform with horiz gutter
+                var mb = window.innerWidth*0.015; //gutter is 1.5% of window width
+                //$('#carousel .image').css('margin-bottom', mb);
+
+                // clear out the hover effect from when it was prev/next
+                $('#carousel .current li.image').removeClass('hover').hover(function(){
+                  $(this).addClass('hover');
+                  $('#carousel .current .program-label').hide();
+                }, function(){
+                  $(this).removeClass('hover');
+                  $('#carousel .current .program-label').show();
+                });
+              }); //end get
+          }
+
+
+          // handler for when user clicks previous image in carousel
+          function clickPrev(){
+            $('body').scrollTop(0)
+            $('#carousel .next').removeClass('next').unbind('click').hide();
+
+            if( $(this).prev().length > 0 ){
+              var $prev = $(this).prev();
+              $prev.addClass('prev').show();
+              $prev.find('img').imggrayscale({hoverShowOrigin: true});
+            }
+
+            $('#carousel .current').unbind('hover').removeClass('current').addClass('next').find('img').imggrayscale({hoverShowOrigin: true});
+
+            $(this).removeClass('prev').addClass('current').unbind('click').find('img').imggrayscale("destroy");
+
+            $('#carousel .prev').click(clickPrev);//end click function prev
+            $('#carousel .next').click(clickNext);//end click function next
+
+            $('#nav2 .highlight').removeClass('highlight').prev().addClass('highlight');
+
+            //update labels
+            initCarouselLabels();
+
+            // if images not loaded, go get them
+            if( !$('#carousel .current').hasClass('loaded') ){
+              loadImages();
+            }//end if not loaded
+
+          }//end function clickPrev()
+
+
+          // handler for when user clicks next image in carousel
+          function clickNext(){
+            $('body').scrollTop(0)
+            $('#carousel .prev').removeClass('prev').unbind('click').hide();
+
+            if( $(this).next().length > 0 ){
+              var $next = $(this).next();
+              $next.addClass('next').show();
+              $next.find('img').imggrayscale({hoverShowOrigin: true});
+            }
+
+            $('#carousel .current').unbind('hover').removeClass('current').addClass('prev').find('img').imggrayscale({hoverShowOrigin: true});
+
+            $(this).removeClass('next').addClass('current').unbind('click').find('img').imggrayscale("destroy");
+
+            $('#carousel .prev').click(clickPrev);//end click function prev
+            $('#carousel .next').click(clickNext);//end click function next
+
+            $('#nav2 .highlight').removeClass('highlight').next().addClass('highlight');
+
+            //update labels
+            initCarouselLabels();
+
+            // if images not loaded, go get them
+            if( !$('#carousel .current').hasClass('loaded') ){
+              loadImages();
+            }//end if not loaded
+
+          }//end function clickNext()
+
+          // initialize the programs nav and set up scrolling, etc.
+          function initProgramNav(programs, start){
+            for(var p = 0; p < programs.length; p++){
+              var html = '';
+              if(p == (start + 1)){
+                html = '<a id="'+programs[p]+'" class="nav-program titles content highlight program' + p + ' ' + programs[p] +'" href="#" target="_self">'+ programs[p] +'</a>';
+              }else{
+                html = '<a id="'+programs[p]+'" class="nav-program titles content program' + p + ' ' + programs[p] +'" href="#" target="_self">'+ programs[p] +'</a>';
+              }
+              $('#nav2 .inside').append( html );
+              console.log('appended; p = ' + p);
+            }
+
+            // init smoothDivScroll for nav
+            $("#nav2 .inside").smoothDivScroll({
+              hotSpotScrollingStep: 3, //default 15 pixels
+              easingAfterHotSpotScrollingDistance: 5, // default 10 Pixels
+              mousewheelScrolling: "", // vertical, horizontal, allDirections or empty (no mousewheel scrolling) String
+			        mousewheelScrollingStep: 7, // default 70 Pixels
+              autoScrollingMode: "onStart" // always, onStart or empty (no auto scrolling) String
+
+            });//.jumpToElement('id', programs[start + 1]);
+
+          }//end initProgramNav()
+
+
+          // GLOBAL
+          var topOffset = 0;
+
+          function initCarouselLabels(){
+
+            // remove all labels
+            $('#carousel .program-label').hide().css('left', '').css('right', '').unbind('click').unbind('hover');
+
+            // add program labels on top of and centered on image
+            // calculate and set topOffset only once
+            if(topOffset == 0){
+              topOffset = $('#carousel .prev').offset().top + (0.37*window.innerWidth)/2;//given by css that says image is 37% width
+              $('#carousel .item .program-label').css('top', topOffset);
+            }
+
+
+            var current_left = window.innerWidth/2 - $('#carousel .current .program-label').width()/2;
+
+            console.log('center left: '+ current_left);
+            $('#carousel .current .program-label').css('left', current_left).show();
+
+            $('#carousel .prev .program-label').css('left', (0.37*window.innerWidth)/2 - (0.07*window.innerWidth) - $('#carousel .prev .program-label').width()/2 ).show().hover(function(){
+              $(this).closest('li').find('img').imggrayscale("destroy");
+            }, function(){
+              $(this).closest('li').find('img').imggrayscale({hoverShowOrigin: true});
+            });
+
+            $('#carousel .next .program-label').css('right', (0.37*window.innerWidth)/2 - (0.07*window.innerWidth) - $('#carousel .next .program-label').width()/2 ).show().hover(function(){
+              $(this).closest('li').find('img').imggrayscale("destroy");
+            }, function(){
+              $(this).closest('li').find('img').imggrayscale({hoverShowOrigin: true});
+            });
+          }//end initCarouselLabels()
+
+
+          // initialize main carousel by randomly selecting a program to start with and placing it in the center by pulling all featured images from the DB
+          function initCarousel(images, start){
+            var programs = [];
+            var end = start + 2;
+
+            for(var i = 0; i < images.length; i++){
+              programs.push( images[i].programs[0] );
+
+
+              var username = images[i].content.user.username;
+              var HTML_username = '<div class="username">@' + username + '</div>';
+
+              var caption = images[i].content.caption.text || 'no caption';
+              var HTML_caption = '<div class="caption">'+ HTML_username + caption +'</div>';
+
+
+              switch(i){
+                case start:
+                  console.log('i = start');
+                  $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" class="item prev program'+i +' ' + images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"><label style="display:none;" class="program-label">'+ images[i].programs[0] +'</label>'+HTML_caption+'</li></ul>');
+                  break;
+
+                case (start + 1):
+                  $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" class="item current program'+i +' ' + images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"><label class="program-label">'+ images[i].programs[0] +'</label>'+HTML_caption+'</li></ul>');
+                  break;
+
+                case end:
+                  $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" class="item next program'+i +' ' + images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"><label style="display:none;" class="program-label">'+ images[i].programs[0] +'</label>'+HTML_caption+'</li></ul>');
+                  break;
+
+                default:
+                  $("#carousel").append('<ul data-program="'+images[i].programs[0]+'" style="display:none;" class="item program'+i +' ' + images[i].programs[0] +'"><li class="image featured"><img src="'+ images[i].content.images.standard_resolution.url +'"><label style="display:none;" class="program-label">'+ images[i].programs[0] +'</label>'+HTML_caption+'</li></ul>');
+                  break;
+              }//end switch
+            }// end for
+
+            // init greyscale effects on prev and next
+            $('#carousel .prev').click(clickPrev).find('img').imggrayscale({hoverShowOrigin: true});;//end click function prev
+            $('#carousel .next').click(clickNext).find('img').imggrayscale({hoverShowOrigin: true});;//end click function next
+
+            $('#carousel .current li.image').hover(function(){
+              $(this).addClass('hover');
+            }, function(){
+              $(this).removeClass('hover');
+            });
+
+            initCarouselLabels();
+
+
+
+
+
+
+
+
+            return programs;
+          }//end initCarouse()
+
+
+
+          $(document).ready(function(){
+
+            // dynamically load image content into custom carousel
+            $.get( "/api/get/featured", function( images ) {
+
+              // randomly select first program to center
+              var start = Math.floor( Math.random()*(images.length-2) );
+
+              // extract programs from array
+              var programs = initCarousel(images, start);
+
+              // populate programs nav (nav2)
+              initProgramNav(programs, start);
+
+              // load additional images into .current
+              loadImages();
+
+            });// end first get
+
+
+
+          });
+        </script>
+    </body>
+</html>

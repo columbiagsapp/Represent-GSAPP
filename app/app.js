@@ -45,6 +45,8 @@ app.get('/', routes.index);
 
 app.get('/landing', routes.landing);
 
+app.get('/home', routes.home);
+
 app.get('/stats', routes.statsTest);
 
 app.get('/fetch', routes.fetch);
@@ -53,6 +55,8 @@ app.get('/grid', routes.grid);
 
 app.get('/edit', routes.edit);
 
+app.get('/programs', routes.programs);
+
 
 
 app.get('/edit/published', routes.editPublished);
@@ -60,6 +64,8 @@ app.get('/edit/published', routes.editPublished);
 app.get('/edit/hidden', routes.editHidden);
 
 app.get('/edit/pending', routes.editPending);
+
+app.get('/edit/featured', routes.editFeatured);
 
 
 // api for editing
@@ -70,6 +76,8 @@ app.get('/api/get/program/:program', routes.getByProgram);
 
 app.get('/api/get/programs', routes.getPrograms);
 
+app.get('/api/get/featured', routes.getFeatured);
+
 app.post('/api/publish', routes.publish);
 
 app.post('/api/hide', routes.hide);
@@ -79,6 +87,8 @@ app.post('/api/pend', routes.pend);
 app.post('/api/feature', routes.feature);
 
 app.post('/api/update', routes.update);
+
+app.post('/api/update/programs', routes.updatePrograms);
 
 
 

@@ -49,8 +49,13 @@ ig.use({ client_id: instagram_secrets.client_id,
 
 
 
-
-
+// pulls in programs.json as a reset
+exports.resetPrograms = function(){
+  console.log('reload programs');
+  delete require.cache[require.resolve('../programs')];
+  programs = require('../programs');
+  console.dir(programs);
+};
 
 
 // test function
@@ -122,6 +127,9 @@ var sanitizeArray = function(medias){
 
 // hunts through tags for programs, return programs that are in tags as arrray in all lowercase
 var extractPrograms = function(tags){
+  //refresh programs
+  programs = require('../programs');
+
   var pgms = [];
 
   for(var t = 0; t < tags.length; t++){
@@ -220,6 +228,9 @@ exports.renderAll = function(req, res, view){
       console.log('renderAll()::error finding all images: '+ err);
       res.send(500);
     }else{
+      //refresh programs
+      programs = require('../programs');
+
       res.render(view, { images: images, programs: programs, status: 'edit' });
     }
   });
@@ -233,8 +244,10 @@ exports.edit = function(req, res, status){
       console.log('editAll()::error finding all images: '+ err);
       res.send(500);
     }else{
+      //refresh programs
+      programs = require('../programs');
 
-      res.render('edit', { images: images, status: status });
+      res.render('edit', { images: images, status: status, programs: programs });
     }
   });
 };
@@ -242,6 +255,9 @@ exports.edit = function(req, res, status){
 
 // send the stats as json
 exports.renderStats = function(req, res){
+  //refresh programs
+  programs = require('../programs');
+
   Image.find({'status': 'published'}).exec(function(err, images) {
     if(err){
       console.log('renderStats()::error finding all images: '+ err);
@@ -283,6 +299,12 @@ exports.renderStats = function(req, res){
 exports.setStatus = function(req, res, id, status){
 
   console.log('\n\n status:' + status + '\n');
+  console.log('\n\n id:' + id + '\n');
+
+  console.log('req:');
+  console.dir(req);
+
+  console.log('\n\n\n');
 
   var id = id;
 
@@ -300,7 +322,7 @@ exports.setStatus = function(req, res, id, status){
           res.send(500, 'image status not saved, server error on save attempt');
         } else {
           // do nothing, remain on the page
-          //res.send(200);
+          res.redirect(req.get('referer'));
         }
       });// end save
 
@@ -313,6 +335,8 @@ exports.setStatus = function(req, res, id, status){
 exports.update = function(req, res){
   var id = req.body.update;
   var programs = req.body.programs;
+  console.log('new programs: req.body.programs: ');
+  console.log(req.body.programs);
 
   var location = req.body.location;
 
@@ -363,6 +387,18 @@ exports.getByProgram = function(req, res){
   });
 };
 
+
+// return all featured images
+exports.getFeatured = function(req, res){
+  Image.find({ "status" : "featured" }).exec(function(err, images) {
+    if(err){
+      console.log('getFeatured()::error finding all featured images: '+ err);
+      res.send(500);
+    }else{
+      res.json(images);
+    }
+  });
+}
 
 
 

@@ -1,9 +1,17 @@
 'use strict';
 
+// GLOBALS
+
+var programs_path = '/var/www/represent.gsapp.org/public_html/Represent-GSAPP/app/programs.json';
+
+// END GLOBALS
+
 
 /////// DEPENDENCIES
 var colors  = require('colors');
 console.log('images.js entered'.cyan);
+
+var fs = require('fs');
 
 // Images routes use images controller
 var Images = require('../controllers/images');
@@ -13,6 +21,15 @@ var statsTest = require('../../test/stats');
 var programs = require('../programs');
 
 /////// END DEPENDENCIES
+
+// pulls in programs.json as a reset
+var resetPrograms = function(){
+  console.log('reload programs');
+  delete require.cache[require.resolve('../programs')];
+  programs = require('../programs');
+  console.dir(programs);
+};
+
 
 
 // routes
@@ -24,6 +41,12 @@ exports.landing = function(req, res){
   res.render('landing', { title: 'Represent GSAPP', programs: programs });
 };
 
+exports.home = function(req, res){
+  resetPrograms();
+
+  res.render('home', { title: 'Represent GSAPP', programs: programs });
+};
+
 exports.statsTest = function(req, res){
   res.json(statsTest);
 };
@@ -31,7 +54,7 @@ exports.statsTest = function(req, res){
 exports.fetch = function(req, res){
   console.log('fetch()');
 
-  Images.fetchByHashtag(req, res, 'gsapp');
+  Images.fetchByHashtag(req, res, 'repgsapp');
 
 };
 
@@ -53,6 +76,11 @@ exports.stats = function(req, res){
   Images.renderStats(req, res);
 }
 
+exports.programs = function(req, res){
+  console.log('/programs');
+  res.render('programs', { programs: programs });
+}
+
 
 
 
@@ -69,6 +97,11 @@ exports.editPending = function(req, res){
 exports.editHidden = function(req, res){
   console.log('/edit/hidden');
   var images = Images.edit(req, res, 'hidden');
+};
+
+exports.editFeatured = function(req, res){
+  console.log('/edit/featured');
+  var images = Images.edit(req, res, 'featured');
 };
 
 
@@ -94,7 +127,7 @@ exports.hide = function(req, res){
 
 exports.feature = function(req, res){
   console.log('/api/feature');
-  var images = Images.setStatus(req, res, req.body.publish, 'featured');
+  var images = Images.setStatus(req, res, req.body.feature, 'featured');
 };
 
 exports.update = function(req, res){
@@ -108,6 +141,36 @@ exports.getByProgram = function(req, res){
 
 exports.getPrograms = function(req, res){
   res.json(programs);
+};
+
+exports.getFeatured = function(req, res){
+  Images.getFeatured(req, res);
+};
+
+// update the programs.json file with new programs
+exports.updatePrograms = function(req, res){
+  console.log('new_programs:');
+
+  var new_programs = req.body.programs;
+  if(req.body.newprogram != ""){
+    new_programs.push( req.body.newprogram.toLowerCase() );
+  }
+
+  console.dir(new_programs);
+
+  //write to disc
+  fs.writeFile(programs_path, JSON.stringify(new_programs), function(err) {
+    if(err) {
+        console.log('Error: attempting to write programs.json to disc:' + err);
+        res.send(500);
+    } else {
+        console.log("The file was saved!");
+        programs = new_programs;
+        Images.resetPrograms();
+
+        res.redirect(req.get('referer'));
+    }
+  });
 };
 
 

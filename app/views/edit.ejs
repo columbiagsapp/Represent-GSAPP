@@ -48,6 +48,7 @@
                 <div class="item <% if(status == 'edit'){ %> selected<% } %>"><a href="/edit" target="_self">All</a></div>
                 <div class="item <% if(status == 'pending'){ %> selected<% } %>"><a href="/edit/pending" target="_self">Pending</a></div>
                 <div class="item <% if(status == 'published'){ %> selected<% } %>"><a href="/edit/published" target="_self">Published</a></div>
+                <div class="item <% if(status == 'featured'){ %> selected<% } %>"><a href="/edit/featured" target="_self">Featured</a></div>
                 <div class="item <% if(status == 'hidden'){ %> selected<% } %>"><a href="/edit/hidden" target="_self">Hidden</a></div>
               </div>
             </div><!-- /#header-bottom -->
@@ -72,7 +73,14 @@
                     <div>
                       <label>Update tags:</label><br>
                       <form name="update" action="/api/update" method="post">
-                        <label>Programs: </label><br><input type="text" name="programs" value="<%= images[i].programs %>">
+                        <label>Programs: </label><br>
+                        <select name="programs">
+                          <option value="">-</option>
+                          <% for(var p = 0; p < programs.length; p++){ %>
+                            <option value="<%= programs[p] %>"<% if(images[i].programs[0] == programs[p]){ %> selected<% } %>><%= programs[p] %></option>
+                          <% } %>
+                        </select>
+
                         <label>Location: </label><br><input type="text" name="location" value="<%= images[i].location %>">
                         <button name="update" type="submit" value="<%= images[i]._id %>">Save Updates</button>
                       </form>
@@ -94,6 +102,11 @@
                       <% if(images[i].status != 'hidden'){ %>
                         <form class="controls-float" name="hide" action="/api/hide" method="post">
                           <button name="hide" type="submit" value="<%= images[i]._id %>">Hide</button>
+                        </form>
+                      <% } %>
+                      <% if(images[i].status != 'featured'){ %>
+                        <form class="controls-float" name="hide" action="/api/feature" method="post">
+                          <button name="feature" type="submit" value="<%= images[i]._id %>">Feature</button>
                         </form>
                       <% } %>
                       <% if(images[i].status != 'published'){ %>
