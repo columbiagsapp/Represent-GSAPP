@@ -183,6 +183,13 @@
             $('#carousel .prev').click(clickPrev).find('img').imggrayscale({hoverShowOrigin: true});;//end click function prev
             $('#carousel .next').click(clickNext).find('img').imggrayscale({hoverShowOrigin: true});;//end click function next
 
+            // init hover effects
+            $('#carousel li.image').hover(function(){
+              $('img', this).css('opacity', 0.1);
+            }, function(){
+              $('img', this).css('opacity', 1);
+            });
+
             return programs;
           }//end initCarouse()
 
