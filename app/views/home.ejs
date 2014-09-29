@@ -107,6 +107,9 @@
               loadImages();
             }//end if not loaded
 
+            // clear out the hover effect from when it was prev/next
+            $('#carousel .current').css('opacity', 1);
+
           }//end function clickPrev()
 
 
@@ -137,6 +140,9 @@
             if( !$('#carousel .current').hasClass('loaded') ){
               loadImages();
             }//end if not loaded
+
+            // clear out the hover effect from when it was prev/next
+            $('#carousel .current').css('opacity', 1);
 
           }//end function clickNext()
 
