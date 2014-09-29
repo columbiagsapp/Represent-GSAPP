@@ -332,6 +332,20 @@
   display:block;
 }
 
+#carousel .current li.image .caption{
+  display:none;
+  position:absolute;
+  top:0;
+  left:0;
+  text-align:center;
+  width:100%;
+  margin:30px auto;
+}
+
+#carousel .current li.image:hover .caption{
+  display:block;
+}
+
 #carousel .current li.image.hover{
   opacity:0.2;
 }
