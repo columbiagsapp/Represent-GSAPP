@@ -134,7 +134,7 @@
           // handler for when user clicks next image in carousel
           function clickNext(){
             $('body').scrollTop(0);
-            $('.caption').hide();//fixes timing glitch
+            $('.caption').css('opacity', 0);//fixes timing glitch
             $('#carousel .prev').removeClass('prev').unbind('click').hide();
 
             if( $(this).next().length > 0 ){
@@ -158,6 +158,8 @@
             if( !$('#carousel .current').hasClass('loaded') ){
               loadImages();
             }//end if not loaded
+
+            $('.caption').css('opacity', 1);//fixes timing glitch
 
           }//end function clickNext()
 
