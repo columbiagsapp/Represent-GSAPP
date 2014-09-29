@@ -322,7 +322,7 @@
   position: fixed;
   z-index: 200;
   line-height:1em;
-  margin-top:-1em;
+  margin-top:-0.5em;
 }
 
 #carousel .item img{
