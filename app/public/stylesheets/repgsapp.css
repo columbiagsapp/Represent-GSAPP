@@ -354,7 +354,8 @@
   margin:0;
 }
 
-#carousel .next:hover, #carousel .prev:hover{
+#carousel .next:hover, #carousel .prev:hover,
+#carousel .next label:hover, #carousel .prev label:hover{
   cursor:pointer;
 }
 

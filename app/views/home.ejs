@@ -61,9 +61,9 @@
 
             $('#carousel .current .program-label').css('left', window.innerWidth/2 - $('#carousel .current .program-label').width()/2 ).show();
 
-            $('#carousel .prev .program-label').css('left', (0.37*window.innerWidth)/2 - (0.07*window.innerWidth) - $('#carousel .prev .program-label').width()/2 ).show();
+            $('#carousel .prev .program-label').css('left', (0.37*window.innerWidth)/2 - (0.07*window.innerWidth) - $('#carousel .prev .program-label').width()/2 ).show().click(clickNext);
 
-            $('#carousel .next .program-label').css('right', (0.37*window.innerWidth)/2 - (0.07*window.innerWidth) - $('#carousel .next .program-label').width()/2 ).show();
+            $('#carousel .next .program-label').css('right', (0.37*window.innerWidth)/2 - (0.07*window.innerWidth) - $('#carousel .next .program-label').width()/2 ).show().click(clickPrev);
           });
 
           //load images into current
