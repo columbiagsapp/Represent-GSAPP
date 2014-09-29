@@ -43,7 +43,7 @@ exports.landing = function(req, res){
 
 exports.home = function(req, res){
   resetPrograms();
-  
+
   res.render('home', { title: 'Represent GSAPP', programs: programs });
 };
 
@@ -54,7 +54,7 @@ exports.statsTest = function(req, res){
 exports.fetch = function(req, res){
   console.log('fetch()');
 
-  Images.fetchByHashtag(req, res, 'gsapp');
+  Images.fetchByHashtag(req, res, 'repgsapp');
 
 };
 
