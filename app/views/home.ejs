@@ -172,7 +172,7 @@
           function initCarouselLabels(){
 
             // remove all labels
-            $('#carousel .program-label').hide().unbind('click').unbind('hover');
+            $('#carousel .program-label').hide().css('left', '').css('right', '').unbind('click').unbind('hover');
 
             // add program labels on top of and centered on image
             // calculate and set topOffset only once
@@ -181,9 +181,7 @@
               $('#carousel .item .program-label').css('top', topOffset);
             }
 
-            console.log('window.innerWidth/2: '+ window.innerWidth/2);
-            var wid = $('#carousel .current .program-label').width()/2;
-            console.log('wid: ' + wid);
+
             var current_left = window.innerWidth/2 - $('#carousel .current .program-label').width()/2;
 
             console.log('center left: '+ current_left);
