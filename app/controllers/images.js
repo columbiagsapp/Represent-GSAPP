@@ -107,27 +107,6 @@ var instagram_fetch_handler = function(err, medias, pagination, limit) {
     }
 };
 
-var initDate = function(){
-  Image.find().exec(function(err, images){
-    for(var i = 0; i < images.length; i++){
-
-      console.log('created_time: ' + images[i].content.created_time);
-
-      var d = moment.unix(images[i].content.created_time).format("L")
-
-      console.log('date: ' + d );
-
-      images[i].date = d;
-
-      images[i].markModified('date');
-
-      images[i].save();
-    }
-  });
-}
-
-initDate();
-
 // takes raw Instagram fetch data in an array and adds other data
 var sanitizeArray = function(medias){
   var sanitized_array = [];

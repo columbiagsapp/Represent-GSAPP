@@ -67,11 +67,14 @@
               $.get( "/api/get/program/" + current_program, function( data ) {
 
                 for(var i = 0; i < data.images.length; i++){
-                  var username = data.images[i].content.user.username;
+                  var username = images[i].content.user.username;
                   var HTML_username = '<div class="username">@' + username + '</div>';
 
-                  var caption = data.images[i].content.caption.text || 'no caption';
-                  var HTML_caption = '<div class="caption">' + caption + HTML_username +'</div>';
+                  var HTML_date = '<div class="date">' + images[i].date + '</div>';
+
+                  var caption = images[i].content.caption.text || 'no caption';
+                  var HTML_caption = '<div class="caption">' + HTML_date + caption + HTML_username +'</div>';
+
 
                   $("#carousel ." + current_program).append('<li class="image"><img src="'+ data.images[i].content.images.standard_resolution.url +'">'+HTML_caption+'</li>');
                 }
@@ -283,8 +286,10 @@
               var username = images[i].content.user.username;
               var HTML_username = '<div class="username">@' + username + '</div>';
 
+              var HTML_date = '<div class="date">' + images[i].date + '</div>';
+
               var caption = images[i].content.caption.text || 'no caption';
-              var HTML_caption = '<div class="caption">' + caption + HTML_username +'</div>';
+              var HTML_caption = '<div class="caption">' + HTML_date + caption + HTML_username +'</div>';
 
 
               switch(i){
