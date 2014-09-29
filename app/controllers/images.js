@@ -111,9 +111,13 @@ var initDate = function(){
   Image.find().exec(function(err, images){
     for(var i = 0; i < images.length; i++){
 
-      console.log('format L: ' + moment.unix(images[i].created_time).format("L") );
+      console.log('created_time: ' + images[i].caption.created_time);
 
-      images[i].date = moment.unix(images[i].created_time).format("L");
+      var d = moment.unix(images[i].caption.created_time).format("L")
+
+      console.log('date: ' + d );
+
+      images[i].date = d;
 
       images[i].markModified('date');
 
