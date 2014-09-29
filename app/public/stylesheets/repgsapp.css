@@ -362,7 +362,7 @@
 }
 
 #carousel .current li.image.hover .program-label{
-  display:none;
+  opacity:0 !important;
 }
 
 #carousel .prev{
