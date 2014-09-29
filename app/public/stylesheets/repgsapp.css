@@ -351,6 +351,7 @@
 #carousel .current li.image:hover .caption{
   display:block;
   z-index:100;
+  color:black;
 }
 
 #carousel li.image .caption .username{
