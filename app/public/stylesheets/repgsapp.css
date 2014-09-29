@@ -343,14 +343,14 @@
 #carousel .prev{
   position:fixed;
   top:9em;
-  left:-7%;
+  left:-6%;
   margin:0;
 }
 
 #carousel .next{
   position:fixed;
   top:9em;
-  right:-7%;
+  right:-6%;
   margin:0;
 }
 
