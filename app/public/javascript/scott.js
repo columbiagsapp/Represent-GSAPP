@@ -1,4 +1,4 @@
-$(document).ready(function(){
+(function(){
 
   var chart = new Snap('#stats'),
     apiURL = 'stats.json', // change to URL string when API is ready
@@ -110,5 +110,4 @@ $(document).ready(function(){
 
   init();
 
-
-});
+})();
