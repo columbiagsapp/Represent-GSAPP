@@ -335,7 +335,6 @@
 #carousel li.image .caption{
   display:none;
   position:absolute;
-  text-transform:uppercase;
   font-size:1.5em;
   line-height:1em;
   top:0;
@@ -355,7 +354,7 @@
 }
 
 #carousel li.image .caption .username{
-  margin:0 0 15px;
+  margin:15px 0 0;
 }
 
 #carousel .current li.image.hover img{
