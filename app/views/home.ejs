@@ -102,7 +102,7 @@
 
           // handler for when user clicks previous image in carousel
           function clickPrev(){
-            $('body').scrollTop(0)
+            $('body').scrollTop(0);
             $('#carousel .next').removeClass('next').unbind('click').hide();
 
             if( $(this).prev().length > 0 ){
@@ -133,7 +133,7 @@
 
           // handler for when user clicks next image in carousel
           function clickNext(){
-            $('body').scrollTop(0)
+            $('body').scrollTop(0);
             $('#carousel .prev').removeClass('prev').unbind('click').hide();
 
             if( $(this).next().length > 0 ){
@@ -143,8 +143,7 @@
             }
 
             $('#carousel .current').unbind('hover').removeClass('current').addClass('prev').find('img').imggrayscale({hoverShowOrigin: true});
-
-            $(this).removeClass('next').addClass('current').unbind('click').find('img').imggrayscale("destroy");
+  $(this).removeClass('next').addClass('current').unbind('click').find('img').imggrayscale("destroy");
 
             $('#carousel .prev').click(clickPrev);//end click function prev
             $('#carousel .next').click(clickNext);//end click function next
@@ -165,6 +164,43 @@
           // handler for clicking program in nav2
           function clickNav(){
             console.log('clickNav: ' + $(this).attr('id'));
+            $('body').scrollTop(0);
+
+            //update highlighting (underline) in nav2
+            $('#nav2 .highlight').removeClass('highlight')
+            $(this).addClass('highlight');
+
+            var current_program = $(this).attr('id');
+            var current_selector = '#carousel ul.' + current_program;
+
+            // clear out previous markers
+            $('#carousel .current').removeClass('current').unbind('click').unbind('hover').hide();
+            $('#carousel .prev').removeClass('prev').unbind('click').hide().imggrayscale('destroy');
+            $('#carousel .next').removeClass('next').unbind('click').hide().imggrayscale('destroy');
+
+            // add markers and show
+            if( $(current_selector).prev().length > 0 ){
+              var $prev = $(current_selector).prev();
+              $prev.addClass('prev').show().click(clickPrev);
+              $prev.find('img').imggrayscale({hoverShowOrigin: true});
+            }
+
+            if( $(current_selector).next().length > 0 ){
+              var $next = $(current_selector).next();
+              $next.addClass('next').show().click(clickNext)
+              $next.find('img').imggrayscale({hoverShowOrigin: true});
+            }
+
+            $(current_selector).addClass('current').show(); 
+
+            //update labels
+            initCarouselLabels();
+
+            // if images not loaded, go get them
+            if( !$('#carousel .current').hasClass('loaded') ){
+              loadImages();
+            }//end if not loaded
+
 
           }// end clickNav()
 
