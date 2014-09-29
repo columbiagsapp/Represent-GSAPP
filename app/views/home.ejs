@@ -67,12 +67,12 @@
               $.get( "/api/get/program/" + current_program, function( data ) {
 
                 for(var i = 0; i < data.images.length; i++){
-                  var username = images[i].content.user.username;
+                  var username = data.images[i].content.user.username;
                   var HTML_username = '<div class="username">@' + username + '</div>';
 
-                  var HTML_date = '<div class="date">' + images[i].date + '</div>';
+                  var HTML_date = '<div class="date">' + data.images[i].date + '</div>';
 
-                  var caption = images[i].content.caption.text || 'no caption';
+                  var caption = data.images[i].content.caption.text || 'no caption';
                   var HTML_caption = '<div class="caption">' + HTML_date + caption + HTML_username +'</div>';
 
 
